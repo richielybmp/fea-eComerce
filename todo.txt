@@ -3,3 +3,5 @@ Observações:
 Onde tem eventos 'onclick', ao utilizarmos o react-router, temos de substituir para 'Link to'.
 
 Com functions, podemos guardar 'state' com o 'useState'.
+
+se estiver categorizado em carrossel no inicio, já atende o requisito

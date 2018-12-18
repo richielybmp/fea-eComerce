@@ -20,8 +20,8 @@ export default class Header extends Component<{}, HeaderState> {
 
         return (
             <Menu>
-                <Menu.Item header>Our Company</Menu.Item>
-                <Menu.Item
+                <Menu.Item header>eCommerce</Menu.Item>
+                {/* <Menu.Item
                     name='aboutUs'
                     active={activeItem === 'aboutUs'}
                     onClick={e => this.handleItemClick('aboutUs')}
@@ -35,10 +35,12 @@ export default class Header extends Component<{}, HeaderState> {
                     name='locations'
                     active={activeItem === 'locations'}
                     onClick={e => this.handleItemClick('locations')}
-                />
-                <Label as='a'>
-                    <Icon name='cart' /> 23
-                </Label>
+                /> */}
+                <div>
+                    <Icon.Group size='large'>
+                        <Icon name='cart' circular />
+                    </Icon.Group>
+                </div>
             </Menu>
         )
     }

@@ -1,1 +1,1 @@
-export {default as VerticalCategoriesMenu} from './vertical-categories-menu'
+export { default as VerticalCategoriesMenu } from './verticalCategoriesMenu'

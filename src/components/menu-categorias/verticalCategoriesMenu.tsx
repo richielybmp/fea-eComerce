@@ -6,7 +6,7 @@ interface VerticalCategoriesMenuState {
 }
 
 export default class VerticalCategoriesMenu extends Component<{}, VerticalCategoriesMenuState> {
-constructor(props: {}) {
+    constructor(props: {}) {
         super(props);
         this.state = {
             activeItem: undefined
@@ -85,7 +85,7 @@ constructor(props: {}) {
                             active={activeItem === 'email'}
                             onClick={e => this.handleItemClick('email')}
                         >
-                        E-mail Support
+                            E-mail Support
                         </Menu.Item>
 
                         <Menu.Item
@@ -93,7 +93,7 @@ constructor(props: {}) {
                             active={activeItem === 'faq'}
                             onClick={e => this.handleItemClick('faq')}
                         >
-                        FAQs
+                            FAQs
                         </Menu.Item>
                     </Menu.Menu>
                 </Menu.Item>

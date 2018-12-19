@@ -19,7 +19,7 @@ export default class Header extends Component<{}, HeaderState> {
         const { activeItem } = this.state
 
         return (
-            <Menu>
+            <Menu size={'massive'}>
                 <Menu.Item header>eCommerce</Menu.Item>
                 {/* <Menu.Item
                     name='aboutUs'
@@ -36,7 +36,7 @@ export default class Header extends Component<{}, HeaderState> {
                     active={activeItem === 'locations'}
                     onClick={e => this.handleItemClick('locations')}
                 /> */}
-                <div>
+                <div  style={{'position': 'absolute', 'right': '20px'}}>
                     <Icon.Group size='large'>
                         <Icon name='cart' circular />
                     </Icon.Group>

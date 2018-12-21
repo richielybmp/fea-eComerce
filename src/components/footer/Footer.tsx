@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import { Header, Segment } from 'semantic-ui-react'
+import { Header, Segment, Container, Grid, List } from 'semantic-ui-react'
+import '../../css/Footer.css'
 
-export default class Footer extends Component{
-    constructor(props: {}){
+export default class Footer extends Component {
+    constructor(props: {}) {
         super(props)
     }
 
-    render(){
+    render() {
         return (
-            <Segment className={'footer'}>
-                <Header as='h4' textAlign='right'>
-                    <div>Teste Right</div>
-                </Header>
-                <Header as='h4' textAlign='left'>
-                    Float Left
-                </Header>
-                <Header as='p' textAlign='justified'>
-                    <div>
-                        Aqui é o rodapé, não sei bem o que vai rolar aqui
-                    </div>
-                </Header>
-                <Header as='p' textAlign='center'>
-                    INF - UFG © Front end Avançado
-                </Header>
+            <Segment inverted vertical className={"footer"}>
+                <Container>
+                    <Grid divided inverted stackable>
+                        <Grid.Row>
+                            <Grid.Column width={3}>
+                                <Header inverted as='h4' content='About' />
+                                <List link inverted>
+                                    <List.Item as='a'>Sitemap</List.Item>
+                                    <List.Item as='a'>Contact Us</List.Item>
+                                    <List.Item as='a'>Religious Ceremonies</List.Item>
+                                    <List.Item as='a'>Gazebo Plans</List.Item>
+                                </List>
+                            </Grid.Column>
+                            <Grid.Column width={3}>
+                                <Header inverted as='h4' content='Services' />
+                                <List link inverted>
+                                    <List.Item as='a'>Banana Pre-Order</List.Item>
+                                    <List.Item as='a'>DNA FAQ</List.Item>
+                                    <List.Item as='a'>How To Access</List.Item>
+                                    <List.Item as='a'>Favorite X-Men</List.Item>
+                                </List>
+                            </Grid.Column>
+                            <Grid.Column width={7}>
+                                <Header as='h4' inverted>Footer Header</Header>
+                                <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Container>
             </Segment>
         );
     }

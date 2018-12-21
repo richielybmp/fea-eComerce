@@ -19,28 +19,15 @@ export default class Header extends Component<{}, HeaderState> {
         const { activeItem } = this.state
 
         return (
-            <Menu size={'massive'} className={'menu-principal'}>
+            <Menu inverted size={'massive'} className={'menu-principal'}>
                 <Menu.Item header>eCommerce</Menu.Item>
-                {/* <Menu.Item
-                    name='aboutUs'
-                    active={activeItem === 'aboutUs'}
-                    onClick={e => this.handleItemClick('aboutUs')}
-                />
-                <Menu.Item
-                    name='jobs'
-                    active={activeItem === 'jobs'}
-                    onClick={e => this.handleItemClick('jobs')}
-                />
-                <Menu.Item
-                    name='locations'
-                    active={activeItem === 'locations'}
-                    onClick={e => this.handleItemClick('locations')}
-                /> */}
-                <div  style={{'position': 'absolute', 'right': '20px'}}>
-                    <Icon.Group size='large'>
-                        <Icon name='cart' circular />
-                    </Icon.Group>
-                </div>
+                <Menu.Menu position='right'>
+                    <Menu.Item>
+                        <Icon.Group>
+                            <Icon className="cart" name='cart' circular />
+                        </Icon.Group>
+                    </Menu.Item>
+                </Menu.Menu>
             </Menu>
         )
     }

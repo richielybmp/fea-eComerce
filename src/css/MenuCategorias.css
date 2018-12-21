@@ -1,3 +1,7 @@
+.cart {    
+    background-color: white;
+    color: #573697;
+} 
 .menu-categorias{
     display: flex;
     align-content: center;
@@ -7,7 +11,7 @@
     background-color: #9453f7 !important;
     color: #ffffff!important;
 }
-.menu-principal{
+.menu-principal {
     background-color: #573697 !important;
 }
 .menu-categorias a {

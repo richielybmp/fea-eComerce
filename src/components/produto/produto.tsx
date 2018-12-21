@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Segment, Icon, GridColumn } from 'semantic-ui-react';
-import "../../App.css"
+import "../../css/App.css"
 
 type ProdutoType = {
     nome: string,

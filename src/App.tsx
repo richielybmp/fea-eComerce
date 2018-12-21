@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import { Header } from './components/header';
 import { MainContent } from './components/main-content';
-import Footer from "./components/footer/Footer";
+import {Footer } from "./components/footer/";
 import { MenuCategorias } from "./components/menu-categorias";
 
 class App extends Component {

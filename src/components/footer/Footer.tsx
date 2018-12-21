@@ -9,14 +9,16 @@ export default class Footer extends Component{
     render(){
         return (
             <Segment className={'footer'}>
-                <Header as='h3' textAlign='right'>
-                    <div></div>
+                <Header as='h4' textAlign='right'>
+                    <div>Teste Right</div>
                 </Header>
-                <Header as='h3' textAlign='left'>
+                <Header as='h4' textAlign='left'>
                     Float Left
                 </Header>
                 <Header as='p' textAlign='justified'>
-                    Aqui é o rodapé, não sem bem o que vai rolar aqui
+                    <div>
+                        Aqui é o rodapé, não sei bem o que vai rolar aqui
+                    </div>
                 </Header>
                 <Header as='p' textAlign='center'>
                     INF - UFG © Front end Avançado

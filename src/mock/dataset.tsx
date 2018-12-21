@@ -18,7 +18,87 @@ export default class DataSet {
                 qtdEstoque: 0
             },
             {
-                id: 101,
+                id: 103,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 104,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 105,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 106,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 107,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 108,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 109,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 110,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 111,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 112,
+                nome: "Fallout 76 - Xbox One",
+                imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
+                preco: "249,99",
+                categoria: "Categoria Y",
+                qtdEstoque: 2
+            },
+            {
+                id: 113,
                 nome: "Fallout 76 - Xbox One",
                 imageSrc: "https://i.mlcdn.com.br/fallout-76-para-xbox-one-bethesda/v/900x900/221914600.jpg",
                 preco: "249,99",

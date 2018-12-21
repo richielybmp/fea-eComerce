@@ -1,0 +1,30 @@
+.menu-categorias{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #6a65d8!important;*/
+    background-color: #9453f7 !important;
+    color: #ffffff!important;
+}
+.menu-principal{
+    background-color: #573697 !important;
+}
+.menu-categorias a {
+    color: #ffffff!important;
+}
+.menu-horizontal{
+    position: sticky!important;
+    top: 0!important;
+    width: 100%!important;
+    height: auto;
+    z-index: 9999!important;
+}
+.ui.menu{
+    margin: 0!important;
+    border-radius: 0!important;
+    position: relative!important;
+}
+.container-main{
+    margin-top: 10vh;
+}

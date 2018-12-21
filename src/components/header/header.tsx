@@ -19,7 +19,7 @@ export default class Header extends Component<{}, HeaderState> {
         const { activeItem } = this.state
 
         return (
-            <Menu size={'massive'}>
+            <Menu size={'massive'} className={'menu-principal'}>
                 <Menu.Item header>eCommerce</Menu.Item>
                 {/* <Menu.Item
                     name='aboutUs'

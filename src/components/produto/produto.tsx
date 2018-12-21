@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Segment, Icon, GridColumn } from 'semantic-ui-react';
+import { Button, Card, Icon, Image } from 'semantic-ui-react';
 import "../../css/App.css"
 
 type ProdutoType = {
@@ -12,8 +12,9 @@ type ProdutoType = {
 
 const Produto = ({ nome, imageSrc, preco, qtdEstoque }: ProdutoType) => {
     return (
-        <GridColumn>
-            <img src={imageSrc} className="imagemProduto" alt={name} />
+        <Card>
+            <Image src={imageSrc} className="imagemProduto" alt={name} />
+            <Card.Content>
             <h1 className="nomeProduto">{nome}</h1>
             <div>
                 <span className="precoProduto">R${preco}</span>
@@ -29,7 +30,8 @@ const Produto = ({ nome, imageSrc, preco, qtdEstoque }: ProdutoType) => {
                     {qtdEstoque > 0 ? 'Adicionar no carrinho' : 'Sem estoque'}
                 </Button.Content>
             </Button>
-        </GridColumn>
+            </Card.Content>
+        </Card>
     )
 }
 

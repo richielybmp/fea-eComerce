@@ -22,15 +22,6 @@ main .ui.grid>.column {
     color: #666;
     text-transform: none;
 }
-
-.imagemProduto {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
-    height: 100px;
-}
-
 .precoProduto {
     font-weight: bold;
     font-size: 18px;
@@ -39,3 +30,23 @@ main .ui.grid>.column {
     display: block;
     padding: 5px;
 }
+
+
+.pusher {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .pusher > .footer {
+    flex: 1;
+  }
+
+.my_slider > .slick-arrow {
+    background-color: #573697 !important;
+}
+
+.my_slider > .slick-list {
+    padding: 1em;
+}
+

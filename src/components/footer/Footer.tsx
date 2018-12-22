@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Header, Segment, Container, Grid, List } from 'semantic-ui-react'
-import '../../css/Footer.css'
+import { Header, Segment, Container, Grid, List, Item } from 'semantic-ui-react';
+
+import '../../css/Footer.css';
 
 export default class Footer extends Component {
     constructor(props: {}) {
@@ -13,7 +14,7 @@ export default class Footer extends Component {
                 <Container>
                     <Grid divided inverted stackable>
                         <Grid.Row>
-                            <Grid.Column width={3}>
+                            <Grid.Column width={4}>
                                 <Header inverted as='h4' content='About' />
                                 <List link inverted>
                                     <List.Item as='a'>Sitemap</List.Item>
@@ -22,7 +23,7 @@ export default class Footer extends Component {
                                     <List.Item as='a'>Gazebo Plans</List.Item>
                                 </List>
                             </Grid.Column>
-                            <Grid.Column width={3}>
+                            <Grid.Column width={4}>
                                 <Header inverted as='h4' content='Services' />
                                 <List link inverted>
                                     <List.Item as='a'>Banana Pre-Order</List.Item>
@@ -31,9 +32,28 @@ export default class Footer extends Component {
                                     <List.Item as='a'>Favorite X-Men</List.Item>
                                 </List>
                             </Grid.Column>
-                            <Grid.Column width={7}>
-                                <Header as='h4' inverted>Footer Header</Header>
-                                <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                            <Grid.Column width={6}>
+                                <Header inverted as='h4' content='Dev Team'></Header>
+                                <Item.Group relaxed>
+                                    <Item>
+                                        <Item.Image circular size='mini' src='http://tiny.cc/wkrw1y' />
+                                        <Item.Content verticalAlign='middle'>
+                                            <a href="https://github.com/richielybmp" target="_blank">Richiely Paiva</a>
+                                        </Item.Content>
+                                    </Item>
+                                    <Item>
+                                        <Item.Image circular size='mini' src='http://tiny.cc/klrw1y' />
+                                        <Item.Content verticalAlign='middle'>
+                                            <a href="https://github.com/mstedler" target="_blank">Mateus Stedler</a>
+                                        </Item.Content>
+                                    </Item>
+                                    <Item>
+                                        <Item.Image circular size='mini' src='http://tiny.cc/bkrw1y' />
+                                        <Item.Content verticalAlign='middle'>
+                                            <a href="https://github.com/devfilsk" target="_blank">Filipe Maciel</a>
+                                        </Item.Content>
+                                    </Item>
+                                </Item.Group>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
@@ -41,5 +61,4 @@ export default class Footer extends Component {
             </Segment>
         );
     }
-
 }

@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 h1 {
     text-align: center;
 }
@@ -11,7 +17,8 @@ main .ui.grid>.column {
     height:220px;
 }
 
-.nomeProduto {
+.infoProduto {
+    text-align: center;
     font-size: 14px;
     font-weight: normal;
     margin: 0;
@@ -22,6 +29,15 @@ main .ui.grid>.column {
     color: #666;
     text-transform: none;
 }
+
+.imagemProduto {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+}
+
 .precoProduto {
     font-weight: bold;
     font-size: 18px;
@@ -30,7 +46,6 @@ main .ui.grid>.column {
     display: block;
     padding: 5px;
 }
-
 
 .pusher {
     display: flex;

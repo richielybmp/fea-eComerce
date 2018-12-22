@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react';
 
-import '../../css/MenuCategorias.css'
+import '../../css/MenuCategorias.css';
 
 interface MenuCategoriaState {
     activeItem: string | undefined
@@ -9,7 +9,7 @@ interface MenuCategoriaState {
 
 export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
 
-    constructor(props: {}){
+    constructor(props: {}) {
         super(props);
         this.state = {
             activeItem: 'home',
@@ -17,7 +17,7 @@ export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
     }
     handleItemClick = (name: string) => this.setState({ activeItem: name })
 
-    render(){
+    render() {
         const { activeItem } = this.state
 
         return (
@@ -56,5 +56,4 @@ export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
             </Menu>
         )
     }
-
 }

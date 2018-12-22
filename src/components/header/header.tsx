@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Label, Icon } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 
 interface HeaderState {
     activeItem: string | undefined;
@@ -16,7 +16,7 @@ export default class Header extends Component<{}, HeaderState> {
     handleItemClick = (name: string) => this.setState({ activeItem: name })
 
     render() {
-        const { activeItem } = this.state
+        //const { activeItem } = this.state
 
         return (
             <Menu inverted size={'massive'} className={'menu-principal'}>
@@ -29,6 +29,7 @@ export default class Header extends Component<{}, HeaderState> {
                     </Menu.Item>
                 </Menu.Menu>
             </Menu>
+
         )
     }
 }

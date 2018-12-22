@@ -15,14 +15,20 @@ export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
             activeItem: 'home',
         }
     }
-    handleItemClick = (name: string) => this.setState({ activeItem: name })
+    handleItemClick = (name: string) => {
+        console.log(name)
+        this.setState({activeItem: name})
+    }
 
     render() {
         const { activeItem } = this.state
 
         return (
             <Menu className={'menu-categorias'}>
-                <Menu.Item name='home' active={activeItem === 'home'} onClick={e => this.handleItemClick} />
+                <Menu.Item name='home'
+                           active={activeItem === 'home'}
+                           onClick={e=>this.handleItemClick}
+                />
                 <Menu.Item
                     name='hardware'
                     active={activeItem === 'hardware'}

@@ -24,17 +24,6 @@ const Produto = ({ nome, descricao, imageSrc, preco, qtdEstoque }: ProdutoType) 
                 <div>
                     <span className="precoProduto">R${preco}</span>
                 </div>
-
-                {/* OU DEIXAMOS O BOTÃO DE ADD NO CARRINHO APENAS NA TELA DE DETALHE DO PRODUTO ????? */}
-                {/* <Button compact primary
-                    disabled={qtdEstoque > 0 ? false : true}
-                    onClick={() => alert('ADD NO CARRINHO')}>
-                    <Button.Content
-                        visible>
-                        <Icon name='shop' />
-                        {qtdEstoque > 0 ? 'Adicionar no carrinho' : 'Sem estoque'}
-                    </Button.Content>
-                </Button> */}
             </Card.Content>
         </Card>
     )

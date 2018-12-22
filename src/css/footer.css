@@ -1,4 +1,8 @@
-.footer{
+footer {
+    bottom: 0;
+}
+
+.footer {
     background-color: #573697 !important;
     padding: '5em 0em';
 }

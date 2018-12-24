@@ -29,16 +29,3 @@
     border-radius: 0!important;
     position: relative!important;
 }
-.container-main{
-    margin-top: 10vh;
-}
-
-.pusher {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-  .pusher > .footer {
-    flex: 1;
-  }

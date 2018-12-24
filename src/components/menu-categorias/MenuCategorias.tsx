@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 
 import '../../css/MenuCategorias.css';
+import { Link } from 'react-router-dom';
 
 interface MenuCategoriaState {
     activeItem: string | undefined
+}
+
+enum ItemMenu {
+    HOME = 'Home',
+    HARDWARE = 'Hardware',
+    SMARTPHONES = 'Smartphones',
+    PERIFERICOS = 'Periféricos',
+    COMPUTADORES = 'Computadores',
+    PLACASDEVIDEO = 'Placas de Vídeo',
+    GAMER = 'Gamer',
+    MONITORES = 'Monitores',
 }
 
 export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
@@ -12,7 +24,7 @@ export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
     constructor(props: {}) {
         super(props);
         this.state = {
-            activeItem: 'home',
+            activeItem: ItemMenu.HOME,
         }
     }
     handleItemClick = (name: string) => {
@@ -25,40 +37,41 @@ export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
 
         return (
             <Menu className={'menu-categorias'}>
-                <Menu.Item name='home'
-                           active={activeItem === 'home'}
-                           onClick={e=>this.handleItemClick}
-                />
+                <Menu.Item 
+                    as={Link}
+                    to="/"
+                    active={activeItem === ItemMenu.HOME}
+                    onClick={e=>this.handleItemClick(ItemMenu.HOME)}>{ItemMenu.HOME}</Menu.Item>
                 <Menu.Item
-                    name='hardware'
-                    active={activeItem === 'hardware'}
-                    onClick={e => this.handleItemClick}
-                />
+                    as={Link}
+                    to="/hardware"
+                    active={activeItem === ItemMenu.HARDWARE}
+                    onClick={e=>this.handleItemClick(ItemMenu.HARDWARE)}>{ItemMenu.HARDWARE}</Menu.Item>
                 <Menu.Item
-                    name='smartphones'
-                    active={activeItem === 'smartphones'}
-                    onClick={e => this.handleItemClick}
-                />
+                    as={Link}
+                    to="/smartphones"
+                    active={activeItem === ItemMenu.SMARTPHONES}
+                    onClick={e => this.handleItemClick(ItemMenu.SMARTPHONES)}>{ItemMenu.SMARTPHONES}</Menu.Item>
                 <Menu.Item
-                    name='periféricos'
-                    active={activeItem === 'periféricos'}
-                    onClick={e => this.handleItemClick}
-                />
+                    as={Link}
+                    to="/perifericos"
+                    active={activeItem === ItemMenu.PERIFERICOS}
+                    onClick={e => this.handleItemClick(ItemMenu.PERIFERICOS)}>{ItemMenu.PERIFERICOS}</Menu.Item>
                 <Menu.Item
-                    name='computadores'
-                    active={activeItem === 'computadores'}
-                    onClick={e => this.handleItemClick}
-                />
+                    as={Link}
+                    to="/computadores"
+                    active={activeItem === ItemMenu.COMPUTADORES}
+                    onClick={e => this.handleItemClick(ItemMenu.COMPUTADORES)}>{ItemMenu.COMPUTADORES}</Menu.Item>
                 <Menu.Item
-                    name='placas de video'
-                    active={activeItem === 'placas de video'}
-                    onClick={e => this.handleItemClick}
-                />
+                    as={Link}
+                    to="/placas-de-video"
+                    active={activeItem === ItemMenu.PLACASDEVIDEO}
+                    onClick={e => this.handleItemClick(ItemMenu.PLACASDEVIDEO)}>{ItemMenu.PLACASDEVIDEO}</Menu.Item>
                 <Menu.Item
-                    name='gamer'
-                    active={activeItem === 'gamer'}
-                    onClick={e => this.handleItemClick}
-                />
+                    as={Link}
+                    to="/gamer"
+                    active={activeItem === ItemMenu.GAMER}
+                    onClick={e => this.handleItemClick(ItemMenu.GAMER)}>{ItemMenu.GAMER}</Menu.Item>
             </Menu>
         )
     }

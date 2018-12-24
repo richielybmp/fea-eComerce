@@ -34,7 +34,7 @@ export default class Footer extends Component {
                                 </Grid.Column>
                                 <Grid.Column width={6}>
                                     <Header inverted as='h4' content='Dev Team'></Header>
-                                    <Item.Group relaxed>
+                                    <Item.Group relaxed className={'dev-team'}>
                                         <Item>
                                             <Item.Image circular size='mini' src='http://tiny.cc/wkrw1y' />
                                             <Item.Content verticalAlign='middle'>

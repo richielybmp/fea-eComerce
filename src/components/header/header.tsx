@@ -10,8 +10,12 @@ interface HeaderState {
     activeItem: string | undefined;
 }
 
-export default class Header extends Component<{}, HeaderState> {
-    constructor(props: {}) {
+export interface MenuProps {
+    showSidebar: () => void
+}
+
+export default class Header extends Component<MenuProps, HeaderState> {
+    constructor(props: MenuProps) {
         super(props);
         this.state = {
             activeItem: undefined
@@ -46,7 +50,7 @@ export default class Header extends Component<{}, HeaderState> {
 
                 {/* <Route exact path="/" component={App} /> */}
 
-                <MenuCategorias />
+                <MenuCategorias showSidebar={this.props.showSidebar}/>
             </nav>
         )
     }

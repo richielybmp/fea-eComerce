@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Button } from 'semantic-ui-react';
 
 import '../../css/MenuCategorias.css';
 import { Link } from 'react-router-dom';
+
+interface MenuCategoriasProps {
+    showSidebar: () => void;
+}
 
 interface MenuCategoriaState {
     activeItem: string | undefined
@@ -19,9 +23,13 @@ enum ItemMenu {
     MONITORES = 'Monitores',
 }
 
-export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
+class ItensMenu {
+    static itensMenu = ItemMenu;
+}
 
-    constructor(props: {}) {
+export default class MenuCategorias extends Component<MenuCategoriasProps, MenuCategoriaState>{
+
+    constructor(props: MenuCategoriasProps) {
         super(props);
         this.state = {
             activeItem: ItemMenu.HOME,
@@ -36,7 +44,14 @@ export default class MenuCategorias extends Component<{}, MenuCategoriaState>{
         const { activeItem } = this.state
 
         return (
-            <Menu className={'menu-categorias'}>
+            <Menu className={'menu-categorias large-menu'}>
+                <div className={'btn-menu-mobile'}>
+                    <Button.Group>
+                        <Button className={'icon-menu-mobile'} onClick={this.props.showSidebar}>
+                            <i className="fas fa-bars">MENU</i>
+                        </Button>
+                    </Button.Group>
+                </div>
                 <Menu.Item 
                     as={Link}
                     to="/"

@@ -27,5 +27,76 @@
 .ui.menu{
     margin: 0!important;
     border-radius: 0!important;
-    position: relative!important;
+}
+
+
+/***** Configuracoa para menu mobile *****/
+
+
+.ui.segment {
+    margin: 0!important;
+    border: none!important;
+    border-radius: 0!important;
+}
+
+.pusher {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.pusher > .footer {
+    flex: 1;
+}
+
+.menu-mobile{
+    display: none!important;
+    background-color: #573697!important;
+}
+
+.dev-team{
+    display: flex!important;
+    flex-direction: row!important;
+}
+
+.btn-menu-mobile{
+    display: none!important;
+    position: absolute!important;
+    z-index: 9999!important;
+}
+
+.icon-menu-mobile{
+    background: transparent!important;
+    /*color: #ffffff!important;*/
+}
+.sidebar{
+    width: 200px!important;
+}
+.dev-team{
+    display: flex!important;
+    flex-direction: column!important;
+}
+
+@media only screen and (max-width: 800px) {
+    .large-menu .item{
+        display: none!important;
+    }
+
+    .menu-mobile{
+        display: flex!important;
+    }
+
+    .btn-menu-mobile{
+        display: flex!important;
+    }
+
+    .menu-categorias{
+        justify-content: start;
+    }
+
+    .dev-team>.item {
+        margin-right: 20px!important;
+        width: 100px!important;
+    }
+
 }

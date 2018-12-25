@@ -1,57 +1,45 @@
-import React, { Component } from 'react';
-import { Menu, Icon, Button, Label } from 'semantic-ui-react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CarrinhoContainer from '../container/CarrinhoContainer';
-import NotFound from '../notFound/NotFound';
-import { MenuCategorias } from '../menu-categorias';
-import App from '../../App';
+import React, { useState } from 'react';
+import { Menu, Icon, Label } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
+import { MenuCategorias } from '../menu';
 
-interface HeaderState {
-    activeItem: string | undefined;
-}
-
-export interface MenuProps {
+export interface HeaderProps {
     showSidebar: () => void
 }
 
-export default class Header extends Component<MenuProps, HeaderState> {
-    constructor(props: MenuProps) {
-        super(props);
-        this.state = {
-            activeItem: undefined
-        }
+const Header = (props: HeaderProps) => {
+
+    const [activeItem, setActiveItem] = useState(undefined);
+
+    const handleItemClick = () => {
+        // console.log(name);
+        // setActiveItem(name);
     }
 
-    handleItemClick = (name: string) => this.setState({ activeItem: name })
-
-    render() {
-        //const { activeItem } = this.state
-
-        return (
-            <nav className={'menu-horizontal'}>
-                <Menu inverted size={'massive'} className={'menu-principal'}>
-                    <Menu.Item header>
-                        <Link to="/">eCommerce</Link>
+    return (
+        <nav className={'menu-horizontal'}>
+            <Menu inverted size={'massive'} className={'menu-principal'}>
+                <Menu.Item header>
+                    <Link to="/">eCommerce</Link>
+                </Menu.Item>
+                <Menu.Menu position='right'>
+                    <Menu.Item name="carrinho">
+                        <Icon.Group>
+                            <Link to="/carrinho" >
+                                <Icon className="cart" name='cart' circular>
+                                </Icon>
+                                <Label color='red' floating circular>
+                                    0
+                                </Label>
+                            </Link >
+                        </Icon.Group>
                     </Menu.Item>
-                    <Menu.Menu position='right'>
-                        <Menu.Item name="carrinho">
-                            <Icon.Group>
-                                <Link to="/carrinho" >
-                                    <Icon className="cart" name='cart' circular>
-                                    </Icon>
-                                    <Label color='red' floating circular>
-                                        0
-                                    </Label>
-                                </Link >
-                            </Icon.Group>
-                        </Menu.Item>
-                    </Menu.Menu>
-                </Menu>
+                </Menu.Menu>
+            </Menu>
 
-                {/* <Route exact path="/" component={App} /> */}
-
-                <MenuCategorias showSidebar={this.props.showSidebar}/>
-            </nav>
-        )
-    }
+            <MenuCategorias showSidebar={props.showSidebar} />
+        </nav>
+    )
 }
+
+export default Header;

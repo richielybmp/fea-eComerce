@@ -1,7 +1,4 @@
-import React from 'react'
-import { Header } from '../header';
-import { MenuCategorias } from '../menu-categorias';
-import { Footer } from '../footer';
+import React from 'react';
 
 export default function CarrinhoContainer() {
     return (

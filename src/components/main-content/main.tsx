@@ -1,5 +1,5 @@
 import * as React from "react";
-import ProductContainer from "../container/productContainer";
+import ProductContainer from "../container/ProductContainer";
 import { Switch, Route } from "react-router-dom";
 import CarrinhoContainer from "../container/CarrinhoContainer";
 import NotFound from "../notFound/NotFound";

@@ -1,2 +1,2 @@
-export * from './productContainer';
+export * from './ProductContainer';
 export * from './CarrinhoContainer';

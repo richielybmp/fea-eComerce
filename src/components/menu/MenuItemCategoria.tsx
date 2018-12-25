@@ -3,14 +3,19 @@ import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { EnumItemMenu } from '../enums/EnumItemMenu';
 
-const MenuItemCategoria = () => {
+interface MenuItemCategoriaProps {
+    mostrarModal: () => void
+}
+
+const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
 
     const [activeItem, setActiveItem] = useState(EnumItemMenu.HOME);
 
     const handleItemClick = (name: EnumItemMenu) => {
         console.log(name)
         setActiveItem(name);
-    }
+
+    };
 
     return (
         <>

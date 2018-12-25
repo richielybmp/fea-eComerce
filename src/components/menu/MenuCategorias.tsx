@@ -18,7 +18,7 @@ const MenuCategorias = (props: MenuCategoriasProps) => {
                     </Button>
                 </Button.Group>
             </div>
-            <MenuItemCategoria />
+            <MenuItemCategoria mostrarModal={() => props.showSidebar}/>
         </Menu>
     )
 }

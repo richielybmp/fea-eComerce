@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductContainer from "../container/ProductContainer"
+import ProductContainer from "../container/productContainer"
 import { DataSet } from '../../mock';
 
 const MainContainer = () => {

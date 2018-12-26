@@ -4,7 +4,8 @@ import { Button, Card, Image } from 'semantic-ui-react';
 
 import "../../css/App.css";
 
-type ProdutoType = {
+export type ProdutoType = {
+    id: number,
     nome: string,
     descricao: string,
     imageSrc: string,

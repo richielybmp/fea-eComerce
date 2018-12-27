@@ -43,7 +43,7 @@ export default class DataSet {
             },
             "jogos":
             {
-                "nome" : "jogos",
+                "nome": "jogos",
                 "produtos":
                     [
                         {

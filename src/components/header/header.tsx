@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Menu, Icon, Label } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { MenuCategorias } from '../menu';
+import { AppContext } from '../../AppContext';
 
 export interface HeaderProps {
     showSidebar: () => void
@@ -10,6 +11,9 @@ export interface HeaderProps {
 const Header = (props: HeaderProps) => {
 
     const [activeItem, setActiveItem] = useState(undefined);
+
+    const contexto = useContext(AppContext);
+    const { state } = contexto;
 
     const handleItemClick = () => {
         // console.log(name);
@@ -29,7 +33,7 @@ const Header = (props: HeaderProps) => {
                                 <Icon className="cart" name='cart' circular>
                                 </Icon>
                                 <Label color='red' floating circular>
-                                    0
+                                    {state.carrinho.length}
                                 </Label>
                             </Link >
                         </Icon.Group>

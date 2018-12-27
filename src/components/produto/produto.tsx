@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 import "../../css/App.css";
+import { AppContext } from '../../AppContext';
+import { ActionType } from '../enums/EnumActionTypes';
 
 export type ProdutoType = {
     id: number,
@@ -13,9 +16,18 @@ export type ProdutoType = {
     qtdEstoque: number,
 };
 
-const Produto = ({ nome, descricao, imageSrc, preco, qtdEstoque }: ProdutoType) => {
+const Produto = ({ id, nome, descricao, imageSrc, preco, qtdEstoque }: ProdutoType) => {
+    const contexto = useContext(AppContext);
+    const { dispatch } = contexto;
+
+    const onCardClicekd = () => { dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: id } }) };
+
     return (
-        <Card>
+        <Card
+            as={Link}
+            to={`/produto/${id}`}
+            onClick={() => onCardClicekd()}
+        >
             <Image src={imageSrc} className="imagemProduto" alt={name} />
             <Card.Content>
                 <div >
@@ -31,6 +43,7 @@ const Produto = ({ nome, descricao, imageSrc, preco, qtdEstoque }: ProdutoType) 
 }
 
 Produto.prototype = {
+    id: PropTypes.number,
     nome: PropTypes.string,
     descricao: PropTypes.string,
     imageSrc: PropTypes.string,
@@ -38,4 +51,4 @@ Produto.prototype = {
     qtdEstoque: PropTypes.number,
 }
 
-export default Produto
+export default Produto;

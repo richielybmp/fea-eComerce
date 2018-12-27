@@ -1,26 +1,14 @@
 import { Action, ActionType } from "../enums/EnumActionTypes";
 import { DataSet } from "../../mock";
-
-export type Produto = {
-    id: number,
-    nome: string,
-    descricao: string,
-    imageSrc: string,
-    preco: string,
-    qtdEstoque: number,
-}
+import { ProdutoType } from "../produto/produto";
 
 export type EcommerceState = {
-    produtos: Produto[],
-    carrinho: Produto[],
-    produtoEmDetalhe: Produto | undefined,
+    produtos: ProdutoType[],
+    carrinho: ProdutoType[],
+    produtoEmDetalhe: ProdutoType | undefined,
 };
 
-// MUDAR ESSA ABORDAGEM, FAZER FICAR MAIS DINAMICO, 
-// OBTER TODOS OS PRODUTOS COM UM COMANDO SÓ 
-const P = DataSet.getIDataSet().impressoras.produtos;
-const J = DataSet.getIDataSet().jogos.produtos;
-const Produtos = [...P, ...J];
+const Produtos = DataSet.getIDataSet();
 
 export const initialState: EcommerceState = {
     produtos: Produtos,
@@ -46,7 +34,7 @@ const reducer = (state = initialState, action: Action) => {
                 return state;
             }
 
-        case ActionType.REMOVE_TO_CART:
+        case ActionType.REMOVE_FROM_CART:
             // APENAS PARA TESTE: a lógica aqui não será essa.
 
             var produto = getProdutoFromStateById(state, payload.id);
@@ -66,7 +54,7 @@ const reducer = (state = initialState, action: Action) => {
 
             var produto = getProdutoFromStateById(state, payload.id);
 
-            //console.log("definindo detalhe: ", produto);
+            console.log("definindo detalhe: ", produto);
 
             if (produto) {
                 return { ...state, produtoEmDetalhe: produto };

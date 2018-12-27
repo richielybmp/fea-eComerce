@@ -2,11 +2,14 @@ import React from 'react'
 import ProductContainer from "../container/productContainer"
 import { DataSet } from '../../mock';
 
+
 const MainContainer = () => {
+    let itens = DataSet.groupByCategoria();
     return (
         <div>
-            <ProductContainer {...DataSet.getIDataSet().jogos}/>
-            <ProductContainer {...DataSet.getIDataSet().impressoras}/>
+            {itens.map((categoria:any) => {
+               return <ProductContainer {...categoria}/>
+            })}
         </div>
     )
 }

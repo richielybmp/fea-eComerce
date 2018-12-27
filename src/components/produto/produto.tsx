@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Button, Card, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import "../../css/App.css";
@@ -11,24 +10,25 @@ export type ProdutoType = {
     id: number,
     nome: string,
     descricao: string,
-    imageSrc: string,
+    imagem: string,
     preco: string,
+    categoria: string,
     qtdEstoque: number,
 };
 
-const Produto = ({ id, nome, descricao, imageSrc, preco, qtdEstoque }: ProdutoType) => {
+const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque }: ProdutoType) => {
     const contexto = useContext(AppContext);
     const { dispatch } = contexto;
 
-    const onCardClicekd = () => { dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: id } }) };
+    const onCardClicked = () => { dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: id } }) };
 
     return (
         <Card
             as={Link}
             to={`/produto/${id}`}
-            onClick={() => onCardClicekd()}
+            onClick={() => onCardClicked()}
         >
-            <Image src={imageSrc} className="imagemProduto" alt={name} />
+            <Image src={imagem} className="imagemProduto" alt={name} />
             <Card.Content>
                 <div >
                     <h1 className="infoProduto">{nome}</h1>
@@ -40,15 +40,6 @@ const Produto = ({ id, nome, descricao, imageSrc, preco, qtdEstoque }: ProdutoTy
             </Card.Content>
         </Card>
     )
-}
-
-Produto.prototype = {
-    id: PropTypes.number,
-    nome: PropTypes.string,
-    descricao: PropTypes.string,
-    imageSrc: PropTypes.string,
-    preco: PropTypes.string,
-    qtdEstoque: PropTypes.number,
 }
 
 export default Produto;

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-import { Produto } from '../reducer/reducer';
+import { ProdutoType } from '../produto/produto';
 
 export default function CarrinhoContainer() {
     const contexto = useContext(AppContext);
     const { state } = contexto;
 
-    const carrinho: Produto[] = state.carrinho;
+    const carrinho: ProdutoType[] = state.carrinho;
 
     console.table(carrinho);
 

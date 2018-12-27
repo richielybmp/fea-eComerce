@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { Menu, Icon, Label } from 'semantic-ui-react';
+import { Menu, Icon, Label, Search } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { MenuCategorias } from '../menu';
 import { AppContext } from '../../AppContext';
+import SearchByCategories from '../search/SearchByCategories';
 
 export interface HeaderProps {
     showSidebar: () => void
@@ -26,7 +27,11 @@ const Header = (props: HeaderProps) => {
                 <Menu.Item header>
                     <Link to="/">eCommerce</Link>
                 </Menu.Item>
-                <Menu.Menu position='right'>
+                <Menu.Item>
+                       <SearchByCategories/>
+                    </Menu.Item>
+                <Menu.Menu position="right">
+                    
                     <Menu.Item name="carrinho">
                         <Icon.Group>
                             <Link to="/carrinho" >

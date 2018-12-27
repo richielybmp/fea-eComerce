@@ -78,3 +78,8 @@ main .ui.grid>.column {
     position: absolute;
     left: -25px;
 }
+
+.ui.search > .results {
+    height: 70vh;
+    overflow: scroll;
+}

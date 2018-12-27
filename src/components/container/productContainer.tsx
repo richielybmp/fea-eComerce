@@ -24,8 +24,8 @@ function PrevArrow(props: any) {
     );
 }
 
-interface ProductContainerProps {
-    nome: string,
+export interface ProductContainerProps {
+    nome : string
     produtos: Array<ProdutoType>
 }
 
@@ -38,6 +38,7 @@ const ProductContainer = (props: ProductContainerProps) => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     };
+
     return (
         <Segment>
             <Container>

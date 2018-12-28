@@ -35,9 +35,9 @@ const Header = (props: HeaderProps) => {
                 <Menu.Item header>
                     <Link to="/">eCommerce</Link>
                 </Menu.Item>
-                <Menu.Item>
-                       <SearchByCategories/>
-                    </Menu.Item>
+                <Menu.Item className='search-header'>
+                    <SearchByCategories/>
+                </Menu.Item>
                 <Menu.Menu position="right">
 
                     <Menu.Item name="carrinho">

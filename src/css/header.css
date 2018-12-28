@@ -22,6 +22,6 @@
     display: flex!important;
     flex-direction: row!important;
 }
-.popup-item>.image>img{
+.popup-item .image img{
      width: 60px!important;
  }

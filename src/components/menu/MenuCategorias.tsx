@@ -3,6 +3,7 @@ import { Menu, Button, Icon } from 'semantic-ui-react';
 import MenuItemCategoria from './MenuItemCategoria';
 
 import '../../css/MenuCategorias.css';
+import SearchByCategories from "../search/SearchByCategories";
 
 interface MenuCategoriasProps {
     showSidebar: () => void;
@@ -17,6 +18,9 @@ const MenuCategorias = (props: MenuCategoriasProps) => {
                         <Icon name='bars' />
                     </Button>
                 </Button.Group>
+            </div>
+            <div className='search-sidebar'>
+                <SearchByCategories/>
             </div>
             <MenuItemCategoria mostrarModal={() => props.showSidebar}/>
         </Menu>

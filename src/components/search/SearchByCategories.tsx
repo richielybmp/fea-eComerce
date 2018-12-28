@@ -59,7 +59,7 @@ const SearchByCategories = () => {
 
   return (
     <Search
-      aligned="left"
+      aligned="right"
       category
       loading={loading}
       resultRenderer={defaultRenderer}

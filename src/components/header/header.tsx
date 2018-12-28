@@ -3,7 +3,7 @@ import { Menu, Icon, Label, Popup } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { MenuCategorias } from '../menu';
 import { AppContext } from '../../AppContext';
-import SearchByCategories from '../search/SearchByCategories';
+import SearchCategorias from '../search/SearchCategorias';
 import ModalCarrinho from './modalCarrinho';
 import '../../css/header.css'
 
@@ -37,7 +37,7 @@ const Header = (props: HeaderProps) => {
                 </Menu.Item>
                 <Menu.Menu position="right">
                     <Menu.Item className='search-header'>
-                        <SearchByCategories/>
+                        <SearchCategorias/>
                     </Menu.Item>
                     <Menu.Item name="carrinho">
                         <Popup trigger={

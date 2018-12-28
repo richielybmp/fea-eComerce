@@ -11,6 +11,9 @@
     justify-content: space-between;
     flex-direction: row;
 }
+.bold{
+    font-weight: bold;
+}
 .modal-carrinho-footer>a{
     display: flex;
     margin: auto 0;

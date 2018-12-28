@@ -11,7 +11,7 @@ export type ProdutoType = {
     nome: string,
     descricao: string,
     imagem: string,
-    preco: string,
+    preco: number,
     categoria: string,
     qtdEstoque: number,
 };

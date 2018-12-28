@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import {AppContext} from "../../AppContext";
 import {ProdutoType} from "../produto/produto";
 import {Link} from "react-router-dom";
-import {Button, Header, Item} from "semantic-ui-react";
+import {Button, Header, Item, Icon} from "semantic-ui-react";
 
 
 interface ModalCarrinhoProps {
@@ -25,7 +25,13 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
             </Item.Group>
         );
     }
-
+    const totalCarrinho = () => {
+        let valor: number = 0;
+        carrinho.map((produto) => {
+            valor += produto.preco;
+        })
+        return valor;
+    }
     return (
         <Item.Group divided>
             <Item>
@@ -47,8 +53,11 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
                     </Item>
                 ))
             }
-            <Item>
+            <Item className='footer-popup-car'>
                 <Item.Content verticalAlign='middle'>
+                    <Item as='h4'>
+                        Total (valor sem frete): <span className='bold'>R$ {totalCarrinho()}</span>
+                    </Item>
                     <div className='modal-carrinho-footer'>
                         <Link to={'/carrinho'} onClick={props.clickIconCar}>
                             Abrir carrinho

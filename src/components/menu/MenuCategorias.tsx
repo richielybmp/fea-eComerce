@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Menu, Button, Icon } from 'semantic-ui-react';
+import {Menu, Button, Icon, Container} from 'semantic-ui-react';
 import MenuItemCategoria from './MenuItemCategoria';
 
 import '../../css/MenuCategorias.css';
 import SearchByCategories from "../search/SearchByCategories";
+import {AppContext} from "../../AppContext";
 
 interface MenuCategoriasProps {
     showSidebar: () => void;
@@ -11,7 +12,9 @@ interface MenuCategoriasProps {
 
 const MenuCategorias = (props: MenuCategoriasProps) => {
     return (
-        <Menu className={'menu-categorias large-menu'}>
+        <Menu className={'bg-menu-categorias large-menu'} inverted>
+            <Container content className={'menu-categorias'}>
+
             <div className={'btn-menu-mobile'}>
                 <Button.Group>
                     <Button className={'icon-menu-mobile'} onClick={props.showSidebar}>
@@ -23,6 +26,7 @@ const MenuCategorias = (props: MenuCategoriasProps) => {
                 <SearchByCategories/>
             </div>
             <MenuItemCategoria mostrarModal={() => props.showSidebar}/>
+            </Container>
         </Menu>
     )
 }

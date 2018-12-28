@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Menu, Icon, Label, Search } from 'semantic-ui-react';
+import { Menu, Icon, Label, Popup } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { MenuCategorias } from '../menu';
 import { AppContext } from '../../AppContext';
 import SearchByCategories from '../search/SearchByCategories';
+import ModalCarrinho from './modalCarrinho';
+import '../../css/header.css'
 
 export interface HeaderProps {
     showSidebar: () => void
@@ -12,6 +14,12 @@ export interface HeaderProps {
 const Header = (props: HeaderProps) => {
 
     const [activeItem, setActiveItem] = useState(undefined);
+
+    const [showItensCar, setShowItensCar] = useState(false);
+
+    const onClickItemCar = () => {
+        setShowItensCar(!showItensCar);
+    };
 
     const contexto = useContext(AppContext);
     const { state } = contexto;
@@ -31,17 +39,24 @@ const Header = (props: HeaderProps) => {
                        <SearchByCategories/>
                     </Menu.Item>
                 <Menu.Menu position="right">
-                    
+
                     <Menu.Item name="carrinho">
-                        <Icon.Group>
-                            <Link to="/carrinho" >
+                        <Popup trigger={
+                            <Icon.Group onClick={onClickItemCar}>
                                 <Icon className="cart" name='cart' circular>
                                 </Icon>
                                 <Label color='red' floating circular>
                                     {state.carrinho.length}
                                 </Label>
-                            </Link >
-                        </Icon.Group>
+                            </Icon.Group>
+                        }
+                               flowing
+                               hoverable
+                               className='popup-car'
+                               position='bottom right'
+                        >
+                            <ModalCarrinho clickIconCar={onClickItemCar} stateModalCar={showItensCar}/>
+                        </Popup>
                     </Menu.Item>
                 </Menu.Menu>
             </Menu>

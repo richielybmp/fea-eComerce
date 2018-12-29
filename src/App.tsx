@@ -1,13 +1,12 @@
 import React, { useState, useReducer } from 'react';
 import { Header } from './components/header';
 import { MainContent } from './components/main-content';
-import { Sidebar, Segment, Container } from 'semantic-ui-react';
+import { Sidebar, Segment } from 'semantic-ui-react';
 import { AppContext } from './AppContext';
 import MenuSidebarCategorias from "./components/menu/MenuSidebarCategorias";
 import reducer, { initialState } from './components/reducer/reducer';
 
 import './css/App.css';
-import { ActionType } from './components/enums/EnumActionTypes';
 
 const App = () => {
 
@@ -24,13 +23,13 @@ const App = () => {
         <AppContext.Provider value={{ state, dispatch }}>
 
             <Header showSidebar={() => mostraModal()} />
-                <Sidebar.Pushable as={Segment}>
+            <Sidebar.Pushable as={Segment}>
 
-                    <MenuSidebarCategorias showSidebar={() => mostraModal()} visibleSidebar={isHamburgerVisible} />
+                <MenuSidebarCategorias showSidebar={() => mostraModal()} visibleSidebar={isHamburgerVisible} />
 
-                    <MainContent dimmedSidebar={isHamburgerVisible} />
+                <MainContent dimmedSidebar={isHamburgerVisible} />
 
-                </Sidebar.Pushable>
+            </Sidebar.Pushable>
 
         </AppContext.Provider>
 

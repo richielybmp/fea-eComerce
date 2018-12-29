@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Menu, Button, Icon, Container} from 'semantic-ui-react';
+import React from 'react';
+import { Menu, Button, Icon, Container } from 'semantic-ui-react';
 import MenuItemCategoria from './MenuItemCategoria';
 import '../../css/MenuCategorias.css';
 import SearchCategorias from "../search/SearchCategorias";
@@ -12,19 +12,19 @@ interface MenuCategoriasProps {
 const MenuCategorias = (props: MenuCategoriasProps) => {
     return (
         <Menu className={'bg-menu-categorias large-menu'} inverted>
-            <Container content className={'menu-categorias'}>
+            <Container className={'menu-categorias'}>
 
-            <div className={'btn-menu-mobile'}>
-                <Button.Group>
-                    <Button className={'icon-menu-mobile'} onClick={props.showSidebar}>
-                        <Icon name='bars' />
-                    </Button>
-                </Button.Group>
-            </div>
-            <div className='search-sidebar'>
-                <SearchCategorias/>
-            </div>
-            <MenuItemCategoria mostrarModal={() => props.showSidebar}/>
+                <div className={'btn-menu-mobile'}>
+                    <Button.Group>
+                        <Button className={'icon-menu-mobile'} onClick={props.showSidebar}>
+                            <Icon name='bars' />
+                        </Button>
+                    </Button.Group>
+                </div>
+                <div className='search-sidebar'>
+                    <SearchCategorias />
+                </div>
+                <MenuItemCategoria mostrarModal={() => props.showSidebar} />
             </Container>
         </Menu>
     )

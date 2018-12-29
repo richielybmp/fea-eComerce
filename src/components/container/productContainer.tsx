@@ -25,7 +25,7 @@ function PrevArrow(props: any) {
 }
 
 export interface ProductContainerProps {
-    nome : string
+    nome: string
     produtos: Array<ProdutoType>
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Header, Segment, Container, Grid, List, Item } from 'semantic-ui-react';
 import '../../css/footer.css';
 

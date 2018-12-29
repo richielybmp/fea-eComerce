@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
-import {AppContext} from "../../AppContext";
-import {ProdutoType} from "../produto/produto";
-import {Link} from "react-router-dom";
-import {Button, Header, Item, Icon} from "semantic-ui-react";
+import React, { useContext } from 'react';
+import { AppContext } from "../../AppContext";
+import { ProdutoType } from "../produto/produto";
+import { Link } from "react-router-dom";
+import { Button, Header, Item, Icon } from "semantic-ui-react";
 
 
 interface ModalCarrinhoProps {
@@ -16,7 +16,7 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
     const { state } = contexto;
     const carrinho: ProdutoType[] = state.carrinho;
 
-    if(carrinho.length === 0){
+    if (carrinho.length === 0) {
         return (
             <Item.Group divided>
                 <Item>

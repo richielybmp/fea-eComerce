@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-
-import "../../css/App.css";
 import { AppContext } from '../../AppContext';
 import { ActionType } from '../enums/EnumActionTypes';
+
+import "../../css/App.css";
 
 export type ProdutoType = {
     id: number,

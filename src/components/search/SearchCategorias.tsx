@@ -1,4 +1,4 @@
-import React, { useState , useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Search, Image, SearchResultProps } from "semantic-ui-react";
 import _ from 'lodash';
 import { DataSet } from "../../mock";
@@ -55,7 +55,7 @@ const SearchCategorias = () => {
     }, 300)
   }
 
-  const handleResultSelect = (event: React.SyntheticEvent, data: any) => { clearState(); dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: data.result.id } })};
+  const handleResultSelect = (event: React.SyntheticEvent, data: any) => { clearState(); dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: data.result.id } }) };
 
   return (
     <Search

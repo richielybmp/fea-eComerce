@@ -1,8 +1,10 @@
 import React from "react";
+import { EcommerceState, Dispatch } from "./AppStore";
 
-interface ECommerceType {
-    state?: any,
-    dispatch?: any
+interface EcommerceType {
+    state: EcommerceState
+    dispatch: Dispatch
 }
 
-export const AppContext = React.createContext<ECommerceType>({});
+
+export const { Provider, Consumer } = React.createContext<EcommerceType | null>(null);

@@ -1,52 +1,39 @@
-import React, { useContext } from 'react';
-import { AppContext } from "../../AppContext";
+import React from 'react';
 import { ProdutoType } from "../produto/produto";
 import { Link } from "react-router-dom";
-import { Button, Header, Item, Icon } from "semantic-ui-react";
-
+import { Button, Header, Item } from "semantic-ui-react";
+import { Consumer } from '../../AppContext';
+import { Cart } from '../../Cart';
 
 interface ModalCarrinhoProps {
     clickIconCar: () => void;
     stateModalCar: boolean;
 }
 
-const ModalCarrinho = (props: ModalCarrinhoProps) => {
+const totalCarrinho = (carrinho: ProdutoType[]) => {
+    let valor: number = 0;
+    carrinho.map((produto) => {
+        valor += produto.preco;
+    })
+    return valor;
+}
 
-    const contexto = useContext(AppContext);
-    const { state } = contexto;
-    const carrinho: ProdutoType[] = state.carrinho;
-
-    if (carrinho.length === 0) {
-        return (
-            <Item.Group divided>
-                <Item>
-                    <Item.Content verticalAlign='middle'>Carrinho Vazio!</Item.Content>
-                </Item>
-            </Item.Group>
-        );
-    }
-    const totalCarrinho = () => {
-        let valor: number = 0;
-        carrinho.map((produto) => {
-            valor += produto.preco;
-        })
-        return valor;
-    }
-    return (
-        <Item.Group divided>
+const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
+    if(carrinho.totalItens > 0) {
+        return <Item.Group divided>
             <Item>
                 <Header textAlign='center' as='h3'>
                     Meu Carrinho
-                </Header>
+                    </Header>
             </Item>
             {
-                carrinho.map(produto => (
+               carrinho.itens().map(item => (
                     <Item className='popup-item'>
-                        <Item.Image size='tiny' src={produto.imagem} />
+                        <Item.Image size='tiny' src={item.produto.imagem} />
                         <Item.Content verticalAlign='middle'>
-                            {produto.nome}
+                            {item.produto.nome}
                             <Item.Meta>
-                                R$: {produto.preco}
+                                R$: {item.produto.preco}
                             </Item.Meta>
                         </Item.Content>
 
@@ -56,7 +43,7 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
             <Item className='footer-popup-car'>
                 <Item.Content verticalAlign='middle'>
                     <Item as='h4'>
-                        Total (valor sem frete): <span className='bold'>R$ {totalCarrinho()}</span>
+                        Total (valor sem frete): <span className='bold'>R$ {carrinho.totalPreco}</span>
                     </Item>
                     <div className='modal-carrinho-footer'>
                         <Link to={'/carrinho'} onClick={props.clickIconCar}>
@@ -69,7 +56,20 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
                 </Item.Content>
             </Item>
         </Item.Group>
+    } else {
+        return <Item.Group divided>
+            <Item>
+                <Item.Content verticalAlign='middle'>Carrinho Vazio!</Item.Content>
+            </Item>
+        </Item.Group>
+    }
+}
 
-    )
+const ModalCarrinho = (props: ModalCarrinhoProps) => {
+    return <Consumer>
+        {(value) => value && (
+           ModalContent(props, value.state.cart)
+        )}
+    </Consumer>
 };
 export default ModalCarrinho;

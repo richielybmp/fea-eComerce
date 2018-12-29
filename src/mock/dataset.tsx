@@ -13,6 +13,10 @@ export default class DataSet {
             .value();
     }
 
+    static getProdutoById(id: number) {
+        return this.dataItens.find(p => p.id == id);
+    }
+
     static dataItens = [
         {
             chave: 1,

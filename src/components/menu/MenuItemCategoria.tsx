@@ -14,7 +14,6 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
     const handleItemClick = (name: EnumItemMenu) => {
         console.log(name)
         setActiveItem(name);
-
     };
 
     return (
@@ -30,7 +29,7 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/hardware"
+                to="/categoria/hardware"
                 active={activeItem === EnumItemMenu.HARDWARE}
                 onClick={e => handleItemClick(EnumItemMenu.HARDWARE)}>{EnumItemMenu.HARDWARE}
             </Menu.Item>
@@ -60,9 +59,9 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/gamer"
-                active={activeItem === EnumItemMenu.GAMER}
-                onClick={e => handleItemClick(EnumItemMenu.GAMER)}>{EnumItemMenu.GAMER}
+                to="/categoria/jogos"
+                active={activeItem === EnumItemMenu.GAMES}
+                onClick={e => handleItemClick(EnumItemMenu.GAMES)}>{EnumItemMenu.GAMES}
             </Menu.Item>
         </>
     )

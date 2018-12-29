@@ -6,6 +6,7 @@ export type EcommerceState = {
     produtos: ProdutoType[],
     carrinho: ProdutoType[],
     produtoEmDetalhe: ProdutoType | undefined,
+    maisVendidos: ProdutoType[], // no checkout, adicionaremos aqui, os 5 produtos mais vendidos.
 };
 
 const Produtos = DataSet.getIDataSet();
@@ -14,6 +15,7 @@ export const initialState: EcommerceState = {
     produtos: Produtos,
     carrinho: [],
     produtoEmDetalhe: undefined,
+    maisVendidos: [],
 }
 
 const reducer = (state = initialState, action: Action) => {

@@ -9,14 +9,16 @@ import { Link } from 'react-router-dom'
 const source = DataSet.groupByCategoria()
 
 const defaultRenderer = (props: SearchResultProps) =>
-  <Link to={`/produto/${props.chave}`}><div key={props.id}>
-    {props.imagem && <div className='image'> <Image src={props.imagem} /> </div>}
-    <div className='content'>
-      {props.preco && <div className='price'>{props.preco}</div>}
-      {props.nome && <div className='title'>{props.nome}</div>}
-      {props.descricao && <div className='description'>{props.descricao}</div>}
+  <Link to={`/produto/${props.id}`}>
+    <div key={props.id}>
+      {props.imagem && <div className='image'> <Image src={props.imagem} /> </div>}
+      <div className='content'>
+        {props.preco && <div className='price'>{props.preco}</div>}
+        {props.nome && <div className='title'>{props.nome}</div>}
+        {props.descricao && <div className='description'>{props.descricao}</div>}
+      </div>
     </div>
-  </div></Link>
+  </Link>
 
 
 const SearchCategorias = () => {

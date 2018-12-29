@@ -46,7 +46,7 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
                         <Item.Content verticalAlign='middle'>
                             {produto.nome}
                             <Item.Meta>
-                                R$: {produto.preco}
+                                {produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                             </Item.Meta>
                         </Item.Content>
 
@@ -56,7 +56,7 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
             <Item className='footer-popup-car'>
                 <Item.Content verticalAlign='middle'>
                     <Item as='h4'>
-                        Total (valor sem frete): <span className='bold'>R$ {totalCarrinho()}</span>
+                        Total (valor sem frete): <span className='bold'>{totalCarrinho().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                     </Item>
                     <div className='modal-carrinho-footer'>
                         <Link to={'/carrinho'} onClick={props.clickIconCar}>

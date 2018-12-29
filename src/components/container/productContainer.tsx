@@ -36,25 +36,41 @@ const ProductContainer = (props: ProductContainerProps) => {
         slidesToShow: 3,
         slidesToScroll: 3,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
+        prevArrow: <PrevArrow />,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     return (
-        <Segment>
-            <Container>
-                <Header>{props.nome}</Header>
-                <Slider {...settings} className="my-slider">
-                    {props.produtos.map(produto => {
-                        return (
-                            <Produto
-                                key={produto.id}
-                                {...produto}
-                            />
-                        );
-                    })}
-                </Slider>
-            </Container>
-        </Segment>
+        <Container>
+            <Header>{props.nome}</Header>
+            <Slider {...settings} className="my-slider">
+                {props.produtos.map(produto => {
+                    return (
+                        <Produto
+                            key={produto.id}
+                            {...produto}
+                        />
+                    );
+                })}
+            </Slider>
+        </Container>
     );
 }
 

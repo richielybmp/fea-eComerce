@@ -1,15 +1,15 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-import reducer, { initialState } from './components/reducer/reducer';
-import { ActionType } from './components/enums/EnumActionTypes';
-
+import AppStore from './AppStore';
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <AppStore>
+            <App />
+        </AppStore>
     </BrowserRouter>
     , document.getElementById('root'));
 

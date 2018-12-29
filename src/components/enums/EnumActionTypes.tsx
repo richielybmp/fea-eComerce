@@ -1,6 +1,7 @@
 export enum ActionType {
     ADD_TO_CART = 'ADD_TO_CART', // add produto no carrinho
     REMOVE_FROM_CART = 'REMOVE_FROM_CART', // remover produto do carrinho
+    UPDATE_CART = 'UPDATE_CART',
     SET_ON_DETAIL = "SET_ON_DETAIL", // definir qual é o produto que está sendo detalhado atualmente
 }
 
@@ -11,7 +12,7 @@ export interface AddToCartAction {
 
 export interface RemoveFromCartAction {
     type: ActionType.REMOVE_FROM_CART;
-    payload: { id: number, qtd: number };
+    payload: { id: number };
 }
 
 export interface SetOnDetailAction {
@@ -19,4 +20,9 @@ export interface SetOnDetailAction {
     payload: { id: number };
 }
 
-export type Action = AddToCartAction | RemoveFromCartAction | SetOnDetailAction;
+export interface UpdateCartAction {
+    type: ActionType.UPDATE_CART;
+    payload: { id: number, qtd: number };
+}
+
+export type Action = AddToCartAction | RemoveFromCartAction | UpdateCartAction | SetOnDetailAction;

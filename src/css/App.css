@@ -30,16 +30,16 @@ main .ui.grid>.column {
     line-height: 17px;
     width: 100%;
     white-space: normal;
-    color: #666;
     text-transform: none;
 }
 
 .imagemProduto {
-    display: block;
+    padding: 10px !important;
+    background: none !important;
     margin-left: auto;
     margin-right: auto;
-    width: 100px;
-    height: 100px;
+    width: 65%;
+    height: 70%;
 }
 
 .green-text{
@@ -54,7 +54,6 @@ main .ui.grid>.column {
 .precoProduto {
     font-weight: bold;
     font-size: 18px;
-    color: #666;
     text-align: center;
     display: block;
     padding: 5px;
@@ -71,14 +70,34 @@ main .ui.grid>.column {
 }
 
 .my-slider > .slick-list {
-    padding: 1em;
+    padding: 1rem;
 }
 
 .arrow-next {
     top: 50%;
     display: block;
     position: absolute;
-    right: 25px;
+    right: 15px;
+}
+@media screen and (max-width: 480px) {
+    .arrow-next {
+        right: -12px;
+    }
+}
+@media screen and (min-width: 485px) {
+    .arrow-next {
+        right: -30px;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .arrow-next {
+        right: -40px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .arrow-next {
+        right: 15px;
+    }
 }
 
 .arrow-prev {
@@ -91,4 +110,25 @@ main .ui.grid>.column {
 .ui.search > .results {
     height: 70vh;
     overflow: scroll;
+}
+
+.ui.header:first-child {
+    margin-top: calc(2rem - 0.142857em);
+}
+
+.ui.card {
+    height: 275px;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 1px solid #1e0039;
+    border: 1px solid #604d9e;
+}
+
+.ui.card>.content{
+    background-color: #604d9e;
+    color:#e4d6f8
+}
+
+.ui.cards>.card {
+    box-shadow: none !important;
 }

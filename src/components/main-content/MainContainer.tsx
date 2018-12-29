@@ -7,8 +7,11 @@ const MainContainer = () => {
     let itens = DataSet.groupByCategoria();
     return (
         <div>
-            {itens.map((categoria:any) => {
-               return <ProductContainer {...categoria}/>
+            {itens.map((categoria: any) => {
+                return <ProductContainer
+                    key={categoria.nome}
+                    {...categoria}
+                />
             })}
         </div>
     )

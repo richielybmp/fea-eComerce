@@ -1,28 +1,25 @@
-import React, { useState , useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Search, Image, SearchResultProps } from "semantic-ui-react";
 import _ from 'lodash';
 import { DataSet } from "../../mock";
-import { AppContext } from '../../AppContext';
-import { ActionType } from '../enums/EnumActionTypes';
 import { Link } from 'react-router-dom'
 
 const source = DataSet.groupByCategoria()
 
 const defaultRenderer = (props: SearchResultProps) =>
-  <Link to={`/produto/${props.chave}`}><div key={props.id}>
-    {props.imagem && <div className='image'> <Image src={props.imagem} /> </div>}
-    <div className='content'>
-      {props.preco && <div className='price'>{props.preco}</div>}
-      {props.nome && <div className='title'>{props.nome}</div>}
-      {props.descricao && <div className='description'>{props.descricao}</div>}
+  <Link to={`/produto/${props.id}`}>
+    <div key={props.id}>
+      {props.imagem && <div className='image'> <Image src={props.imagem} /> </div>}
+      <div className='content'>
+        {props.preco && <div className='price'>{props.preco}</div>}
+        {props.nome && <div className='title'>{props.nome}</div>}
+        {props.descricao && <div className='description'>{props.descricao}</div>}
+      </div>
     </div>
-  </div></Link>
+  </Link>
 
 
 const SearchCategorias = () => {
-  const contexto = useContext(AppContext);
-  const { dispatch } = contexto;
-
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [value, setValue] = useState("");
@@ -55,7 +52,7 @@ const SearchCategorias = () => {
     }, 300)
   }
 
-  const handleResultSelect = (event: React.SyntheticEvent, data: any) => { clearState(); dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: data.result.id } })};
+  const handleResultSelect = () => { clearState(); };
 
   return (
     <Search

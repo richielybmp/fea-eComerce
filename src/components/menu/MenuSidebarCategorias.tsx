@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Menu, Sidebar} from "semantic-ui-react";
+import React from 'react';
+import { Menu, Sidebar } from "semantic-ui-react";
 import MenuItemCategoria from "./MenuItemCategoria";
 
 interface SidebarProps {
@@ -27,4 +27,4 @@ const MenuSidebarCategorias = (props: SidebarProps) => {
     )
 }
 
-export default  MenuSidebarCategorias;
+export default MenuSidebarCategorias;

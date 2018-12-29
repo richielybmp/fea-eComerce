@@ -1,60 +1,52 @@
 import { Action, ActionType } from "../enums/EnumActionTypes";
 import { DataSet } from "../../mock";
-import { ProdutoType } from "../produto/produto";
+import { EcommerceState } from "../../AppStore";
+import { serialize } from "class-transformer";
 
-export type EcommerceState = {
-    produtos: ProdutoType[],
-    carrinho: ProdutoType[],
-    produtoEmDetalhe: ProdutoType | undefined,
-    maisVendidos: ProdutoType[], // no checkout, adicionaremos aqui, os 5 produtos mais vendidos.
-};
-
-const Produtos = DataSet.getIDataSet();
-
-export const initialState: EcommerceState = {
-    produtos: Produtos,
-    carrinho: [],
-    produtoEmDetalhe: undefined,
-    maisVendidos: [],
-}
-
-const reducer = (state = initialState, action: Action) => {
-    const { produtos, carrinho } = state;
+const reducer = (state: EcommerceState, action: Action) => {
+    const { cart } = state;
     const { type, payload } = action;
 
     switch (type) {
         case ActionType.ADD_TO_CART:
 
-            var produto = getProdutoFromStateById(state, payload.id);
-
-            // console.log("Adicionando Produto no carrinho: ", produto);
+            var produto = DataSet.getProdutoById(payload.id);
+            //console.log("Adicionando Produto no carrinho: ", produto);
 
             if (produto) {
-                return { ...state, carrinho: [...carrinho, produto] };
+                cart.addProduct(produto);
+                localStorage.setItem('cart', serialize(cart));
+                return { ...state, cart };
             }
             else {
                 return state;
             }
 
-        case ActionType.REMOVE_FROM_CART:
-            // APENAS PARA TESTE: a lógica aqui não será essa.
-
-            var produto = getProdutoFromStateById(state, payload.id);
-
-            // console.log("Removendo Produto do carrinho: ", produto);
-
+        case ActionType.UPDATE_CART:
+            var produto = DataSet.getProdutoById(payload.id);
+            //console.log("Removendo Produto do carrinho: ", produto);
             if (produto) {
-
-                const filteredItems = state.carrinho.filter(p => p !== produto);
-
-                return { ...state, carrinho: filteredItems };
+                cart.updateProduct(produto, -1);
+                localStorage.setItem('cart', serialize(cart));
+                return { ...state, cart };
+            }
+            else {
+                return state;
+            }
+        case ActionType.REMOVE_FROM_CART:
+            var produto = DataSet.getProdutoById(payload.id);
+            //console.log("Removendo Produto do carrinho: ", produto);
+            if (produto) {
+                cart.removeProduct(produto);
+                localStorage.setItem('cart', serialize(cart));
+                return { ...state, cart };
             }
             else {
                 return state;
             }
         case ActionType.SET_ON_DETAIL:
 
-            var produto = getProdutoFromStateById(state, payload.id);
+            var produto = DataSet.getProdutoById(payload.id);
 
             console.log("definindo detalhe: ", produto);
 
@@ -68,10 +60,6 @@ const reducer = (state = initialState, action: Action) => {
         default:
             return state;
     }
-}
-
-const getProdutoFromStateById = (state: EcommerceState, id: number) => {
-    return state.produtos.find(p => p.id == id);
 }
 
 export default reducer;

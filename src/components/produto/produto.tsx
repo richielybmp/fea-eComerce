@@ -1,33 +1,26 @@
-import React, { useContext } from 'react';
-import { Card, Image, Header } from 'semantic-ui-react';
+import React from 'react';
+import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../../AppContext';
-import { ActionType } from '../enums/EnumActionTypes';
+import "../../css/App.css";
 
 import "../../css/App.css";
 
-export type ProdutoType = {
-    id: number,
-    nome: string,
-    descricao: string,
-    imagem: string,
-    preco: number,
-    categoria: string,
-    qtdEstoque: number,
+export class ProdutoType {
+    id: number = 0
+    nome: string = ""
+    descricao: string = ""
+    imagem: string = ""
+    preco: number = 0
+    categoria: string = ""
+    qtdEstoque: number = 0
 };
 
 const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque }: ProdutoType) => {
-    const contexto = useContext(AppContext);
-    const { dispatch } = contexto;
-
-    const onCardClicked = () => { dispatch({ type: ActionType.SET_ON_DETAIL, payload: { id: id } }) };
-
     return (
         <>
             <Card
                 as={Link}
                 to={`/produto/${id}`}
-                onClick={() => onCardClicked()}
             >
                 <span className="ui corner red label">
                     <i className="heart icon"></i>
@@ -43,18 +36,6 @@ const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque }: ProdutoType
                 </Card.Content>
             </Card>
         </>
-        // <article className="tour">
-        //     <div className="img-container">
-        //         <img src={imagem} alt="" />
-        //     </div>
-        //     <div className="tour-info">
-        //         <h4>{nome}</h4>
-        //         <h5>
-        //             <span> {preco}
-        //             </span>
-        //         </h5>
-        //     </div>
-        // </article>
     )
 }
 

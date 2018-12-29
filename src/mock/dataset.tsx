@@ -18,6 +18,10 @@ export default class DataSet {
         return this.dataItens.filter(p => p.categoria.toLowerCase() === categoria.toLowerCase());
     }
 
+    static getProdutoById(id: number) {
+        return this.dataItens.find(p => p.id == id);
+    }
+
     static dataItens = [
         {
             chave: 1,

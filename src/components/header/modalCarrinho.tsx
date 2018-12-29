@@ -60,7 +60,7 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
                     </Item>
                     <div className='modal-carrinho-footer'>
                         <Link to={'/carrinho'} onClick={props.clickIconCar}>
-                            Abrir carrinho
+                            Abrir Carrinho
                         </Link>
                         <Link to={'/'} onClick={props.clickIconCar}>
                             <Button color='green'>Fechar Pedido</Button>

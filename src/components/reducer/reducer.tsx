@@ -45,10 +45,9 @@ const reducer = (state: EcommerceState, action: Action) => {
                 return state;
             }
         case ActionType.SET_ON_DETAIL:
-
             var produto = DataSet.getProdutoById(payload.id);
 
-            console.log("definindo detalhe: ", produto);
+            //console.log("definindo detalhe: ", produto);
 
             if (produto) {
                 return { ...state, produtoEmDetalhe: produto };
@@ -56,6 +55,16 @@ const reducer = (state: EcommerceState, action: Action) => {
             else {
                 return state;
             }
+
+        case ActionType.EMPTY_CART:
+            cart.emptyCart();
+            localStorage.setItem('cart', serialize(cart));
+            return { ...state, cart };
+
+        case ActionType.FINISH:
+            cart.emptyCart();
+            localStorage.setItem('cart', serialize(cart));
+            return { ...state, cart };
 
         default:
             return state;

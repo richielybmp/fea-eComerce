@@ -32,6 +32,7 @@ export default class DataSet {
             preco: 200.32,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 4,
         },
         {
             chave: 2,
@@ -42,6 +43,7 @@ export default class DataSet {
             preco: 231.69,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 4,
         },
         {
             chave: 3,
@@ -52,6 +54,7 @@ export default class DataSet {
             preco: 349.90,
             qtdEstoque: 1,
             categoria: "Impressoras",
+            rating: 2,
         },
         {
             chave: 4,
@@ -62,6 +65,7 @@ export default class DataSet {
             preco: 326.30,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 3,
         },
         {
             chave: 5,
@@ -72,6 +76,7 @@ export default class DataSet {
             preco: 929.00,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 4,
         },
         {
             chave: 6,
@@ -82,6 +87,7 @@ export default class DataSet {
             preco: 498.00,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 4,
         },
         {
             chave: 7,
@@ -92,6 +98,7 @@ export default class DataSet {
             preco: 359.00,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 1,
         },
         {
             chave: 8,
@@ -102,6 +109,7 @@ export default class DataSet {
             preco: 435.99,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 5,
         },
         {
             chave: 9,
@@ -112,6 +120,7 @@ export default class DataSet {
             preco: 320.59,
             categoria: "Impressoras",
             qtdEstoque: 1,
+            rating: 3.5,
         },
         {
             chave: 101,
@@ -122,6 +131,7 @@ export default class DataSet {
             preco: 249.44,
             categoria: "Jogos",
             qtdEstoque: 0,
+            rating: 5,
         },
         {
             chave: 102,
@@ -132,6 +142,7 @@ export default class DataSet {
             preco: 189.99,
             qtdEstoque: 2,
             categoria: "Jogos",
+            rating: 5,
         },
         {
             chave: 103,
@@ -142,6 +153,7 @@ export default class DataSet {
             preco: 149.99,
             qtdEstoque: 2,
             categoria: "Jogos",
+            rating: 3.8,
         },
         {
             chave: 104,
@@ -152,6 +164,7 @@ export default class DataSet {
             preco: 199.99,
             qtdEstoque: 2,
             categoria: "Jogos",
+            rating: 2,
         },
         {
             chave: 105,
@@ -162,6 +175,7 @@ export default class DataSet {
             preco: 249.99,
             qtdEstoque: 2,
             categoria: "Jogos",
+            rating: 5,
         },
         {
             chave: 106,
@@ -172,6 +186,7 @@ export default class DataSet {
             preco: 49.99,
             qtdEstoque: 2,
             categoria: "Jogos",
+            rating: 3,
         },
         {
             chave: 107,
@@ -182,6 +197,7 @@ export default class DataSet {
             preco: 99.99,
             qtdEstoque: 2,
             categoria: "Jogos",
+            rating: 5,
         },
     ]
     static getIDataSet() {

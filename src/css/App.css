@@ -132,3 +132,7 @@ main .ui.grid>.column {
 .ui.cards>.card {
     box-shadow: none !important;
 }
+
+.carrinho-container {
+    margin-top: 5vh;
+}

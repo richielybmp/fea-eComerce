@@ -6,6 +6,8 @@ import { Cart } from "./Cart";
 import { deserialize } from "class-transformer";
 
 export interface Dispatch {
+    finish(): void;
+    emptyCart(): void;
     removeFromCart(id: number): void;
     addToCart(id: number): void;
     updateCart(id: number): void;
@@ -32,8 +34,10 @@ class AppStore extends React.Component<{}, EcommerceState> {
 
     dispatch: Dispatch = {
         removeFromCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.REMOVE_FROM_CART, payload: { id: id } })) },
-        addToCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.ADD_TO_CART, payload: { id: id, qtd: 1 } })) },
-        updateCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.UPDATE_CART, payload: { id: id, qtd: 1 } })) }
+        addToCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.ADD_TO_CART, payload: { id: id } })) },
+        updateCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.UPDATE_CART, payload: { id: id } })) },
+        finish : () => {this.setState(state => reducer(state, { type: ActionType.FINISH, payload : {id : 0} }))},
+        emptyCart : () => {this.setState(state => reducer(state, { type: ActionType.EMPTY_CART, payload : {id : 0} }))}
     }
 
     state: EcommerceState = {

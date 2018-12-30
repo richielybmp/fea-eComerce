@@ -13,9 +13,10 @@ export class ProdutoType {
     preco: number = 0
     categoria: string = ""
     qtdEstoque: number = 0
+    rating: number = 0
 };
 
-const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque }: ProdutoType) => {
+const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque, rating }: ProdutoType) => {
     return (
         <>
             <Card

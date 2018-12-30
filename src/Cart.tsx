@@ -53,6 +53,10 @@ export class Cart {
 		}, 0);
 	}
 
+	public emptyCart(){
+		this.cartItems = [];
+	}
+
 	public addProduct(produto: ProdutoType, quantidade: number = 1): void {
 		let position: number = this.getProductPosition(produto);
 		if (position > -1) {

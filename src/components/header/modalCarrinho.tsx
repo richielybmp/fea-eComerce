@@ -10,14 +10,6 @@ interface ModalCarrinhoProps {
     stateModalCar: boolean;
 }
 
-const totalCarrinho = (carrinho: ProdutoType[]) => {
-    let valor: number = 0;
-    carrinho.map((produto) => {
-        valor += produto.preco;
-    })
-    return valor;
-}
-
 const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
     if (carrinho.totalItens > 0) {
         return <Item.Group divided>

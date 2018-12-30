@@ -24,7 +24,7 @@ export interface SetOnDetailAction {
 
 export interface UpdateCartAction {
     type: ActionType.UPDATE_CART;
-    payload: { id: number};
+    payload: { id: number };
 }
 
 export interface FinishAction {

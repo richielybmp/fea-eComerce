@@ -14,9 +14,7 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
     if (carrinho.totalItens > 0) {
         return <Item.Group divided>
             <Item>
-                <Header textAlign='center' as='h3'>
-                    Meu Carrinho
-                    </Header>
+                <Header as='h3' textAlign='center'> Meu Carrinho</Header>
             </Item>
             {
                 carrinho.itens().map(item => (
@@ -28,7 +26,6 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                                 {item.produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                             </Item.Meta>
                         </Item.Content>
-
                     </Item>
                 ))
             }
@@ -64,4 +61,5 @@ const ModalCarrinho = (props: ModalCarrinhoProps) => {
         )}
     </Consumer>
 };
+
 export default ModalCarrinho;

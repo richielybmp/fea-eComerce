@@ -4,29 +4,29 @@ import { Grid, Button, Table, ButtonGroup, Icon, Item, Rating } from 'semantic-u
 import _ from 'lodash';
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
-
+import './carrinhoContainer.sass';
 
 const GrupoBotoes = (props: any) => {
     return (
         <Grid columns={2} style={{ height: "80px" }}>
-                    <Grid.Column floated='left'>
-                        <Button
-                            as={Link}
-                            to={"/"}
-                            color="violet"
-                            basic>CONTINUAR COMPRANDO</Button>
-                    </Grid.Column>
-                    <Grid.Column floated='right'>
-                        <Button color="green" onClick={props.finish}>FINALIZAR COMPRA</Button>
-                    </Grid.Column>
-                </Grid>
+            <Grid.Column floated='left'>
+                <Button
+                    as={Link}
+                    to={`${process.env.PUBLIC_URL}/`}
+                    color="violet"
+                    basic>CONTINUAR COMPRANDO</Button>
+            </Grid.Column>
+            <Grid.Column floated='right'>
+                <Button color="green" onClick={props.finish}>FINALIZAR COMPRA</Button>
+            </Grid.Column>
+        </Grid>
     );
 }
 const CarrinhoContainer = () => {
     return <Consumer>
         {value => value && (
             <div className="carrinho-container">
-                <GrupoBotoes finish={value.dispatch.finish}/>
+                <GrupoBotoes finish={value.dispatch.finish} />
                 <Table color="violet">
                     <Table.Header>
                         <Table.Row>
@@ -93,7 +93,7 @@ const CarrinhoContainer = () => {
                         </Table.Row>
                     </Table.Footer>
                 </Table>
-                <GrupoBotoes finish={value.dispatch.finish}/>
+                <GrupoBotoes finish={value.dispatch.finish} />
             </div>
         )}
     </Consumer>

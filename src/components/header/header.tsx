@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { MenuCategorias } from '../menu';
 import SearchCategorias from '../search/SearchCategorias';
 import ModalCarrinho from './modalCarrinho';
-import '../../css/header.css'
 import { Consumer } from '../../AppContext';
+import './header.sass';
 
 export interface HeaderProps {
     showSidebar: () => void
@@ -26,7 +26,6 @@ const Header = (props: HeaderProps) => {
                         <Container>
                             <Menu.Item header>
                                 <Link to={`${process.env.PUBLIC_URL}/`}>eCommerce</Link>
-
                             </Menu.Item>
                             <Menu.Menu position="right">
                                 <Menu.Item className='search-header'>

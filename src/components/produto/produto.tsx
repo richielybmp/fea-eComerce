@@ -1,9 +1,8 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import "../../css/App.css";
 
-import "../../css/App.css";
+import "./produto.sass";
 
 export class ProdutoType {
     id: number = 0

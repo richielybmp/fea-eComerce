@@ -4,7 +4,7 @@ import { MainContent } from './components/main-content';
 import { Sidebar, Segment } from 'semantic-ui-react';
 import MenuSidebarCategorias from "./components/menu/MenuSidebarCategorias";
 
-import './css/App.css';
+import './App.css';
 
 const App = () => {
     const [isHamburgerVisible, setVisibility] = useState(false);

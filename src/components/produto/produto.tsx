@@ -1,9 +1,8 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import "../../css/App.css";
 
-import "../../css/App.css";
+import "./produto.sass";
 
 export class ProdutoType {
     id: number = 0
@@ -21,7 +20,7 @@ const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque, rating }: Pro
         <>
             <Card
                 as={Link}
-                to={`/produto/${id}`}
+                to={`${process.env.PUBLIC_URL}/produto/${id}`}
             >
                 <span className="ui corner red label">
                     <i className="heart icon"></i>

@@ -3,7 +3,7 @@ export enum EnumItemMenu {
     HARDWARE = 'Hardware',
     SMARTPHONES = 'Smartphones',
     PERIFERICOS = 'Periféricos',
-    COMPUTADORES = 'Computadores',
+    IMPRESSORAS = 'Impressoras',
     PLACASDEVIDEO = 'Placas de Vídeo',
     GAMES = 'Games',
     MONITORES = 'Monitores',

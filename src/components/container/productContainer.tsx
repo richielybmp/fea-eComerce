@@ -1,8 +1,9 @@
 import React from 'react';
 import { Produto } from '../produto';
-import { Container, Icon, Segment, Header } from 'semantic-ui-react';
+import { Container, Icon, Header } from 'semantic-ui-react';
 import Slider from "react-slick";
 import { ProdutoType } from '../produto/produto';
+import "./productContainer.sass";
 
 function NextArrow(props: any) {
     const { onClick } = props;

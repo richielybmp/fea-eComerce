@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Image, Segment, Grid, Container, Header, Item, Icon, Input, Rating, Modal, Table, Tab } from 'semantic-ui-react';
 import { DataSet } from '../../mock';
 import { Consumer } from '../../AppContext';
-import '../../css/produtoDetalhes.css'
+import './produto.sass'
 
 const ProdutoDetalhes = ({ match }: any) => {
     const id = match.params.id;

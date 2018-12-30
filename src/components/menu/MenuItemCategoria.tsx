@@ -23,43 +23,43 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
             }*/}
             <Menu.Item
                 as={Link}
-                to="/"
+                to={`${process.env.PUBLIC_URL}/`}
                 active={activeItem === EnumItemMenu.HOME}
                 onClick={e => handleItemClick(EnumItemMenu.HOME)}>{EnumItemMenu.HOME}
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/categoria/hardware"
+                to={`${process.env.PUBLIC_URL}/categoria/hardware`}
                 active={activeItem === EnumItemMenu.HARDWARE}
                 onClick={e => handleItemClick(EnumItemMenu.HARDWARE)}>{EnumItemMenu.HARDWARE}
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/smartphones"
+                to={`${process.env.PUBLIC_URL}/categoria/smartphones`}
                 active={activeItem === EnumItemMenu.SMARTPHONES}
                 onClick={e => handleItemClick(EnumItemMenu.SMARTPHONES)}>{EnumItemMenu.SMARTPHONES}
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/perifericos"
+                to={`${process.env.PUBLIC_URL}/categoria/perifericos`}
                 active={activeItem === EnumItemMenu.PERIFERICOS}
                 onClick={e => handleItemClick(EnumItemMenu.PERIFERICOS)}>{EnumItemMenu.PERIFERICOS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/computadores"
-                active={activeItem === EnumItemMenu.COMPUTADORES}
-                onClick={e => handleItemClick(EnumItemMenu.COMPUTADORES)}>{EnumItemMenu.COMPUTADORES}
+                to={`${process.env.PUBLIC_URL}/categoria/impressoras`}
+                active={activeItem === EnumItemMenu.IMPRESSORAS}
+                onClick={e => handleItemClick(EnumItemMenu.IMPRESSORAS)}>{EnumItemMenu.IMPRESSORAS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/placas-de-video"
+                to={`${process.env.PUBLIC_URL}/categoria/placas-de-video`}
                 active={activeItem === EnumItemMenu.PLACASDEVIDEO}
                 onClick={e => handleItemClick(EnumItemMenu.PLACASDEVIDEO)}>{EnumItemMenu.PLACASDEVIDEO}
             </Menu.Item>
             <Menu.Item
                 as={Link}
-                to="/categoria/jogos"
+                to={`${process.env.PUBLIC_URL}/categoria/jogos`}
                 active={activeItem === EnumItemMenu.GAMES}
                 onClick={e => handleItemClick(EnumItemMenu.GAMES)}>{EnumItemMenu.GAMES}
             </Menu.Item>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React from 'react';
 import { DataSet } from '../../mock';
 import { Container } from 'semantic-ui-react';
 import { Produto } from '../produto';

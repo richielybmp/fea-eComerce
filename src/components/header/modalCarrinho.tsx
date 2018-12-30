@@ -46,10 +46,10 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                         Total (valor sem frete): <span className='bold'>R$ {carrinho.totalPreco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                     </Item>
                     <div className='modal-carrinho-footer'>
-                        <Link to={'/carrinho'} onClick={props.clickIconCar}>
+                        <Link to={`${process.env.PUBLIC_URL}/carrinho`} onClick={props.clickIconCar}>
                             Abrir carrinho
                         </Link>
-                        <Link to={'/'} onClick={props.clickIconCar}>
+                        <Link to={`${process.env.PUBLIC_URL}`} onClick={props.clickIconCar}>
                             <Button color='green'>Fechar Pedido</Button>
                         </Link>
                     </div>

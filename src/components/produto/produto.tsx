@@ -20,7 +20,7 @@ const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque }: ProdutoType
         <>
             <Card
                 as={Link}
-                to={`/produto/${id}`}
+                to={`${process.env.PUBLIC_URL}/produto/${id}`}
             >
                 <span className="ui corner red label">
                     <i className="heart icon"></i>

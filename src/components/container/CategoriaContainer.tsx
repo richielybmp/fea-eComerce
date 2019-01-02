@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DataSet } from '../../mock';
-import { Container } from 'semantic-ui-react';
+import { Container, Placeholder, Loader } from 'semantic-ui-react';
 import { Produto } from '../produto';
 
+import './categoriasContainer.sass';
+
 const CategoriasContainer = ({ match }: any) => {
+
+    const [isLoading, setIsloading] = useState(false);
 
     const tag = match.params.tag;
 
@@ -11,14 +15,22 @@ const CategoriasContainer = ({ match }: any) => {
 
     return (
         <Container>
-            {produtos.map(produto => {
-                return (
-                    <Produto
-                        key={produto.id}
-                        {...produto}
-                    />
-                );
-            })}
+            <div className="categorias-grid">
+                {produtos.map(produto => {
+                    return (
+                        <>
+                            {isLoading ? (
+                                <Loader active inline='centered' />
+                            ) : (
+                                    <Produto
+                                        key={produto.id}
+                                        {...produto}
+                                    />
+                                )}
+                        </>
+                    );
+                })}
+            </div>
         </Container>
     )
 }

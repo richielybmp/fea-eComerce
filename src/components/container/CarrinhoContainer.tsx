@@ -4,7 +4,6 @@ import { Grid, Button, Table, ButtonGroup, Icon, Item, Rating } from 'semantic-u
 import _ from 'lodash';
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
-import './carrinhoContainer.sass';
 
 const GrupoBotoes = (props: any) => {
     return (

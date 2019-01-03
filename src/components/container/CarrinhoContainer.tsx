@@ -41,7 +41,7 @@ const Carrinho = (value: EcommerceType) => {
                             <Table.Row>
                                 <Table.Cell>
                                     <Item.Group>
-                                        <Item as={Link} to={`/produto/${grupo.produto.id}`}>
+                                        <Item as={Link} to={`${process.env.PUBLIC_URL}/produto/${grupo.produto.id}`}>
                                             <Item.Image size='tiny' src={grupo.produto.imagem} />
                                             <Item.Content>
                                                 <Item.Header>{grupo.produto.nome}</Item.Header>

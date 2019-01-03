@@ -1,6 +1,6 @@
 export enum EnumItemMenu {
     HOME = 'Home',
-    HARDWARE = 'Hardware',
+    LIVROS = 'Livros',
     SMARTPHONES = 'Smartphones',
     PERIFERICOS = 'Periféricos',
     IMPRESSORAS = 'Impressoras',

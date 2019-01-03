@@ -9,7 +9,7 @@ h1 {
 }
 
 .container-main{
-    margin-top: 0vh;
+    margin: 5vh 0 5vh 0;
 }
 
 main .ui.vertical.menu {
@@ -21,11 +21,11 @@ main .ui.grid>.column {
         height:220px;
 }
 
-.pusher {
-    display: flex;
+/* .pusher {
+    display: flex; 
     min-height: 100vh;
     flex-direction: column;
-}
+} */
   
 .pusher > .footer {
     flex: 1;
@@ -36,9 +36,9 @@ main .ui.grid>.column {
     overflow: scroll;
 }
 
-.ui.header:first-child {
+/* .ui.header:first-child {
     margin-top: calc(2rem - 0.142857em);
-}
+} */
 
 .ui.card {
     height: 275px;

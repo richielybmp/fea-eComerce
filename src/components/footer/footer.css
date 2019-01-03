@@ -6,3 +6,8 @@ footer {
     background-color: #573697 !important;
     padding: '5em 0em';
 }
+
+.dev-team{
+    display: grid !important;
+    grid-template-columns: auto auto auto;
+}

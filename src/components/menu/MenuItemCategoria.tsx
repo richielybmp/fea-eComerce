@@ -60,8 +60,8 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/jogos`}
-                active={activeItem === EnumItemMenu.GAMES}
-                onClick={e => handleItemClick(EnumItemMenu.GAMES)}>{EnumItemMenu.GAMES}
+                active={activeItem === EnumItemMenu.JOGOS}
+                onClick={e => handleItemClick(EnumItemMenu.JOGOS)}>{EnumItemMenu.JOGOS}
             </Menu.Item>
         </>
     )

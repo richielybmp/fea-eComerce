@@ -1,7 +1,7 @@
 import React from "react";
 import { EcommerceState, Dispatch } from "./AppStore";
 
-interface EcommerceType {
+export interface EcommerceType {
     state: EcommerceState
     dispatch: Dispatch
 }

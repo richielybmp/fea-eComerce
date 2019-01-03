@@ -5,6 +5,6 @@ export enum EnumItemMenu {
     PERIFERICOS = 'Periféricos',
     IMPRESSORAS = 'Impressoras',
     PLACASDEVIDEO = 'Placas de Vídeo',
-    GAMES = 'Games',
+    JOGOS = 'Jogos',
     MONITORES = 'Monitores',
 }

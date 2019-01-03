@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 const source = DataSet.groupByCategoria()
 
 const defaultRenderer = (props: SearchResultProps) =>
-  <Link to={`/produto/${props.id}`}>
-    <div key={props.id}>
+  <Link to={`/produto/${props.chave}`}>
+    <div key={props.chave}>
       {props.imagem && <div className='image'> <Image src={props.imagem} /> </div>}
       <div className='content'>
         {props.preco && <div className='price'>{props.preco}</div>}

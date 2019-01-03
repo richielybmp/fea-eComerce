@@ -1,6 +1,6 @@
 import React from 'react';
 import { Produto } from '../produto';
-import { Container, Icon, Header } from 'semantic-ui-react';
+import { Container, Icon, Header, Divider } from 'semantic-ui-react';
 import Slider from "react-slick";
 import { ProdutoType } from '../produto/produto';
 import "./productContainer.sass";
@@ -60,7 +60,8 @@ const ProductContainer = (props: ProductContainerProps) => {
 
     return (
         <Container>
-            <Header>{props.nome}</Header>
+            <Header as='h2' color='violet'>{props.nome}</Header>
+            <Divider />
             <Slider {...settings} className="my-slider">
                 {props.produtos.map(produto => {
                     return (

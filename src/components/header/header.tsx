@@ -46,7 +46,7 @@ const Header = (props: HeaderProps) => {
                                         className='popup-car'
                                         position='bottom right'
                                     >
-                                        <ModalCarrinho clickIconCar={onClickItemCar} stateModalCar={showItensCar} />
+                                        <ModalCarrinho clickIconCar={onClickItemCar} stateModalCar={showItensCar}/>
                                     </Popup>
                                 </Menu.Item>
                             </Menu.Menu>

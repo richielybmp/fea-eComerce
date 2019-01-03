@@ -95,7 +95,7 @@ const ProdutoDetalhes = ({ match }: any) => {
                                             </Item.Meta>
 
                                             <Item.Meta>
-                                                10x de {(produto.preco / 10)} s/juros
+                                                10x de {(produto.preco / 10).toLocaleString('pt-BR', {style: 'currency', currency:'BRL'})} s/juros
                                             </Item.Meta>
                                         </Item.Content>
                                     </Item.Group>
@@ -132,7 +132,7 @@ const ProdutoDetalhes = ({ match }: any) => {
                                     {/*<Button onClick={() => value.dispatch.removeFromCart(produto.id)}>Remover</Button>*/}
                                 </Segment>
                                 <br/>
-                                <Segment size={'large'} padded content className={'row-container center-center'}>
+                                <Segment size={'large'} padded className={'row-container center-center main-produto-detalhe'}>
                                     <p>
                                         Calcular frete:
                                     </p>
@@ -142,8 +142,27 @@ const ProdutoDetalhes = ({ match }: any) => {
                     </Segment>
                         <Segment>
                             <Container>
-                                <Segment size={'large'} padded content>
-                                    <Header as={'h3'}>{produto.descricao}</Header>
+                                <Segment size={'large'} padded>
+                                    <Header as={'h2'}>Descrição do Produto</Header>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat nunc porta, varius elit porttitor, aliquet odio. Duis ante est, lacinia sit amet dignissim at, accumsan at nisi. Suspendisse orci dui, pulvinar dignissim ex ut, sagittis ultricies quam. Donec tincidunt eu purus ut facilisis. Sed tellus enim, volutpat eget nisl sodales, viverra euismod tortor. Nam venenatis massa augue, eget varius risus pulvinar sit amet. In ornare augue ut ipsum facilisis ultrices.
+                                    </p>
+                                    <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p>- Aenean et elit aliquet, vestibulum ex ut, cursus tellus.</p>
+                                    <p>- Aliquam id augue ut massa consectetur consectetur viverra eu mauris.</p>
+                                    <p>Etiam sodales augue a magna imperdiet lobortis.</p>
+                                    <p>Fusce condimentum nunc at risus dictum elementum.</p>
+                                    <p>Pellentesque non magna et lacus gravida consectetur.</p>
+                                    <p>Quisque sit amet neque sed est dictum posuere.</p>
+                                    <p>Cras id dui nec neque interdum pretium at ut elit.</p>
+                                    <p>In at eros ultrices, elementum mi eu, venenatis nulla.</p>
+                                    <p>Nam semper ligula in diam convallis, eget finibus enim aliquet.</p>
+                                    <p>Etiam ac urna non lectus consequat faucibus ut ac risus.</p>
+                                    <p>Quisque pretium diam eu pellentesque faucibus.</p>
+                                    <p>Etiam ullamcorper metus a ultricies lobortis.</p>
+                                    <p>Donec vulputate mauris non ante tristique condimentum.</p>
+                                    <p>Aliquam nec magna vel lacus hendrerit facilisis.</p>
+
                                 </Segment>
                             </Container>
                         </Segment>

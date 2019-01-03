@@ -56,6 +56,15 @@ main .ui.grid>.column {
 .ui.cards>.card {
     box-shadow: none !important;
 }
+.green-text{
+    color: #40cd28;
+}
+.center-row{
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
 
 
 

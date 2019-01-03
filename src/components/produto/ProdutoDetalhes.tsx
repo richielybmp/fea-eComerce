@@ -1,8 +1,25 @@
 import React from 'react'
-import { Button, Image, Segment, Grid, Container, Header, Item, Icon, Input, Rating, Modal, Table, Tab } from 'semantic-ui-react';
+import {
+    Button,
+    Image,
+    Segment,
+    Grid,
+    Container,
+    Header,
+    Item,
+    Icon,
+    Input,
+    Rating,
+    Modal,
+    Table,
+    Tab,
+    Pagination,
+    Card
+} from 'semantic-ui-react';
 import { DataSet } from '../../mock';
 import { Consumer } from '../../AppContext';
 import './produto.sass'
+import {Link} from "react-router-dom";
 
 const ProdutoDetalhes = ({ match }: any) => {
     const id = match.params.id;
@@ -55,93 +72,82 @@ const ProdutoDetalhes = ({ match }: any) => {
             <Consumer >
                 {value => value && (
                     <Segment placeholder>
+                        <Segment className='row-container main-produto-detalhe'>
+                            <Container>
+                                <Image src={produto.imagem} size='large' bordered className='image-product'/>
+                            </Container>
 
-                        <Grid columns={2} relaxed='very'>
-                            <Grid.Row>
-                                <Grid.Column>
-                                    <Container>
-                                        <Image src={produto.imagem} size='large' bordered/>
-                                    </Container>
-                                </Grid.Column>
-                                <Grid.Column verticalAlign={'top'}>
-                                    <Segment size={'large'} padded content>
-                                        <Item.Header as={'h2'}>{produto.nome}</Item.Header>
-                                    </Segment>
+                            <Container className='column-container product-details'>
+                                <Segment size={'large'} padded>
+                                    <Item.Header as={'h2'}>{produto.nome}</Item.Header>
+                                </Segment>
+                                <br/>
+
+                                <Segment size={'large'} padded>
+                                    <Item.Group divided className={'row-container'}>
+                                        <Item.Content>
+                                            <Item className="Meta row-container center-row">
+                                                Avaliação:
+                                                <Rating icon='star' defaultRating={produto.rating} maxRating={5} />
+                                            </Item>
+                                            <Item.Meta as={'h2'}>
+                                                R$ {produto.preco}
+                                            </Item.Meta>
+
+                                            <Item.Meta>
+                                                10x de {(produto.preco / 10)} s/juros
+                                            </Item.Meta>
+                                        </Item.Content>
+                                    </Item.Group>
+
+                                    <Button positive size='huge'
+                                            onClick={() => value.dispatch.addToCart(produto.id)}>
+                                        <Icon name={'shop'}/>
+                                        Adicionar
+                                    </Button>
+
                                     <br/>
+                                    <Item.Group divided className={'row-container center-center'}>
+                                        <Icon name={'credit card outline'} size={'big'} color={'grey'}/>
+                                        <Item.Content verticalAlign='middle'>
+                                            {formatter.format(produto.preco - ((produto.preco * 10) / 100))} em 1x no cartão de crédito <span
+                                            className='green-text'>(10% de desconto)</span>
+                                        </Item.Content>
+                                    </Item.Group>
+                                    <Item.Group>
+                                        <Item.Content>
+                                            <Modal trigger={<a className='cursor-pointer'>Formas de parcelamento</a>} size={"tiny"} closeIcon>
+                                                <Header content='Formas de parcelamento' />
+                                                <Modal.Content>
+                                                    {
+                                                        Parcelamento()
+                                                    }
+                                                </Modal.Content>
 
-                                    <Segment size={'large'} padded>
-                                        <Grid columns={'2'}>
-                                            <Grid.Row>
-                                                <Grid.Column>
-                                                    <Item.Content>
-                                                        <Item className="Meta row-container center-row">
-                                                            <p>Avaliação:</p>
-                                                            <Rating icon='star' defaultRating={produto.rating} maxRating={5} />
-                                                        </Item>
-                                                        <Item.Meta as={'h2'}>
-                                                            R$ {produto.preco}
-                                                        </Item.Meta>
+                                            </Modal>
+                                        </Item.Content>
+                                    </Item.Group>
 
-                                                        <Item.Meta>
-                                                            10x de {(produto.preco / 10)} s/juros
-                                                        </Item.Meta>
-                                                    </Item.Content>
-                                                </Grid.Column>
-                                                <Grid.Column verticalAlign={'middle'}>
-                                                    <Button positive size='huge'
-                                                            onClick={() => value.dispatch.addToCart(produto.id)}>
-                                                        <Icon name={'shop'}/>
-                                                        Adicionar
-                                                    </Button>
-                                                </Grid.Column>
-                                            </Grid.Row>
-                                        </Grid>
-                                        <br/>
-                                        <Item.Group divided className={'row-container'}>
-                                            <Icon name={'credit card outline'} size={'big'} color={'grey'}/>
-                                            <Item.Content verticalAlign='middle'>
-                                                {formatter.format(produto.preco - ((produto.preco * 10) / 100))} em 1x no cartão de crédito <span
-                                                className='green-text'>(10% de desconto)</span>
-                                            </Item.Content>
-                                        </Item.Group>
-                                        <Item.Group>
-                                            <Item.Content>
-                                                <Modal trigger={<a>Formas de parcelamento</a>} size={"tiny"} closeIcon>
-                                                    <Header content='Formas de parcelamento' />
-                                                    <Modal.Content>
-                                                        {
-                                                            Parcelamento()
-                                                        }
-                                                    </Modal.Content>
+                                    {/* Apenas para teste aqui */}
+                                    {/*<Button onClick={() => value.dispatch.removeFromCart(produto.id)}>Remover</Button>*/}
+                                </Segment>
+                                <br/>
+                                <Segment size={'large'} padded content className={'row-container center-center'}>
+                                    <p>
+                                        Calcular frete:
+                                    </p>
+                                    <Input action={{ color: 'instagram', content: 'OK'}} placeholder='_____-___'/>
+                                </Segment>
+                            </Container>
+                    </Segment>
+                        <Segment>
+                            <Container>
+                                <Segment size={'large'} padded content>
+                                    <Header as={'h3'}>{produto.descricao}</Header>
+                                </Segment>
+                            </Container>
+                        </Segment>
 
-                                                </Modal>
-                                            </Item.Content>
-                                        </Item.Group>
-
-                                        {/* Apenas para teste aqui */}
-                                        {/*<Button onClick={() => value.dispatch.removeFromCart(produto.id)}>Remover</Button>*/}
-                                    </Segment>
-                                    <br/>
-                                    <Segment size={'large'} padded content className={'row-container center-row'}>
-                                        <Item as={'p'}>
-                                            Calcular frete:
-                                        </Item>
-                                        <Input action='OK' placeholder='_____-___'/>
-                                    </Segment>
-                                </Grid.Column>
-                            </Grid.Row>
-                        </Grid>
-                        <Grid columns={1} relaxed='very'>
-                            <Grid.Row>
-                                <Grid.Column>
-                                    <Container>
-                                        <Segment size={'large'} padded content>
-                                            <Header as={'h3'}>{produto.descricao}</Header>
-                                        </Segment>
-                                    </Container>
-                                </Grid.Column>
-                            </Grid.Row>
-                        </Grid>
                     </Segment>
                 )}
 

@@ -4,11 +4,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import AppStore from './AppStore';
+import ScrollToTop from './ScrollToTop';
 
 ReactDOM.render(
     <BrowserRouter>
         <AppStore>
-            <App />
+            <ScrollToTop>
+                <App />
+            </ScrollToTop>
         </AppStore>
     </BrowserRouter>
     , document.getElementById('root'));

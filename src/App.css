@@ -12,20 +12,23 @@ h1 {
     margin: 5vh 0 5vh 0;
 }
 
+.container-main .ui.container{
+    margin-bottom: 35px;
+}
+
 main .ui.vertical.menu {
-        float: left;
+    float: left;
 }
 
 main .ui.grid>.column {
-        width:190px !important;
-        height:220px;
+    width:190px !important;
+    height:220px;
 }
 
-/* .pusher {
-    display: flex; 
-    min-height: 100vh;
-    flex-direction: column;
-} */
+.ui .breadcrumb{
+    margin-bottom: 20px;
+    font-style: italic;
+}
   
 .pusher > .footer {
     flex: 1;

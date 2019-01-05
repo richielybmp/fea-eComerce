@@ -37,6 +37,8 @@ const Carrinho = (value: EcommerceType) => {
 
                 <Table.Body>
                     {value.state.cart.itens().map((grupo) => {
+                        console.log(grupo);
+
                         return (
                             <Table.Row>
                                 <Table.Cell>
@@ -61,7 +63,11 @@ const Carrinho = (value: EcommerceType) => {
                                     <ButtonGroup color="violet">
                                         <Button icon="minus" onClick={e => value.dispatch.updateCart(grupo.produto.id)} />
                                         <Button.Or text={grupo.quantidade} />
-                                        <Button icon="plus" onClick={e => value.dispatch.addToCart(grupo.produto.id)} />
+                                        <Button
+                                            icon="plus"
+                                            onClick={e => value.dispatch.addToCart(grupo.produto.id)}
+                                            disabled={grupo.quantidade >= grupo.produto.qtdEstoque ? true : false}>
+                                        </Button> />
                                     </ButtonGroup>
                                 </Table.Cell>
                                 <Table.Cell>
@@ -122,3 +128,4 @@ const CarrinhoContainer = () => {
 }
 
 export default CarrinhoContainer;
+

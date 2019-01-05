@@ -18,7 +18,6 @@ const MainContents = (props: SidebarPusherProps) => {
             <Container>
                 <main className={'container-main pusher'}>
                     <Switch>
-                        {/* <Route exact path="/" component={MainContainer} /> */}
                         <Route exact path={`${process.env.PUBLIC_URL}/`} component={MainContainer} />
                         <Route path={`${process.env.PUBLIC_URL}/carrinho`} component={CarrinhoContainer} />
                         <Route path={`${process.env.PUBLIC_URL}/produto/:id`} component={ProdutoDetalhes} />

@@ -52,7 +52,7 @@ export default class DataSet {
             descricao: "descricao do produto",
             imagem: `${process.env.PUBLIC_URL}/img/impressoras/multifuncional_hp_deskjet.jpg`,
             preco: 349.90,
-            qtdEstoque: 1,
+            qtdEstoque: 5,
             categoria: "Impressoras",
             rating: 2,
         },

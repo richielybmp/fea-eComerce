@@ -9,5 +9,5 @@ footer {
 
 .dev-team{
     display: grid !important;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
 }

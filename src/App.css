@@ -40,7 +40,7 @@ main .ui.grid>.column {
     margin-top: calc(2rem - 0.142857em);
 } */
 
-.ui.card {
+.ui.card.prod {
     height: 275px;
     width: 300px;
     overflow: hidden;
@@ -48,14 +48,20 @@ main .ui.grid>.column {
     border: 1px solid #604d9e;
 }
 
-.ui.card>.content{
+.ui.card.prod>.content{
     background-color: #604d9e;
     color:#e4d6f8
 }
 
-.ui.cards>.card {
+.ui.cards>.card.prod {
     box-shadow: none !important;
 }
+
+.ui.cards.checkout>.card {
+    padding: 1em
+}
+
+
 .green-text{
     color: #40cd28;
 }

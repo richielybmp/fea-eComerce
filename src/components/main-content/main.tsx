@@ -7,6 +7,7 @@ import { Container, Sidebar } from "semantic-ui-react";
 import MainContainer from "./MainContainer";
 import { ProdutoDetalhes } from "../produto";
 import CategoriasContainer from "../container/CategoriaContainer";
+import CheckoutContainer from "../checkout/CheckoutContainer";
 
 interface SidebarPusherProps {
     dimmedSidebar: boolean
@@ -21,6 +22,7 @@ const MainContents = (props: SidebarPusherProps) => {
                         {/* <Route exact path="/" component={MainContainer} /> */}
                         <Route exact path={`${process.env.PUBLIC_URL}/`} component={MainContainer} />
                         <Route path={`${process.env.PUBLIC_URL}/carrinho`} component={CarrinhoContainer} />
+                        <Route path={`${process.env.PUBLIC_URL}/checkout`} component={CheckoutContainer} />
                         <Route path={`${process.env.PUBLIC_URL}/produto/:id`} component={ProdutoDetalhes} />
                         <Route path={`${process.env.PUBLIC_URL}/categoria/:tag`} component={CategoriasContainer} />
                         <Route path='*' component={NotFound} />

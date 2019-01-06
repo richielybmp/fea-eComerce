@@ -4,7 +4,7 @@ import { Grid, Button, Table, ButtonGroup, Icon, Item, Rating, Segment, Header }
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
 
-const GrupoBotoes = (props: any) => {
+const GrupoBotoes = () => {
     return (
         <Grid columns={2} style={{ height: "80px" }}>
             <Grid.Column floated='left'>
@@ -15,7 +15,7 @@ const GrupoBotoes = (props: any) => {
                     basic>CONTINUAR COMPRANDO</Button>
             </Grid.Column>
             <Grid.Column floated='right'>
-                <Button color="green" onClick={props.finish}>FINALIZAR COMPRA</Button>
+                <Button as={Link} to={`${process.env.PUBLIC_URL}/checkout`} color="green">FINALIZAR COMPRA</Button>
             </Grid.Column>
         </Grid>
     );
@@ -24,7 +24,7 @@ const GrupoBotoes = (props: any) => {
 const Carrinho = (value: EcommerceType) => {
     return (
         <div>
-            <GrupoBotoes finish={value.dispatch.finish} />
+            <GrupoBotoes />
             <Table color="violet">
                 <Table.Header>
                     <Table.Row>
@@ -91,7 +91,7 @@ const Carrinho = (value: EcommerceType) => {
                     </Table.Row>
                 </Table.Footer>
             </Table>
-            <GrupoBotoes finish={value.dispatch.finish} />
+            <GrupoBotoes />
         </div>
     )
 }

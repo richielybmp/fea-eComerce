@@ -21,6 +21,7 @@ const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque, rating }: Pro
             <Card
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/produto/${id}`}
+                className="prod"
             >
                 <span className="ui corner red label">
                     <i className="heart icon"></i>

@@ -15,7 +15,7 @@ export class ProdutoType {
     rating: number = 0
 };
 
-const Produto = ({ id, nome, descricao, imagem, preco, qtdEstoque, rating }: ProdutoType) => {
+const Produto = ({ id, nome, imagem, preco, qtdEstoque, rating }: ProdutoType) => {
     return (
         <>
             <Card

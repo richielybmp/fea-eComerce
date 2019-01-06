@@ -74,6 +74,11 @@ main .ui.grid>.column {
     align-items: center!important;
 }
 
+.banner-slider img{
+    height: 100%;
+    width:100%
+}
 
-
-
+.slick-slider.banner-slider.slick-initialized{
+    margin-bottom: 5vh;
+}

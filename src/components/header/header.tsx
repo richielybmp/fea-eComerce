@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { MenuCategorias } from '../menu';
 import SearchCategorias from '../search/SearchCategorias';
 import ModalCarrinho from './modalCarrinho';
-import { Consumer } from '../../AppContext';
 import './header.sass';
+import EcommerceContext from '../../AppContext';
 
 export interface HeaderProps {
     showSidebar: () => void
@@ -19,7 +19,7 @@ const Header = (props: HeaderProps) => {
     };
 
     return (
-        <Consumer>
+        <EcommerceContext.Consumer>
             {value => value && (
                 <nav className={'menu-horizontal'}>
                     <Menu inverted size={'massive'} className={'menu-principal'}>
@@ -56,7 +56,7 @@ const Header = (props: HeaderProps) => {
                     <MenuCategorias showSidebar={props.showSidebar} />
                 </nav>
             )}
-        </Consumer>
+        </EcommerceContext.Consumer>
     )
 }
 

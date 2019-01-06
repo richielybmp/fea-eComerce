@@ -6,4 +6,6 @@ export interface EcommerceType {
     dispatch: Dispatch
 }
 
-export const { Provider, Consumer } = React.createContext<EcommerceType | null>(null);
+const EcommerceContext = React.createContext<EcommerceType | null>(null);
+
+export default EcommerceContext

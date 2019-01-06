@@ -1,10 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Search, Image, SearchResultProps } from "semantic-ui-react";
 import _ from 'lodash';
-import { DataSet } from "../../mock";
 import { Link } from 'react-router-dom'
-
-const source = DataSet.groupByCategoria()
+import { ProdutoType } from "../produto/produto";
+import EcommerceContext from "../../AppContext";
 
 const defaultRenderer = (props: SearchResultProps) =>
   <Link to={`/produto/${props.chave}`}>
@@ -30,7 +29,7 @@ const SearchCategorias = () => {
     setValue("");
   }
 
-  const handleSearchChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: React.FormEvent<HTMLInputElement>, source: ProdutoType[]) => {
     setLoading(true);
     setValue(e.currentTarget.value);
 
@@ -55,16 +54,22 @@ const SearchCategorias = () => {
   const handleResultSelect = () => { clearState(); };
 
   return (
-    <Search
-      aligned="right"
-      category
-      loading={loading}
-      resultRenderer={defaultRenderer}
-      onResultSelect={handleResultSelect}
-      onSearchChange={_.debounce(e => handleSearchChange(e), 500, { leading: true })}
-      results={results}
-      value={value}
-    />
+    <EcommerceContext.Consumer>
+      {
+        context => context && (
+          <Search
+            aligned="right"
+            category
+            loading={loading}
+            resultRenderer={defaultRenderer}
+            onResultSelect={handleResultSelect}
+            onSearchChange={_.debounce(e => handleSearchChange(e, context.state.produtos), 500, { leading: true })}
+            results={results}
+            value={value}
+          />
+        )
+      }
+    </EcommerceContext.Consumer>
   );
 }
 

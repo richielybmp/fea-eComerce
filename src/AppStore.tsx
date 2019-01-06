@@ -1,9 +1,11 @@
 import React from "react"
 import reducer from './components/reducer/reducer';
-import { Provider } from './AppContext';
 import { ActionType } from "./components/enums/EnumActionTypes";
 import { Cart } from "./Cart";
 import { deserialize } from "class-transformer";
+import { ProdutoType } from "./components/produto/produto";
+import { DataSet } from "./mock";
+import EcommerContext from "./AppContext";
 
 export interface Dispatch {
     finish(): void;
@@ -15,6 +17,7 @@ export interface Dispatch {
 
 export interface EcommerceState {
     cart: Cart
+    produtos: ProdutoType[]
 };
 
 const loadCart = (): Cart => {
@@ -41,14 +44,15 @@ class AppStore extends React.Component<{}, EcommerceState> {
     }
 
     state: EcommerceState = {
-        cart: loadCart()
+        cart: loadCart(),
+        produtos: DataSet.getIDataSet()
     }
 
     render() {
         return (
-            <Provider value={{ state: this.state, dispatch: this.dispatch }} >
+            <EcommerContext.Provider value={{ state: this.state, dispatch: this.dispatch }} >
                 {this.props.children}
-            </Provider>
+            </EcommerContext.Provider>
         );
     }
 }

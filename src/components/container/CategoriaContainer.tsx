@@ -4,34 +4,37 @@ import { Container, Placeholder, Loader } from 'semantic-ui-react';
 import { Produto } from '../produto';
 
 import './categoriasContainer.sass';
+import EcommerContext from '../../AppContext';
 
 const CategoriasContainer = ({ match }: any) => {
-
     const [isLoading, setIsloading] = useState(false);
 
     const tag = match.params.tag;
-
-    const produtos = DataSet.getProdutosByCategoria(tag);
-
     return (
-        <Container>
-            <div className="categorias-grid">
-                {produtos.map(produto => {
-                    return (
-                        <>
-                            {isLoading ? (
-                                <Loader active inline='centered' />
-                            ) : (
-                                    <Produto
-                                        key={produto.id}
-                                        {...produto}
-                                    />
-                                )}
-                        </>
-                    );
-                })}
-            </div>
-        </Container>
+        <EcommerContext.Consumer>
+            {
+                value => value && (
+                    <Container>
+                        <div className="categorias-grid">
+                            {DataSet.getProdutosByCategoria(value.state.produtos, tag).map(produto => {
+                                return (
+                                    <>
+                                        {isLoading ? (
+                                            <Loader active inline='centered' />
+                                        ) : (
+                                                <Produto
+                                                    key={produto.id}
+                                                    {...produto}
+                                                />
+                                            )}
+                                    </>
+                                );
+                            })}
+                        </div>
+                    </Container>
+                )
+            }
+        </EcommerContext.Consumer>
     )
 }
 

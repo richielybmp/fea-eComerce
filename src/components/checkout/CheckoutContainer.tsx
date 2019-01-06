@@ -1,15 +1,15 @@
 import React from 'react'
-import { Consumer } from '../../AppContext';
-import { Step, Icon, Segment, Button, Card, Header, Item, Table, Grid, Modal } from 'semantic-ui-react';
+import { Step, Icon, Segment, Button, Card, Header, Item, Table, Grid } from 'semantic-ui-react';
 import Currency from 'react-currency-formatter';
-import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
+import EcommerContext from '../../AppContext';
 
 interface Dispatch {
     handleStep(step: EStep): void
     handleShipping(shipping: Shipping): void
     handlePayment(payment: Payment): void
-    handleConfirm(finish: any): void
 }
+
 interface CheckoutState {
     step: EStep
     shipping: Shipping
@@ -26,8 +26,7 @@ const CheckoutContext = React.createContext<CheckoutType | null>(null);
 enum EStep {
     Shipping,
     Payment,
-    Confirm,
-    Done
+    Confirm
 }
 
 enum Shipping {
@@ -40,7 +39,8 @@ enum Payment {
     None,
     Bitcoin,
     Cartao,
-    PayPal
+    PayPal,
+    Boleto
 }
 
 function getShippingPrice(shipping: Shipping) {
@@ -52,6 +52,15 @@ function getShippingPrice(shipping: Shipping) {
         default:
             return 0;
     }
+}
+
+function getDiscount(total : number, payment : Payment){
+    
+    if(payment === Payment.Boleto){
+        return ((total * 10) / 100)
+    } 
+
+    return 0;
 }
 
 const StepHeader = () => (
@@ -90,7 +99,7 @@ const ConfirmContainer = () => {
         <CheckoutContext.Consumer>
             {
                 checkout => checkout && (
-                    <Consumer>
+                    <EcommerContext.Consumer>
                         {value => value && (
                             <div>
                                 <Table>
@@ -156,7 +165,7 @@ const ConfirmContainer = () => {
                                             <Table.HeaderCell />
                                             <Table.HeaderCell>Pagamento :</Table.HeaderCell>
                                             <Table.HeaderCell>
-                                                {Payment[checkout.state.payment]}
+                                                {Payment[checkout.state.payment]} (- <Currency quantity={getDiscount(value.state.cart.totalPreco, checkout.state.payment)} currency="BRL" />)
                                             </Table.HeaderCell>
                                         </Table.Row>
                                         <Table.Row>
@@ -164,19 +173,19 @@ const ConfirmContainer = () => {
                                             <Table.HeaderCell />
                                             <Table.HeaderCell>Total :</Table.HeaderCell>
                                             <Table.HeaderCell>
-                                                <Currency quantity={getShippingPrice(checkout.state.shipping) + value.state.cart.totalPreco} currency="BRL" />
+                                                <Currency quantity={getShippingPrice(checkout.state.shipping) + value.state.cart.totalPreco - getDiscount(value.state.cart.totalPreco, checkout.state.payment)} currency="BRL" />
                                             </Table.HeaderCell>
                                         </Table.Row>
                                     </Table.Footer>
                                 </Table>
                                 <Grid style={{ height: "80px" }}>
                                     <Grid.Column floated='right'>
-                                        <Button color="green" onClick={() => checkout.dispatch.handleConfirm(value.dispatch.finish)}>FINALIZAR COMPRA</Button>
+                                        <Button as={Link} to="/" color="green" onClick={() => value.dispatch.finish()}>FINALIZAR COMPRA</Button>
                                     </Grid.Column>
                                 </Grid>
                             </div>
                         )}
-                    </Consumer>
+                    </EcommerContext.Consumer>
                 )}
         </CheckoutContext.Consumer>
     )
@@ -223,35 +232,34 @@ const PaymentContainer = () => {
                             <Header as='h4' icon>
                                 <Icon name='bitcoin' color="yellow" />
                                 Bitcoin
-                    <Header.Subheader>Pague com bitcoin.</Header.Subheader>
+                            <Header.Subheader>Pague com bitcoin.</Header.Subheader>
                             </Header>
                         </Card>
                         <Card raised color="blue" onClick={() => value.dispatch.handlePayment(Payment.Cartao)}>
                             <Header as='h4' icon >
                                 <Icon name='credit card' color="blue" />
                                 Cartão de Crédito
-                    <Header.Subheader>Pague com cartão de crédito.</Header.Subheader>
+                            <Header.Subheader>Pague com cartão de crédito.</Header.Subheader>
                             </Header>
                         </Card>
                         <Card raised color="grey" onClick={() => value.dispatch.handlePayment(Payment.PayPal)}>
                             <Header as='h4' icon>
                                 <Icon name='paypal' color="grey" />
                                 Paypal
-                    <Header.Subheader>Pague com paypal.</Header.Subheader>
+                            <Header.Subheader>Pague com paypal.</Header.Subheader>
+                            </Header>
+                        </Card>
+                        <Card raised color="black" onClick={() => value.dispatch.handlePayment(Payment.Boleto)}>
+                            <Header as='h4' icon>
+                                <Icon name='barcode' color="black" />
+                                Boleto
+                            <Header.Subheader>Pague com boleto. <span className='green-text'> (10% de desconto)</span></Header.Subheader>
                             </Header>
                         </Card>
                     </Card.Group>
                 )
             }
         </CheckoutContext.Consumer>
-    )
-}
-
-const DoneContainer = () => {
-    return (
-        <>
-            <Redirect to="/"/>
-        </>
     )
 }
 
@@ -267,9 +275,6 @@ const Layout = (props: any) => {
             break;
         case EStep.Confirm:
             view = <ConfirmContainer />
-            break;
-        case EStep.Done:
-            view = <DoneContainer />
             break;
         default:
             view = <></>
@@ -295,7 +300,6 @@ class CheckoutContainer extends React.Component<{}, CheckoutState> {
         handleStep: (step: EStep) => { this.setState({ step: step }) },
         handleShipping: (shipping: Shipping) => { this.setState({ shipping: shipping, step: EStep.Payment }) },
         handlePayment: (payment: Payment) => { this.setState({ payment: payment, step: EStep.Confirm }) },
-        handleConfirm: (finish: any) => { this.setState({ step: EStep.Done }); finish(); }
     }
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Consumer, EcommerceType } from '../../AppContext';
+import EcommerContext, { EcommerceType } from '../../AppContext';
 import { Grid, Button, Table, ButtonGroup, Icon, Item, Rating, Segment, Header } from 'semantic-ui-react';
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
@@ -120,11 +120,13 @@ const CarrinhoVazio = () => {
     );
 }
 const CarrinhoContainer = () => {
-    return <Consumer>
+    return (
+    <EcommerContext.Consumer>
         {value => value && (
             value.state.cart.isEmpty() ? <CarrinhoVazio /> : <Carrinho {...value} />
         )}
-    </Consumer>
+    </EcommerContext.Consumer>
+    )
 }
 
 export default CarrinhoContainer;

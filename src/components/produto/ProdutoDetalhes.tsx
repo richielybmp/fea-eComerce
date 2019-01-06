@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import Currency from 'react-currency-formatter';
 import BreadcrumbTrack from './BreadcrumbTrack';
 import { ProdutoType } from './produto';
+import ProductContainer from "../container/productContainer";
 
 const rowTableParcelas = (produto: ProdutoType) => {
     let rows = [];
@@ -64,6 +65,7 @@ const ProdutoDetalhes = ({ match }: any) => {
         <EcommerContext.Consumer >
             {value => {
                 const produto = DataSet.getProdutoById(value!.state.produtos, id);
+                const prodSemelhantes = DataSet.getProdutosByCategoria(value!.state.produtos, produto ? produto.categoria : '');
                 return produto ? (
                     <>
                         <BreadcrumbTrack
@@ -153,20 +155,25 @@ const ProdutoDetalhes = ({ match }: any) => {
                                         <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                         <p>- Aenean et elit aliquet, vestibulum ex ut, cursus tellus.</p>
                                         <p>- Aliquam id augue ut massa consectetur consectetur viverra eu mauris.</p>
-                                        <p>Etiam sodales augue a magna imperdiet lobortis.</p>
-                                        <p>Fusce condimentum nunc at risus dictum elementum.</p>
-                                        <p>Pellentesque non magna et lacus gravida consectetur.</p>
-                                        <p>Quisque sit amet neque sed est dictum posuere.</p>
-                                        <p>Cras id dui nec neque interdum pretium at ut elit.</p>
-                                        <p>In at eros ultrices, elementum mi eu, venenatis nulla.</p>
-                                        <p>Nam semper ligula in diam convallis, eget finibus enim aliquet.</p>
-                                        <p>Etiam ac urna non lectus consequat faucibus ut ac risus.</p>
-                                        <p>Quisque pretium diam eu pellentesque faucibus.</p>
-                                        <p>Etiam ullamcorper metus a ultricies lobortis.</p>
-                                        <p>Donec vulputate mauris non ante tristique condimentum.</p>
-                                        <p>Aliquam nec magna vel lacus hendrerit facilisis.</p>
+                                        <p>- Etiam sodales augue a magna imperdiet lobortis.</p>
+                                        <p>- Fusce condimentum nunc at risus dictum elementum.</p>
+                                        <p>- Pellentesque non magna et lacus gravida consectetur.</p>
+                                        <p>- Quisque sit amet neque sed est dictum posuere.</p>
+                                        <p>- Cras id dui nec neque interdum pretium at ut elit.</p>
+                                        <p>- In at eros ultrices, elementum mi eu, venenatis nulla.</p>
+                                        <p>- Nam semper ligula in diam convallis, eget finibus enim aliquet.</p>
+                                        <p>- Etiam ac urna non lectus consequat faucibus ut ac risus.</p>
+                                        <p>- Quisque pretium diam eu pellentesque faucibus.</p>
+                                        <p>- Etiam ullamcorper metus a ultricies lobortis.</p>
+                                        <p>- Donec vulputate mauris non ante tristique condimentum.</p>
+                                        <p>- Aliquam nec magna vel lacus hendrerit facilisis.</p>
 
                                     </Segment>
+                                </Container>
+                            </Segment>
+                            <Segment>
+                                <Container>
+                                    <ProductContainer nome={'Produtos Semelhantes'} produtos={prodSemelhantes}/>
                                 </Container>
                             </Segment>
 

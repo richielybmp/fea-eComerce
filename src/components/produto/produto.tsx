@@ -8,7 +8,7 @@ export class ProdutoType {
     id: number = 0
     nome: string = ""
     descricao: string = ""
-    imagem: string = ""
+    imagem: string[] = []
     preco: number = 0
     categoria: string = ""
     qtdEstoque: number = 0
@@ -26,7 +26,7 @@ const Produto = ({ id, nome, imagem, preco, qtdEstoque, rating }: ProdutoType) =
                 <span className="ui corner red label">
                     <i className="heart icon"></i>
                 </span>
-                <Image src={imagem} className="imagemProduto" alt={name} />
+                <Image src={imagem[0]} className="imagemProduto" alt={name} />
                 <Card.Content>
                     <div>
                         <h1 className="infoProduto">{nome}</h1>

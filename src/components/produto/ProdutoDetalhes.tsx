@@ -21,6 +21,7 @@ import Currency from 'react-currency-formatter';
 import BreadcrumbTrack from './BreadcrumbTrack';
 import { ProdutoType } from './produto';
 import ProductContainer from "../container/productContainer";
+import ImagesProduto from "./ImagesProduto";
 
 const rowTableParcelas = (produto: ProdutoType) => {
     let rows = [];
@@ -73,8 +74,9 @@ const ProdutoDetalhes = ({ match }: any) => {
                         />
                         <Segment placeholder>
                             <Segment className='row-container main-produto-detalhe'>
-                                <Container>
-                                    <Image src={produto.imagem} size='large' bordered className='image-product' />
+                                <Container className='container-image-produto'>
+                                    {/*<Image src={produto.imagem[0]} size='large' bordered className='image-product' />*/}
+                                    <ImagesProduto images={produto.imagem}/>
                                 </Container>
 
                                 <Container className='column-container product-details'>

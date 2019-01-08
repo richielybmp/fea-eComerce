@@ -18,11 +18,11 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                 </Item>
                 {
                     carrinho.itens().map(item => (
-                        <Item className='popup-item'>
+                        <Item key={item.produto.id} className='popup-item'>
                             <Container className='container-popup-image'>
                                 <Image className='popup-image' src={item.produto.imagem} />
                             </Container>
-                            <Item.Group verticalAlign='middle'>
+                            <Item.Group>
                                 <strong>{item.produto.nome}</strong>
                                 <Item className='row-container space-between'>
                                     <Item.Meta>

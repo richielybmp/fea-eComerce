@@ -12,7 +12,6 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
     const [activeItem, setActiveItem] = useState(EnumItemMenu.HOME);
 
     const handleItemClick = (name: EnumItemMenu) => {
-        console.log(name)
         setActiveItem(name);
     };
 

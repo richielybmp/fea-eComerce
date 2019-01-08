@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Button, Container, Header, Item, Image } from "semantic-ui-react";
-import { Cart } from '../../Cart';
-import EcommerceContext from '../../AppContext';
+import { Cart } from '../../model/Cart';
+import { EcommerceContext } from '../../AppStore';
 
 interface ModalCarrinhoProps {
     clickIconCar: () => void;
@@ -20,7 +20,7 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                     carrinho.itens().map(item => (
                         <Item key={item.produto.id} className='popup-item'>
                             <Container className='container-popup-image'>
-                                <Image className='popup-image' src={item.produto.imagem} />
+                                <Image className='popup-image' src={item.produto.imagem[0]} />
                             </Container>
                             <Item.Group>
                                 <strong>{item.produto.nome}</strong>

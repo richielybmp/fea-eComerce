@@ -1,8 +1,8 @@
-import React from 'react';
-import EcommerContext, { EcommerceType } from '../../AppContext';
+import React, { useContext } from 'react';
 import { Grid, Button, Table, ButtonGroup, Icon, Item, Rating, Segment, Header } from 'semantic-ui-react';
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
+import { EcommerceType, EcommerceContext } from '../../AppStore';
 
 const GrupoBotoes = () => {
     return (
@@ -21,7 +21,8 @@ const GrupoBotoes = () => {
     );
 }
 
-const Carrinho = (value: EcommerceType) => {
+const Carrinho = () => {
+    const context = useContext(EcommerceContext);
     return (
         <div>
             <GrupoBotoes />
@@ -36,13 +37,13 @@ const Carrinho = (value: EcommerceType) => {
                 </Table.Header>
 
                 <Table.Body>
-                    {value.state.cart.itens().map((grupo, index) => {
+                    {context!.state.cart.itens().map((grupo, index) => {
                         return (
                             <Table.Row key={index}>
                                 <Table.Cell>
                                     <Item.Group>
                                         <Item as={Link} to={`${process.env.PUBLIC_URL}/produto/${grupo.produto.id}`}>
-                                            <Item.Image size='tiny' src={grupo.produto.imagem} />
+                                            <Item.Image size='tiny' src={grupo.produto.imagem[0]} />
                                             <Item.Content>
                                                 <Item.Header>{grupo.produto.nome}</Item.Header>
                                                 <Item.Meta>Cor/Tamanho/etc</Item.Meta>
@@ -59,11 +60,11 @@ const Carrinho = (value: EcommerceType) => {
                                 </Table.Cell>
                                 <Table.Cell>
                                     <ButtonGroup color="violet">
-                                        <Button icon="minus" onClick={e => value.dispatch.updateCart(grupo.produto.id)} />
+                                        <Button icon="minus" onClick={e => context!.dispatch.updateCart(grupo.produto.id)} />
                                         <Button.Or text={grupo.quantidade} />
                                         <Button
                                             icon="plus"
-                                            onClick={e => value.dispatch.addToCart(grupo.produto.id)}
+                                            onClick={e => context!.dispatch.addToCart(grupo.produto.id)}
                                             disabled={grupo.quantidade >= grupo.produto.qtdEstoque ? true : false}>
                                         </Button> />
                                     </ButtonGroup>
@@ -78,7 +79,7 @@ const Carrinho = (value: EcommerceType) => {
                 <Table.Footer>
                     <Table.Row>
                         <Table.HeaderCell>
-                            <Button basic color="red" animated='fade' onClick={() => value.dispatch.emptyCart()}>
+                            <Button basic color="red" animated='fade' onClick={() => context!.dispatch.emptyCart()}>
                                 <Button.Content visible>Limpar carrinho</Button.Content>
                                 <Button.Content hidden>
                                     <Icon name='trash' />
@@ -90,7 +91,7 @@ const Carrinho = (value: EcommerceType) => {
                             Subtotal :
                             </Table.HeaderCell>
                         <Table.HeaderCell>
-                            <Currency quantity={value.state.cart.totalPreco} currency="BRL" />
+                            <Currency quantity={context!.state.cart.totalPreco} currency="BRL" />
                         </Table.HeaderCell>
                     </Table.Row>
                 </Table.Footer>
@@ -119,11 +120,11 @@ const CarrinhoVazio = () => {
 }
 const CarrinhoContainer = () => {
     return (
-        <EcommerContext.Consumer>
+        <EcommerceContext.Consumer>
             {value => value && (
-                value.state.cart.isEmpty() ? <CarrinhoVazio /> : <Carrinho {...value} />
+                value.state.cart.isEmpty() ? <CarrinhoVazio /> : <Carrinho />
             )}
-        </EcommerContext.Consumer>
+        </EcommerceContext.Consumer>
     )
 }
 

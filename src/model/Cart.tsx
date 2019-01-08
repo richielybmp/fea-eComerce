@@ -1,14 +1,14 @@
-import { ProdutoType } from "./components/produto/produto";
 import _ from "lodash"
 import { Type } from "class-transformer";
 import "reflect-metadata"
+import { Produto } from "./Produto";
 
 class CartItem {
-	@Type(() => ProdutoType)
-	private _produto: ProdutoType;
+	@Type(() => Produto)
+	private _produto: Produto;
 	private _quantidade: number;
 
-	constructor(produto: ProdutoType, quantidade: number = 1) {
+	constructor(produto: Produto, quantidade: number = 1) {
 		this._produto = produto;
 		this._quantidade = quantidade;
 	}
@@ -25,11 +25,11 @@ class CartItem {
 		this._quantidade = v;
 	}
 
-	public get produto(): ProdutoType {
+	public get produto(): Produto {
 		return this._produto;
 	}
 
-	public set produto(v: ProdutoType) {
+	public set produto(v: Produto) {
 		this._produto = v;
 	}
 }
@@ -57,7 +57,7 @@ export class Cart {
 		this.cartItems = [];
 	}
 
-	public addProduct(produto: ProdutoType, quantidade: number = 1): void {
+	public addProduct(produto: Produto, quantidade: number = 1): void {
 		let position: number = this.getProductPosition(produto);
 		if (position > -1) {
 			this.cartItems[position].quantidade += quantidade;
@@ -66,7 +66,7 @@ export class Cart {
 		}
 	}
 
-	private getProductPosition(produto: ProdutoType): number {
+	private getProductPosition(produto: Produto): number {
 		let total: number = this.cartItems.length;
 		for (let i: number = 0; i < total; i++) {
 			if (this.cartItems[i].produto.id == produto.id) return i;
@@ -80,7 +80,7 @@ export class Cart {
 		}
 	}
 
-	public updateProduct(produto: ProdutoType, quantidade: number = 1): void {
+	public updateProduct(produto: Produto, quantidade: number = 1): void {
 		let position: number = this.getProductPosition(produto);
 		if (position > -1) {
 			this.cartItems[position].quantidade += quantidade;
@@ -90,7 +90,7 @@ export class Cart {
 		}
 	}
 
-	public removeProduct(produto: ProdutoType): void {
+	public removeProduct(produto: Produto): void {
 		let position: number = this.getProductPosition(produto);
 		if (position > -1) {
 			this.cartItems.splice(position, 1);

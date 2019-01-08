@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import { ProdutoType } from '../components/produto/produto';
+import { Produto } from '../model/Produto';
 
 export default class DataSet {
 
-    static groupByCategoria(dataItens: ProdutoType[]) {
+    static groupByCategoria(dataItens: Produto[]) {
         return _.chain(dataItens)
             .groupBy('categoria')
             .map(function (value, key) {
@@ -15,11 +15,11 @@ export default class DataSet {
             .value();
     }
 
-    static getProdutosByCategoria(dataItens: ProdutoType[], categoria: string) {
+    static getProdutosByCategoria(dataItens: Produto[], categoria: string) {
         return dataItens.filter(p => p.categoria.toLowerCase() === categoria.toLowerCase());
     }
 
-    static getProdutoById(dataItens: ProdutoType[], id: number) {
+    static getProdutoById(dataItens: Produto[], id: number) {
         return dataItens.find(p => p.id == id);
     }
 

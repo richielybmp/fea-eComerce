@@ -1,4 +1,4 @@
-export enum EnumItemMenu {
+export enum ItemMenu {
     HOME = 'Home',
     LIVROS = 'Livros',
     SMARTPHONES = 'Smartphones',

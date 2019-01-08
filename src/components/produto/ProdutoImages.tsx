@@ -5,7 +5,7 @@ interface ImagesProdutoProps {
     images: string[]
 }
 
-const ImagesProduto = (props: ImagesProdutoProps) => {
+const ProdutoImages = (props: ImagesProdutoProps) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -30,4 +30,4 @@ const ImagesProduto = (props: ImagesProdutoProps) => {
     );
 }
 
-export default ImagesProduto;
+export default ProdutoImages;

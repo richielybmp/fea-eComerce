@@ -1,22 +1,12 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { Produto } from '../../model/Produto';
 
 import "./produto.sass";
 
-export class ProdutoType {
-    id: number = 0
-    nome: string = ""
-    descricao: string = ""
-    imagem: string[] = []
-    preco: number = 0
-    categoria: string = ""
-    qtdEstoque: number = 0
-    rating: number = 0
-    ehMaisPedido: boolean = false
-};
 
-const Produto = ({ id, nome, imagem, preco, ehMaisPedido }: ProdutoType) => {
+const ProdutoCard = ({ id, nome, imagem, preco, ehMaisPedido }: Produto) => {
     return (
         <>
             <Card
@@ -44,6 +34,6 @@ const Produto = ({ id, nome, imagem, preco, ehMaisPedido }: ProdutoType) => {
     )
 }
 
-export default Produto;
+export default ProdutoCard;
 
 

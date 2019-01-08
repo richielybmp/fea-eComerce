@@ -1,9 +1,9 @@
 import React from 'react';
-import { Produto } from '../produto';
 import { Container, Icon, Header, Divider } from 'semantic-ui-react';
 import Slider from "react-slick";
-import { ProdutoType } from '../produto/produto';
-import "./productContainer.sass";
+import "./produtoContainer.sass";
+import { Produto } from '../../model/Produto';
+import ProdutoCard from '../produto/ProdutoCard';
 
 function NextArrow(props: any) {
     const { onClick } = props;
@@ -27,10 +27,10 @@ function PrevArrow(props: any) {
 
 export interface ProductContainerProps {
     nome: string
-    produtos: Array<ProdutoType>
+    produtos: Array<Produto>
 }
 
-const ProductContainer = (props: ProductContainerProps) => {
+const ProdutoContainer = (props: ProductContainerProps) => {
     const settings = {
         infinite: false,
         speed: 500,
@@ -65,7 +65,7 @@ const ProductContainer = (props: ProductContainerProps) => {
             <Slider {...settings} className="my-slider">
                 {props.produtos.map(produto => {
                     return (
-                        <Produto
+                        <ProdutoCard
                             key={produto.id}
                             {...produto}
                         />
@@ -76,4 +76,4 @@ const ProductContainer = (props: ProductContainerProps) => {
     );
 }
 
-export default ProductContainer;
+export default ProdutoContainer;

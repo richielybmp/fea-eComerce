@@ -2,7 +2,7 @@ import React from 'react'
 import { Step, Icon, Segment, Button, Card, Header, Item, Table, Grid } from 'semantic-ui-react';
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
-import EcommerContext from '../../AppContext';
+import { EcommerceContext } from '../../AppStore';
 
 interface Dispatch {
     handleStep(step: EStep): void
@@ -82,7 +82,7 @@ const StepHeader = () => (
                             <Step.Description>Escolha o meio de pagamento</Step.Description>
                         </Step.Content>
                     </Step>
-                    <Step disabled={value.state.step < EStep.Confirm} completed={value.state.step > EStep.Confirm} active={value.state.step === EStep.Confirm}>
+                    <Step disabled={value.state.step < EStep.Confirm} active={value.state.step === EStep.Confirm}>
                         <Icon name='info' />
                         <Step.Content>
                             <Step.Title>Finalizar compra</Step.Title>
@@ -99,7 +99,7 @@ const ConfirmContainer = () => {
         <CheckoutContext.Consumer>
             {
                 checkout => checkout && (
-                    <EcommerContext.Consumer>
+                    <EcommerceContext.Consumer>
                         {value => value && (
                             <div>
                                 <Table>
@@ -119,7 +119,7 @@ const ConfirmContainer = () => {
                                                     <Table.Cell>
                                                         <Item.Group>
                                                             <Item>
-                                                                <Item.Image size='tiny' src={grupo.produto.imagem} />
+                                                                <Item.Image size='tiny' src={grupo.produto.imagem[0]} />
                                                                 <Item.Content>
                                                                     <Item.Header>{grupo.produto.nome}</Item.Header>
                                                                     <Item.Meta>Cor/Tamanho/etc</Item.Meta>
@@ -185,7 +185,7 @@ const ConfirmContainer = () => {
                                 </Grid>
                             </div>
                         )}
-                    </EcommerContext.Consumer>
+                    </EcommerceContext.Consumer>
                 )}
         </CheckoutContext.Consumer>
     )

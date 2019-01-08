@@ -1,1 +1,0 @@
-export { default as MenuCategorias } from './MenuCategorias';

@@ -1,12 +1,17 @@
 import React from "react"
 import reducer from './components/reducer/reducer';
-import { ActionType } from "./components/enums/EnumActionTypes";
-import { Cart } from "./Cart";
+import { Cart } from "./model/Cart";
 import { deserialize } from "class-transformer";
-import { ProdutoType } from "./components/produto/produto";
-import { DataSet } from "./mock";
-import EcommerContext from "./AppContext";
-import { number } from "prop-types";
+import { ActionType } from "./enum/ActionType";
+import { Produto } from "./model/Produto";
+import DataSet from "./mock/dataset";
+
+export interface EcommerceType {
+    state: EcommerceState
+    dispatch: Dispatch
+}
+
+const EcommerceContext = React.createContext<EcommerceType | null>(null);
 
 export interface Dispatch {
     finish(): void;
@@ -18,7 +23,7 @@ export interface Dispatch {
 
 export interface EcommerceState {
     cart: Cart
-    produtos: ProdutoType[]
+    produtos: Produto[]
     maisPedidos: Map<number, number>
 };
 
@@ -53,11 +58,12 @@ class AppStore extends React.Component<{}, EcommerceState> {
 
     render() {
         return (
-            <EcommerContext.Provider value={{ state: this.state, dispatch: this.dispatch }} >
+            <EcommerceContext.Provider value={{ state: this.state, dispatch: this.dispatch }} >
                 {this.props.children}
-            </EcommerContext.Provider>
+            </EcommerceContext.Provider>
         );
     }
 }
 
 export default AppStore;
+export { EcommerceContext };

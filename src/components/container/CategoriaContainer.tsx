@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { DataSet } from '../../mock';
-import { Container, Placeholder, Loader } from 'semantic-ui-react';
-import { Produto } from '../produto';
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import ProdutoCard from '../produto/ProdutoCard';
+import DataSet from '../../mock/dataset';
+import { EcommerceContext } from '../../AppStore';
 
 import './categoriasContainer.sass';
-import EcommerContext from '../../AppContext';
 
 const CategoriasContainer = ({ match }: any) => {
     const tag = match.params.tag;
     return (
-        <EcommerContext.Consumer>
+        <EcommerceContext.Consumer>
             {
                 value => value && (
                     <Container>
                         <div className="categorias-grid">
                             {DataSet.getProdutosByCategoria(value.state.produtos, tag).map(produto => {
                                 return (
-                                    <Produto
+                                    <ProdutoCard
                                         key={produto.id}
                                         {...produto}
                                     />
@@ -26,7 +26,7 @@ const CategoriasContainer = ({ match }: any) => {
                     </Container>
                 )
             }
-        </EcommerContext.Consumer>
+        </EcommerceContext.Consumer>
     )
 }
 

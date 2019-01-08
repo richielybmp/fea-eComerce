@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { EnumItemMenu } from '../enums/EnumItemMenu';
+import { ItemMenu } from '../../enum/ItemMenu';
 
 interface MenuItemCategoriaProps {
     mostrarModal: () => void
@@ -9,58 +9,58 @@ interface MenuItemCategoriaProps {
 
 const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
 
-    const [activeItem, setActiveItem] = useState(EnumItemMenu.HOME);
+    const [activeItem, setActiveItem] = useState(ItemMenu.HOME);
 
-    const handleItemClick = (name: EnumItemMenu) => {
+    const handleItemClick = (name: ItemMenu) => {
         setActiveItem(name);
     };
 
     return (
         <>
             {/* Aqui podemos fazer um MAP para renderizar os Menu.Item de acordo com 
-                os itens do EnumItemMenu ao invés de escrever vários Menu.Item
+                os itens do ItemMenu ao invés de escrever vários Menu.Item
             }*/}
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/`}
-                active={activeItem === EnumItemMenu.HOME}
-                onClick={e => handleItemClick(EnumItemMenu.HOME)}>{EnumItemMenu.HOME}
+                active={activeItem === ItemMenu.HOME}
+                onClick={e => handleItemClick(ItemMenu.HOME)}>{ItemMenu.HOME}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/livros`}
-                active={activeItem === EnumItemMenu.LIVROS}
-                onClick={e => handleItemClick(EnumItemMenu.LIVROS)}>{EnumItemMenu.LIVROS}
+                active={activeItem === ItemMenu.LIVROS}
+                onClick={e => handleItemClick(ItemMenu.LIVROS)}>{ItemMenu.LIVROS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/smartphones`}
-                active={activeItem === EnumItemMenu.SMARTPHONES}
-                onClick={e => handleItemClick(EnumItemMenu.SMARTPHONES)}>{EnumItemMenu.SMARTPHONES}
+                active={activeItem === ItemMenu.SMARTPHONES}
+                onClick={e => handleItemClick(ItemMenu.SMARTPHONES)}>{ItemMenu.SMARTPHONES}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/perifericos`}
-                active={activeItem === EnumItemMenu.PERIFERICOS}
-                onClick={e => handleItemClick(EnumItemMenu.PERIFERICOS)}>{EnumItemMenu.PERIFERICOS}
+                active={activeItem === ItemMenu.PERIFERICOS}
+                onClick={e => handleItemClick(ItemMenu.PERIFERICOS)}>{ItemMenu.PERIFERICOS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/impressoras`}
-                active={activeItem === EnumItemMenu.IMPRESSORAS}
-                onClick={e => handleItemClick(EnumItemMenu.IMPRESSORAS)}>{EnumItemMenu.IMPRESSORAS}
+                active={activeItem === ItemMenu.IMPRESSORAS}
+                onClick={e => handleItemClick(ItemMenu.IMPRESSORAS)}>{ItemMenu.IMPRESSORAS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/placas-de-video`}
-                active={activeItem === EnumItemMenu.PLACASDEVIDEO}
-                onClick={e => handleItemClick(EnumItemMenu.PLACASDEVIDEO)}>{EnumItemMenu.PLACASDEVIDEO}
+                active={activeItem === ItemMenu.PLACASDEVIDEO}
+                onClick={e => handleItemClick(ItemMenu.PLACASDEVIDEO)}>{ItemMenu.PLACASDEVIDEO}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/jogos`}
-                active={activeItem === EnumItemMenu.JOGOS}
-                onClick={e => handleItemClick(EnumItemMenu.JOGOS)}>{EnumItemMenu.JOGOS}
+                active={activeItem === ItemMenu.JOGOS}
+                onClick={e => handleItemClick(ItemMenu.JOGOS)}>{ItemMenu.JOGOS}
             </Menu.Item>
         </>
     )

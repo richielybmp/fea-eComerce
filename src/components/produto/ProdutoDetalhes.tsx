@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     Button,
-    Image,
     Segment,
     Container,
     Header,
@@ -13,17 +12,17 @@ import {
     Table,
     Tab
 } from 'semantic-ui-react';
-import { DataSet } from '../../mock';
-import EcommerContext from '../../AppContext';
 import './produto.sass'
 import { Link } from "react-router-dom";
 import Currency from 'react-currency-formatter';
-import BreadcrumbTrack from './BreadcrumbTrack';
-import { ProdutoType } from './produto';
-import ProductContainer from "../container/productContainer";
-import ImagesProduto from "./ImagesProduto";
+import BreadcrumbTrack from '../common/BreadcrumbTrack';
+import ProductContainer from "../container/ProdutoContainer";
+import ImagesProduto from "./ProdutoImages";
+import { Produto } from '../../model/Produto';
+import DataSet from '../../mock/dataset';
+import { EcommerceContext } from '../../AppStore';
 
-const rowTableParcelas = (produto: ProdutoType) => {
+const rowTableParcelas = (produto: Produto) => {
     let rows = [];
     for (let i = 0; i < 12; i++) {
         rows.push(
@@ -45,7 +44,7 @@ const rowTableParcelas = (produto: ProdutoType) => {
     return rows;
 }
 
-const panes = (produto: ProdutoType) => [
+const panes = (produto: Produto) => [
     { menuItem: 'Cartão', render: () => <Tab.Pane>{rowTableParcelas(produto)}</Tab.Pane> },
     {
         menuItem: 'Boleto', render: () =>
@@ -63,7 +62,7 @@ const panes = (produto: ProdutoType) => [
 const ProdutoDetalhes = ({ match }: any) => {
     const id = match.params.id;
     return (
-        <EcommerContext.Consumer >
+        <EcommerceContext.Consumer >
             {value => {
                 const produto = DataSet.getProdutoById(value!.state.produtos, id);
                 const prodSemelhantes = DataSet.getProdutosByCategoria(value!.state.produtos, produto ? produto.categoria : '');
@@ -183,7 +182,7 @@ const ProdutoDetalhes = ({ match }: any) => {
                     </>
                 ) : (<>Produto não encontrado</>)
             }}
-        </EcommerContext.Consumer>
+        </EcommerceContext.Consumer>
     )
 }
 export default ProdutoDetalhes;

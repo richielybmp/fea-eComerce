@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, Icon, Label, Popup, Container } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-import { MenuCategorias } from '../menu';
-import SearchCategorias from '../search/SearchCategorias';
-import ModalCarrinho from './modalCarrinho';
+import SearchCategorias from '../common/SearchCategorias';
+import ModalCarrinho from '../common/ModalCarrinho';
 import './header.sass';
-import EcommerceContext from '../../AppContext';
+import MenuCategorias from '../menu/MenuCategorias';
+import { EcommerceContext } from '../../AppStore';
 
 export interface HeaderProps {
     showSidebar: () => void

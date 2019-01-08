@@ -1,16 +1,15 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { Search, Image, SearchResultProps } from "semantic-ui-react";
 import _ from 'lodash';
 import { Link } from 'react-router-dom'
-import EcommerceContext from "../../AppContext";
-import { DataSet } from "../../mock";
-import AppStore from "../../AppStore";
+import DataSet from "../../mock/dataset";
+import { EcommerceContext } from "../../AppStore";
 
 const defaultRenderer = (props: SearchResultProps) =>
   <div key={props.chave}>
     <Link to={`/produto/${props.chave}`}>
 
-      {props.imagem && <div className='image'> <Image src={props.imagem} /> </div>}
+      {props.imagem[0] && <div className='image'> <Image src={props.imagem[0]} /> </div>}
       <div className='content'>
         {props.preco && <div className='price'>{props.preco}</div>}
         {props.nome && <div className='title'>{props.nome}</div>}

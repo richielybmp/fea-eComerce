@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Button, Icon, Container } from 'semantic-ui-react';
 import MenuItemCategoria from './MenuItemCategoria';
-import SearchCategorias from "../search/SearchCategorias";
+import SearchCategorias from "../common/SearchCategorias";
 import './menuCategorias.css';
 
 interface MenuCategoriasProps {

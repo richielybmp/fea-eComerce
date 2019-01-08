@@ -1,9 +1,9 @@
-import { Action, ActionType } from "../enums/EnumActionTypes";
-import { DataSet } from "../../mock";
+import { Action, ActionType } from "../../enum/ActionType";
 import { EcommerceState } from "../../AppStore";
 import { serialize } from "class-transformer";
 import _ from "lodash";
-import { Cart } from "../../Cart";
+import { Cart } from "../../model/Cart";
+import DataSet from "../../mock/dataset";
 
 const reducer = (state: EcommerceState, action: Action) => {
     const { cart, produtos } = state;

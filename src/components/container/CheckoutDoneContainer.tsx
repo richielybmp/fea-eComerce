@@ -1,8 +1,6 @@
 import React from 'react'
 import { Message, Button, Icon, Segment, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import EcommerContext from '../../AppContext';
-import Currency from 'react-currency-formatter';
 
 export default function CheckoutDoneContainer() {
     return (

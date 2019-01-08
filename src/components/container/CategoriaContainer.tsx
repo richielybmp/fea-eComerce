@@ -7,8 +7,6 @@ import './categoriasContainer.sass';
 import EcommerContext from '../../AppContext';
 
 const CategoriasContainer = ({ match }: any) => {
-    const [isLoading, setIsloading] = useState(false);
-
     const tag = match.params.tag;
     return (
         <EcommerContext.Consumer>
@@ -18,16 +16,10 @@ const CategoriasContainer = ({ match }: any) => {
                         <div className="categorias-grid">
                             {DataSet.getProdutosByCategoria(value.state.produtos, tag).map(produto => {
                                 return (
-                                    <>
-                                        {isLoading ? (
-                                            <Loader active inline='centered' />
-                                        ) : (
-                                                <Produto
-                                                    key={produto.id}
-                                                    {...produto}
-                                                />
-                                            )}
-                                    </>
+                                    <Produto
+                                        key={produto.id}
+                                        {...produto}
+                                    />
                                 );
                             })}
                         </div>

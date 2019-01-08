@@ -13,9 +13,10 @@ export class ProdutoType {
     categoria: string = ""
     qtdEstoque: number = 0
     rating: number = 0
+    ehMaisPedido: boolean = false
 };
 
-const Produto = ({ id, nome, imagem, preco, qtdEstoque, rating }: ProdutoType) => {
+const Produto = ({ id, nome, imagem, preco, ehMaisPedido }: ProdutoType) => {
     return (
         <>
             <Card
@@ -23,9 +24,12 @@ const Produto = ({ id, nome, imagem, preco, qtdEstoque, rating }: ProdutoType) =
                 to={`${process.env.PUBLIC_URL}/produto/${id}`}
                 className="prod"
             >
-                <span className="ui corner red label">
-                    <i className="heart icon"></i>
-                </span>
+                {ehMaisPedido &&
+                    <span className="ui corner red label">
+                        <i className="heart icon"></i>
+                    </span>
+                }
+
                 <Image src={imagem[0]} className="imagemProduto" alt={name} />
                 <Card.Content>
                     <div>

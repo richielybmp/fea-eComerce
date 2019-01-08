@@ -54,11 +54,11 @@ function getShippingPrice(shipping: Shipping) {
     }
 }
 
-function getDiscount(total : number, payment : Payment){
-    
-    if(payment === Payment.Boleto){
+function getDiscount(total: number, payment: Payment) {
+
+    if (payment === Payment.Boleto) {
         return ((total * 10) / 100)
-    } 
+    }
 
     return 0;
 }
@@ -113,9 +113,9 @@ const ConfirmContainer = () => {
                                     </Table.Header>
 
                                     <Table.Body>
-                                        {value.state.cart.itens().map((grupo) => {
+                                        {value.state.cart.itens().map((grupo, index) => {
                                             return (
-                                                <Table.Row>
+                                                <Table.Row key={index}>
                                                     <Table.Cell>
                                                         <Item.Group>
                                                             <Item>
@@ -180,7 +180,7 @@ const ConfirmContainer = () => {
                                 </Table>
                                 <Grid style={{ height: "80px" }}>
                                     <Grid.Column floated='right'>
-                                        <Button as={Link} to="/" color="green" onClick={() => value.dispatch.finish()}>FINALIZAR COMPRA</Button>
+                                        <Button as={Link} to="/checkoutDone" color="green" onClick={() => value.dispatch.finish()}>FINALIZAR COMPRA</Button>
                                     </Grid.Column>
                                 </Grid>
                             </div>

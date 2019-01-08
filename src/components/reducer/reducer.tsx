@@ -3,6 +3,7 @@ import { DataSet } from "../../mock";
 import { EcommerceState } from "../../AppStore";
 import { serialize } from "class-transformer";
 import _ from "lodash";
+import { Cart } from "../../Cart";
 
 const reducer = (state: EcommerceState, action: Action) => {
     const { cart, produtos } = state;
@@ -63,10 +64,15 @@ const reducer = (state: EcommerceState, action: Action) => {
             return { ...state, cart };
 
         case ActionType.FINISH:
+            const { maisPedidos } = state;
+
+            GuardeHistóricoDeCompras(cart, maisPedidos);
+
             cart.itens().map(item => {
                 var index = _.findIndex(produtos, ['id', item.produto.id]);
                 produtos[index].qtdEstoque = produtos[index].qtdEstoque - item.quantidade;
             })
+
             cart.emptyCart();
             localStorage.setItem('cart', serialize(cart));
             return { ...state, cart, produtos };
@@ -74,6 +80,20 @@ const reducer = (state: EcommerceState, action: Action) => {
         default:
             return state;
     }
+}
+
+function GuardeHistóricoDeCompras(cart: Cart, maisPedidos: Map<number, number>) {
+    cart.itens().forEach(item => {
+        if (!maisPedidos.has(item.produto.id)) {
+            maisPedidos.set(item.produto.id, item.quantidade);
+        }
+        else {
+            let ocorrencias = maisPedidos.get(item.produto.id);
+            if (ocorrencias)
+                maisPedidos.set(item.produto.id, ocorrencias + item.quantidade);
+        }
+    });
+    ;
 }
 
 export default reducer;

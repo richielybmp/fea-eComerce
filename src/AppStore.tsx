@@ -6,6 +6,7 @@ import { deserialize } from "class-transformer";
 import { ProdutoType } from "./components/produto/produto";
 import { DataSet } from "./mock";
 import EcommerContext from "./AppContext";
+import { number } from "prop-types";
 
 export interface Dispatch {
     finish(): void;
@@ -18,6 +19,7 @@ export interface Dispatch {
 export interface EcommerceState {
     cart: Cart
     produtos: ProdutoType[]
+    maisPedidos: Map<number, number>
 };
 
 const loadCart = (): Cart => {
@@ -39,13 +41,14 @@ class AppStore extends React.Component<{}, EcommerceState> {
         removeFromCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.REMOVE_FROM_CART, payload: { id: id } })) },
         addToCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.ADD_TO_CART, payload: { id: id } })) },
         updateCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.UPDATE_CART, payload: { id: id } })) },
-        finish : () => {this.setState(state => reducer(state, { type: ActionType.FINISH, payload : {id : 0} }))},
-        emptyCart : () => {this.setState(state => reducer(state, { type: ActionType.EMPTY_CART, payload : {id : 0} }))}
+        finish: () => { this.setState(state => reducer(state, { type: ActionType.FINISH, payload: { id: 0 } })) },
+        emptyCart: () => { this.setState(state => reducer(state, { type: ActionType.EMPTY_CART, payload: { id: 0 } })) }
     }
 
     state: EcommerceState = {
         cart: loadCart(),
-        produtos: DataSet.getIDataSet()
+        produtos: DataSet.getIDataSet(),
+        maisPedidos: new Map<number, number>(),
     }
 
     render() {

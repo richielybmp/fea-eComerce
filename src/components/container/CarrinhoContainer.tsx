@@ -36,11 +36,9 @@ const Carrinho = (value: EcommerceType) => {
                 </Table.Header>
 
                 <Table.Body>
-                    {value.state.cart.itens().map((grupo) => {
-                        console.log(grupo);
-
+                    {value.state.cart.itens().map((grupo, index) => {
                         return (
-                            <Table.Row>
+                            <Table.Row key={index}>
                                 <Table.Cell>
                                     <Item.Group>
                                         <Item as={Link} to={`${process.env.PUBLIC_URL}/produto/${grupo.produto.id}`}>
@@ -121,11 +119,11 @@ const CarrinhoVazio = () => {
 }
 const CarrinhoContainer = () => {
     return (
-    <EcommerContext.Consumer>
-        {value => value && (
-            value.state.cart.isEmpty() ? <CarrinhoVazio /> : <Carrinho {...value} />
-        )}
-    </EcommerContext.Consumer>
+        <EcommerContext.Consumer>
+            {value => value && (
+                value.state.cart.isEmpty() ? <CarrinhoVazio /> : <Carrinho {...value} />
+            )}
+        </EcommerContext.Consumer>
     )
 }
 

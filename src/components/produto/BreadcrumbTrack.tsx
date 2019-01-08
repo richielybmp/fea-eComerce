@@ -16,17 +16,24 @@ export default function BreadcrumbTrack(props: BreadCrumbsProps) {
     const { sessao } = props;
 
     return (
-        <Breadcrumb icon='right angle'>
+        <Breadcrumb>
             <Breadcrumb.Section
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/`}
-            >Home</Breadcrumb.Section>
+            >
+                Home
+            </Breadcrumb.Section>
+
             <Breadcrumb.Divider />
+
             <Breadcrumb.Section
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/${sessao.categoria.toLowerCase()}`}
-            >{sessao.categoria}</Breadcrumb.Section>
+            >{sessao.categoria}
+            </Breadcrumb.Section>
+
             <Breadcrumb.Divider />
+
             <Breadcrumb.Section active>{sessao.nome}</Breadcrumb.Section>
         </Breadcrumb>
     )

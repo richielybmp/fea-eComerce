@@ -20,9 +20,9 @@ const ImagesProduto = (props: ImagesProdutoProps) => {
             <Slider {...settings} className="banner-slider-produto" adaptiveHeight={true}>
                 {
                     props.images.map(image => (
-                    <div className='banner-img'>
-                        <img src={image} />
-                    </div>
+                        <div key={image} className='banner-img'>
+                            <img src={image} />
+                        </div>
                     ))
                 }
             </Slider>

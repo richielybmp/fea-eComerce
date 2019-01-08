@@ -10,7 +10,8 @@ import {
     Rating,
     Modal,
     Table,
-    Tab
+    Tab,
+    Message
 } from 'semantic-ui-react';
 import './produto.sass'
 import { Link } from "react-router-dom";
@@ -75,7 +76,7 @@ const ProdutoDetalhes = ({ match }: any) => {
                             <Segment className='row-container main-produto-detalhe'>
                                 <Container className='container-image-produto'>
                                     {/*<Image src={produto.imagem[0]} size='large' bordered className='image-product' />*/}
-                                    <ImagesProduto images={produto.imagem}/>
+                                    <ImagesProduto images={produto.imagem} />
                                 </Container>
 
                                 <Container className='column-container product-details'>
@@ -112,6 +113,12 @@ const ProdutoDetalhes = ({ match }: any) => {
                                             Comprar
                                         </Button>
 
+                                        {produto.qtdEstoque <= 0 &&
+                                            <Message negative>
+                                                <Message.Header>Oops!</Message.Header>
+                                                <p>Este produto está esgotado em nosso estoque.</p>
+                                            </Message>
+                                        }
                                         <br />
                                         <Item.Group divided className={'row-container center-center'}>
                                             <Icon name={'credit card outline'} size={'big'} color={'grey'} />
@@ -174,7 +181,7 @@ const ProdutoDetalhes = ({ match }: any) => {
                             </Segment>
                             <Segment>
                                 <Container>
-                                    <ProductContainer nome={'Produtos Semelhantes'} produtos={prodSemelhantes}/>
+                                    <ProductContainer nome={'Produtos Semelhantes'} produtos={prodSemelhantes} />
                                 </Container>
                             </Segment>
 

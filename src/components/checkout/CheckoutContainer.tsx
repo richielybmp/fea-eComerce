@@ -180,7 +180,7 @@ const ConfirmContainer = () => {
                                 </Table>
                                 <Grid style={{ height: "80px" }}>
                                     <Grid.Column floated='right'>
-                                        <Button as={Link} to="/checkoutDone" color="green" onClick={() => value.dispatch.finish()}>FINALIZAR COMPRA</Button>
+                                        <Button as={Link} to={`${process.env.PUBLIC_URL}/checkoutDone`} color="green" onClick={() => value.dispatch.finish()}>FINALIZAR COMPRA</Button>
                                     </Grid.Column>
                                 </Grid>
                             </div>

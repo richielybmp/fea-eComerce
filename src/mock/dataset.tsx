@@ -3,7 +3,7 @@ import { ProdutoType } from '../components/produto/produto';
 
 export default class DataSet {
 
-    static groupByCategoria(dataItens : ProdutoType[]) {
+    static groupByCategoria(dataItens: ProdutoType[]) {
         return _.chain(dataItens)
             .groupBy('categoria')
             .map(function (value, key) {
@@ -15,11 +15,11 @@ export default class DataSet {
             .value();
     }
 
-    static getProdutosByCategoria(dataItens : ProdutoType[], categoria: string) {
+    static getProdutosByCategoria(dataItens: ProdutoType[], categoria: string) {
         return dataItens.filter(p => p.categoria.toLowerCase() === categoria.toLowerCase());
     }
 
-    static getProdutoById(dataItens : ProdutoType[], id: number) {
+    static getProdutoById(dataItens: ProdutoType[], id: number) {
         return dataItens.find(p => p.id == id);
     }
 
@@ -37,6 +37,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 4,
+            ehMaisPedido: false,
         },
         {
             chave: 2,
@@ -51,6 +52,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 4,
+            ehMaisPedido: false,
         },
         {
             chave: 3,
@@ -66,6 +68,7 @@ export default class DataSet {
             qtdEstoque: 5,
             categoria: "Impressoras",
             rating: 2,
+            ehMaisPedido: false,
         },
         {
             chave: 4,
@@ -81,6 +84,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 5,
@@ -96,6 +100,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 4,
+            ehMaisPedido: false,
         },
         {
             chave: 6,
@@ -110,6 +115,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 4,
+            ehMaisPedido: false,
         },
         {
             chave: 7,
@@ -125,6 +131,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 1,
+            ehMaisPedido: false,
         },
         {
             chave: 8,
@@ -141,6 +148,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 5,
+            ehMaisPedido: false,
         },
         {
             chave: 9,
@@ -157,6 +165,7 @@ export default class DataSet {
             categoria: "Impressoras",
             qtdEstoque: 1,
             rating: 3.5,
+            ehMaisPedido: false,
         },
         {
             chave: 101,
@@ -171,6 +180,7 @@ export default class DataSet {
             categoria: "Jogos",
             qtdEstoque: 0,
             rating: 5,
+            ehMaisPedido: false,
         },
         {
             chave: 102,
@@ -182,6 +192,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Jogos",
             rating: 5,
+            ehMaisPedido: false,
         },
         {
             chave: 103,
@@ -193,6 +204,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Jogos",
             rating: 3.8,
+            ehMaisPedido: false,
         },
         {
             chave: 104,
@@ -204,6 +216,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Jogos",
             rating: 2,
+            ehMaisPedido: false,
         },
         {
             chave: 105,
@@ -215,6 +228,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Jogos",
             rating: 5,
+            ehMaisPedido: false,
         },
         {
             chave: 106,
@@ -226,6 +240,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Jogos",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 107,
@@ -237,6 +252,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Jogos",
             rating: 5,
+            ehMaisPedido: false,
         },
         {
             chave: 201,
@@ -248,6 +264,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 202,
@@ -259,6 +276,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 203,
@@ -270,6 +288,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 204,
@@ -281,6 +300,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 205,
@@ -292,6 +312,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 206,
@@ -303,6 +324,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 207,
@@ -314,6 +336,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 208,
@@ -325,6 +348,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 209,
@@ -336,6 +360,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 210,
@@ -347,6 +372,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 211,
@@ -358,6 +384,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 212,
@@ -369,6 +396,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 213,
@@ -380,6 +408,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 214,
@@ -391,6 +420,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 215,
@@ -402,6 +432,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Smartphones",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 301,
@@ -413,6 +444,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 302,
@@ -424,6 +456,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 303,
@@ -435,6 +468,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 304,
@@ -446,6 +480,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 305,
@@ -457,6 +492,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 306,
@@ -468,6 +504,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 307,
@@ -479,6 +516,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 308,
@@ -490,6 +528,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 309,
@@ -501,6 +540,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 310,
@@ -512,6 +552,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 311,
@@ -523,6 +564,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
         {
             chave: 312,
@@ -534,6 +576,7 @@ export default class DataSet {
             qtdEstoque: 2,
             categoria: "Livros",
             rating: 3,
+            ehMaisPedido: false,
         },
     ]
     static getIDataSet() {

@@ -24,6 +24,13 @@
     display: block
     padding: 5px
 
+.label-produto-esgotado
+    z-index: 1
+    background-color: #FF0000 !important
+    text-align: center
+    color: #ffffff !important
+    font-size: 12px
+
 .ui.active.dimmer
     z-index: 9999!important
 
@@ -71,3 +78,12 @@
         .image-product
             width: 100%!important
             margin-bottom: 20px!important
+
+.ui.top.attached.label+[class*="right floated"]+*, .ui.top.attached.label:first-child+:not(.attached)
+    margin-top: 0 !important
+
+.ui.corner.red.label
+    z-index: 2
+
+.opaco
+    opacity: .5

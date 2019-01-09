@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Produto } from '../../model/Produto';
 
 import "./produto.sass";
 
 
-const ProdutoCard = ({ id, nome, imagem, preco, ehMaisPedido }: Produto) => {
+const ProdutoCard = ({ id, nome, imagem, preco, ehMaisPedido, qtdEstoque }: Produto) => {
     return (
         <>
             <Card
@@ -20,8 +20,12 @@ const ProdutoCard = ({ id, nome, imagem, preco, ehMaisPedido }: Produto) => {
                     </span>
                 }
 
+                {qtdEstoque == 0 &&
+                    <Label className="label-produto-esgotado" attached='top'>Produto esgotado</Label>
+                }
+
                 <Image src={imagem[0]} className="imagemProduto" alt={name} />
-                <Card.Content>
+                <Card.Content className={qtdEstoque <= 0 ? 'opaco' : ""}>
                     <div>
                         <h1 className="infoProduto">{nome}</h1>
                     </div>

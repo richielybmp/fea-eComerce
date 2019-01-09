@@ -22,6 +22,7 @@ import ImagesProduto from "./ProdutoImages";
 import { Produto } from '../../model/Produto';
 import DataSet from '../../mock/dataset';
 import { EcommerceContext } from '../../AppStore';
+import axios from 'axios';
 
 const rowTableParcelas = (produto: Produto) => {
     let rows = [];
@@ -43,6 +44,35 @@ const rowTableParcelas = (produto: Produto) => {
         )
     }
     return rows;
+}
+
+const calcFrete = () => {
+    var params = {
+        'nCdEmpresa': '',
+        'sDsSenha': '',
+        'sCepOrigem': '74690612',
+        'sCepDestino': '76400000',
+        'nVlPeso': '5',
+        'nCdFormato': '1',
+        'nVlComprimento': '16',
+        'nVlAltura': '5',
+        'nVlLargura': '15',
+        'nVlDiametro': '0',
+        'sCdMaoPropria': 's',
+        'nVlValorDeclarado': '200',
+        'sCdAvisoRecebimento': 'n',
+        'StrRetorno': 'xml',
+        'nCdServico': '04014,04510'
+    };
+    var url = 'http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx';
+
+    axios.get(url, { params })
+        .then((res: any) => {
+            console.log(res)
+        })
+        .catch(error => {
+            console.log(error)
+        });
 }
 
 const panes = (produto: Produto) => [
@@ -140,9 +170,8 @@ const ProdutoDetalhes = ({ match }: any) => {
                                                 </Modal>
                                             </Item.Content>
                                         </Item.Group>
+                                        <button onClick={calcFrete}>Teste</button>
 
-                                        {/* Apenas para teste aqui */}
-                                        {/*<Button onClick={() => value.dispatch.removeFromCart(produto.id)}>Remover</Button>*/}
                                     </Segment>
                                     <br />
                                     <Segment size={'large'} padded className={'row-container center-center main-produto-detalhe'}>

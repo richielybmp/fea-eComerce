@@ -19,12 +19,12 @@ const MainContent = (props: SidebarPusherProps) => {
         <Sidebar.Pusher dimmed={props.dimmedSidebar}>
             <Container>
                 <main className={'container-main pusher'}>
-                    <Switch>
-                        <Suspense fallback={
-                            <Dimmer active inverted>
-                                <Loader inverted content='Loading' />
-                            </Dimmer>
-                        }>
+                    <Suspense fallback={
+                        <Dimmer active inverted>
+                            <Loader inverted content='Loading' />
+                        </Dimmer>
+                    }>
+                        <Switch>
                             <Route exact path={`${process.env.PUBLIC_URL}/`} component={MainContainer} />
                             <Route path={`${process.env.PUBLIC_URL}/carrinho`} component={CarrinhoContainer} />
                             <Route path={`${process.env.PUBLIC_URL}/checkout`} component={CheckoutContainer} />
@@ -32,8 +32,8 @@ const MainContent = (props: SidebarPusherProps) => {
                             <Route path={`${process.env.PUBLIC_URL}/produto/:id`} component={ProdutoDetalhes} />
                             <Route path={`${process.env.PUBLIC_URL}/categoria/:tag`} component={CategoriasContainer} />
                             <Route path='*' component={NotFound} />
-                        </Suspense>
-                    </Switch>
+                        </Switch>
+                    </Suspense>
                 </main>
             </Container>
             <Footer />

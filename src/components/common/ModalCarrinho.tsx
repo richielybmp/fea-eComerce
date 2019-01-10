@@ -50,7 +50,7 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                                 Abrir carrinho
                             </Link>
                             <Link to={`${process.env.PUBLIC_URL}`} onClick={props.clickIconCar}>
-                                <Button color='green'>Fechar Pedido</Button>
+                                <Button as={Link} to={`${process.env.PUBLIC_URL}/checkout`} color='green'>Fechar Pedido</Button>
                             </Link>
                         </div>
                     </Item.Content>

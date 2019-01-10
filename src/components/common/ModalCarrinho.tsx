@@ -18,7 +18,11 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                 </Item>
                 {
                     carrinho.itens().map(item => (
-                        <Item key={item.produto.id} className='popup-item'>
+                        <Item
+                            as={Link}
+                            to={`${process.env.PUBLIC_URL}/produto/${item.produto.id}`}
+                            key={item.produto.id}
+                            className='popup-item'>
                             <Container className='container-popup-image'>
                                 <Image className='popup-image' src={item.produto.imagem[0]} />
                             </Container>

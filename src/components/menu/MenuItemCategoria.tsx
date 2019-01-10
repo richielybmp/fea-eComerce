@@ -34,6 +34,12 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
             </Menu.Item>
             <Menu.Item
                 as={Link}
+                to={`${process.env.PUBLIC_URL}/categoria/notebooks`}
+                active={activeItem === ItemMenu.NOTEBOOKS}
+                onClick={e => handleItemClick(ItemMenu.NOTEBOOKS)}>{ItemMenu.NOTEBOOKS}
+            </Menu.Item>
+            <Menu.Item
+                as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/smartphones`}
                 active={activeItem === ItemMenu.SMARTPHONES}
                 onClick={e => handleItemClick(ItemMenu.SMARTPHONES)}>{ItemMenu.SMARTPHONES}

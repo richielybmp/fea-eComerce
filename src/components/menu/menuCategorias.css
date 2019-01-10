@@ -1,8 +1,17 @@
 .cart {    
-    background-color: white;
-    color: #573697;
+    color: white;
+    background-color: #573697;
 }
-
+.content-icon-cart{
+    width: 45px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1.5px solid #fff;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    align-content: center!important;
+}
 .bg-menu-categorias{
     background-color: #9453f7 !important;
 }
@@ -11,7 +20,7 @@
     display: flex!important;
     align-content: center!important;
     align-items: center!important;
-    justify-content: center!important;
+    justify-content: space-between!important;
     /*background-color: #6a65d8!important;*/
 }
 

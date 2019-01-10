@@ -6,5 +6,5 @@ export enum ItemMenu {
     IMPRESSORAS = 'Impressoras',
     PLACASDEVIDEO = 'Placas de Vídeo',
     JOGOS = 'Jogos',
-    MONITORES = 'Monitores',
+    NOTEBOOKS = 'Notebooks',
 }

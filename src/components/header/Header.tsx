@@ -33,8 +33,8 @@ const Header = (props: HeaderProps) => {
                                 </Menu.Item>
                                 <Menu.Item name="carrinho">
                                     <Popup trigger={
-                                        <Icon.Group onClick={onClickItemCar}>
-                                            <Icon className="cart" name='cart' circular>
+                                        <Icon.Group onClick={onClickItemCar} className='content-icon-cart'>
+                                            <Icon className="cart" name='cart' fitted >
                                             </Icon>
                                             <Label color='red' floating circular>
                                                 {value.state.cart.totalItens}

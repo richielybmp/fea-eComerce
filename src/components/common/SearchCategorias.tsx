@@ -69,6 +69,7 @@ class SearchCategorias extends React.Component<{}, SearchCategoriasState> {
         onSearchChange={_.debounce((e, data) => this.handleSearchChange(e, data), 500, { leading: true })}
         results={results}
         value={value}
+        className={'input-search'}
       />
     )
   }

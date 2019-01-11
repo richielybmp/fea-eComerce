@@ -23,16 +23,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [Typescript](https://www.typescriptlang.org).
 
 ### Styling
-- [CSS 3](https://www.w3schools.com/css/)
-- [SASS](https://sass-lang.com)
+- [CSS 3](https://www.w3schools.com/css/).
+- [SASS](https://sass-lang.com).
 
 ## Authors
 
-* **[Filipe Maciel](https://github.com/devfilsk)**
-* **[Mateus Stedler](https://github.com/mstedler)**
-* **[Richiely Paiva](https://github.com/richielybmp)**
+* **[Filipe Maciel](https://github.com/devfilsk)**.
+* **[Mateus Stedler](https://github.com/mstedler)**.
+* **[Richiely Paiva](https://github.com/richielybmp)**.
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/richielybmp/fea-eCommerce/graphs/contributors) who participated in this project.
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

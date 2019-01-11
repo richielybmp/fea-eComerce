@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     $ git clone https://github.com/richielybmp/fea-eCommerce.git
     $ cd fea-eCommerce
 
-## Fetch dependencies:
+## Fetch dependencies
     
     $ yarn install
   

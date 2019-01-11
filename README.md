@@ -1,14 +1,38 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Clone project
 
-In the project directory, you should run the following script to fetch project dependencies:
+    $ git clone https://github.com/richielybmp/fea-eCommerce.git
+    $ cd fea-eCommerce
 
-### `yarn install`
+## Fetch dependencies:
+    
+    $ yarn install
+  
+## Running
+    
+    $ yarn start
 
-And then, you can run:
+## Languages & tools
 
-### `yarn start`
+### HTML
+- [HTML 5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5).
+
+### JavaScript
+- [React](http://facebook.github.io/react) is used for UI.
+- [Typescript](https://www.typescriptlang.org).
+
+### Styling
+- [CSS 3](https://www.w3schools.com/css/)
+- [SASS](https://sass-lang.com)
+
+## Authors
+
+* **[Filipe Maciel](https://github.com/devfilsk)**
+* **[Mateus Stedler](https://github.com/mstedler)**
+* **[Richiely Paiva](https://github.com/richielybmp)**
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

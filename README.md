@@ -19,7 +19,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [HTML 5](https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5).
 
 ### JavaScript
-- [React](http://facebook.github.io/react) is used for UI.
+- [React](http://facebook.github.io/react) and [Semantic UI](https://react.semantic-ui.com) is used for UI.
+    - Router management with [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start);
+    - Slider and banners with [react-slick](https://react-slick.neostack.com);
+    - Currency formater with [react-currency-formatter](https://www.npmjs.com/package/react-currency-formatter);
+    - Javascript utils with [lodash](https://lodash.com).
 - [Typescript](https://www.typescriptlang.org).
 
 ### Styling
@@ -35,6 +39,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 See also the list of [contributors](https://github.com/richielybmp/fea-eCommerce/graphs/contributors) who participated in this project.
 
 Runs the app in the development mode.<br>
+
+    $ yarn start
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>

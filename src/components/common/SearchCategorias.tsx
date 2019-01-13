@@ -7,8 +7,7 @@ import { EcommerceContext } from "../../AppStore";
 
 const defaultRenderer = (props: SearchResultProps) =>
   <div key={props.chave}>
-    <Link to={`/produto/${props.chave}`}>
-
+    <Link to={`${process.env.PUBLIC_URL}/produto/${props.chave}`}>
       {props.imagem[0] && <div className='image'> <Image src={props.imagem[0]} /> </div>}
       <div className='content'>
         {props.preco && <div className='price'>{props.preco}</div>}
@@ -27,7 +26,7 @@ interface SearchCategoriasState {
 
 class SearchCategorias extends React.Component<{}, SearchCategoriasState> {
   componentWillMount() {
-    this.setState({ isLoading: false, results: [], value: '', produtos : DataSet.groupByCategoria(this.context.state.produtos) })
+    this.setState({ isLoading: false, results: [], value: '', produtos: DataSet.groupByCategoria(this.context.state.produtos) })
   }
 
   clearState = () => {

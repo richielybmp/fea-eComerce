@@ -11,7 +11,6 @@ const reducer = (state: EcommerceState, action: Action) => {
 
     switch (type) {
         case ActionType.ADD_TO_CART:
-
             var produto = DataSet.getProdutoById(produtos, payload.id);
             //console.log("Adicionando Produto no carrinho: ", produto);
 
@@ -27,6 +26,7 @@ const reducer = (state: EcommerceState, action: Action) => {
         case ActionType.UPDATE_CART:
             var produto = DataSet.getProdutoById(produtos, payload.id);
             //console.log("Removendo Produto do carrinho: ", produto);
+
             if (produto) {
                 cart.updateProduct(produto, -1);
                 localStorage.setItem('cart', serialize(cart));
@@ -38,6 +38,7 @@ const reducer = (state: EcommerceState, action: Action) => {
         case ActionType.REMOVE_FROM_CART:
             var produto = DataSet.getProdutoById(produtos, payload.id);
             //console.log("Removendo Produto do carrinho: ", produto);
+
             if (produto) {
                 cart.removeProduct(produto);
                 localStorage.setItem('cart', serialize(cart));
@@ -48,7 +49,6 @@ const reducer = (state: EcommerceState, action: Action) => {
             }
         case ActionType.SET_ON_DETAIL:
             var produto = DataSet.getProdutoById(produtos, payload.id);
-
             //console.log("definindo detalhe: ", produto);
 
             if (produto) {
@@ -66,7 +66,7 @@ const reducer = (state: EcommerceState, action: Action) => {
         case ActionType.FINISH:
             const { maisPedidos } = state;
 
-            GuardeHistóricoDeCompras(cart, maisPedidos);
+            GuardeHistoricoDeCompras(cart, maisPedidos);
 
             cart.itens().map(item => {
                 var index = _.findIndex(produtos, ['id', item.produto.id]);
@@ -82,7 +82,7 @@ const reducer = (state: EcommerceState, action: Action) => {
     }
 }
 
-function GuardeHistóricoDeCompras(cart: Cart, maisPedidos: Map<number, number>) {
+function GuardeHistoricoDeCompras(cart: Cart, maisPedidos: Map<number, number>) {
     cart.itens().forEach(item => {
         if (!maisPedidos.has(item.produto.id)) {
             maisPedidos.set(item.produto.id, item.quantidade);

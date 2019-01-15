@@ -6,52 +6,6 @@ import { EcommerceContext } from '../../AppStore';
 
 import './categoriasContainer.sass';
 
-
-// const CategoriasContainer = ({ match }: any) => {
-//     const tag = match.params.tag;
-//     var produtos: Produto[] = [];
-//     var qtdItens = 3;
-
-//     const [a, setA] = useState(3);
-
-//     const carregarMaisProdutos = () => {
-//         qtdItens += 3;
-//         setA(qtdItens);
-//     }
-
-//     return (
-// <EcommerceContext.Consumer>
-//     {value => {
-//         produtos = DataSet.getProdutosByCategoria(value!.state.produtos, tag);
-//         return (
-//             <Container>
-//                 <div className="categorias-grid">
-//                     {
-//                         produtos.slice(0, a).map(produto => {
-//                             return (
-//                                 <ProdutoCard
-//                                     key={produto.id}
-//                                     {...produto}
-//                                 />
-//                             );
-//                         })
-//                     }
-//                 </div>
-//                 {qtdItens < produtos.length &&
-//                     <Button onClick={() => carregarMaisProdutos()}>Carregar +</Button>
-//                 }
-//             </Container>
-//         )
-//     }}
-// </EcommerceContext.Consumer>
-//     )
-// }
-
-// export default CategoriasContainer;
-
-import PropTypes from "prop-types";
-import { withRouter } from 'react-router';
-
 interface MyProps {
     match: any,
     location: any,
@@ -64,19 +18,14 @@ interface CategoriasState {
 }
 
 class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
-    };
 
     constructor(props: MyProps) {
         super(props);
 
-        const { match, history } = this.props;
+        const { match } = this.props;
 
         this.state = {
-            qtdItens: 3,
+            qtdItens: 6,
             tag: match.params.tag,
         };
     }
@@ -87,7 +36,7 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
 
     componentDidUpdate(prevProps: any) {
         if (this.props.location !== prevProps.location) {
-            this.setState({ qtdItens: 3, tag: this.props.match.params.tag })
+            this.setState({ qtdItens: 6, tag: this.props.match.params.tag })
         }
     }
 
@@ -112,7 +61,7 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
                                 }
                             </div>
                             {this.state.qtdItens < produtos.length &&
-                                <Button onClick={() => this.carregarMaisProdutos()}>Carregar +</Button>
+                                <Button className="centerButton" onClick={() => this.carregarMaisProdutos()}>Carregar +</Button>
                             }
                         </Container>
                     )
@@ -123,5 +72,4 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
     }
 }
 
-const ShowTheLocationWithRouter = withRouter(CategoriasContainer);
 export default CategoriasContainer;

@@ -108,7 +108,7 @@ const CarrinhoVazio = () => {
                 <Header.Content>Seu carrinho está vazio</Header.Content>
             </Header>
             <Segment.Inline>
-                <Button basic color="violet" as={Link} to={"/"} animated='fade'>
+                <Button basic color="violet" as={Link} to={`${process.env.PUBLIC_URL}/`} animated='fade'>
                     <Button.Content visible>Voltar à loja</Button.Content>
                     <Button.Content hidden>
                         <Icon name='cart plus' />

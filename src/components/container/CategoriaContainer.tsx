@@ -43,9 +43,13 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
         return (
             <EcommerceContext.Consumer>
                 {value => {
+                    const produtos = DataSet.getProdutosByCategoria(value!.state.produtos, this.state.tag);
                     const { activePage } = this.state;
-                    const itensPerPage = 6;
-                    produtos = DataSet.getProdutosByCategoria(value!.state.produtos, this.state.tag);
+                    const itensPerPage = 9;
+                    const totalPages = Math.ceil(produtos.length / itensPerPage)
+
+                    const backward = activePage > 1 ? undefined : null
+                    const forward = activePage < totalPages ? undefined : null
                     return (
                         <Container textAlign="center">
 
@@ -61,13 +65,20 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
                                     })
                                 }
                             </div>
+                            { totalPages > 1 ?
                             <Pagination
                                 activePage={activePage}
                                 boundaryRange={1}
                                 onPageChange={this.handlePaginationChange}
                                 size='medium'
                                 siblingRange={1}
-                                totalPages={Math.ceil(produtos.length / itensPerPage)} />
+                                totalPages={totalPages}
+                                firstItem={backward}
+                                lastItem={forward}
+                                prevItem={backward}
+                                nextItem={forward} />
+                                : <></>
+                            }
                         </Container>
                     )
                 }}

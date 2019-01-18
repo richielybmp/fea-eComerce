@@ -22,7 +22,7 @@ const Header = (props: HeaderProps) => {
         <EcommerceContext.Consumer>
             {value => value && (
                 <nav className={'menu-horizontal'}>
-                    <Menu inverted size={'massive'} className={'menu-principal'}>
+                    <Menu inverted size={'massive'} className={'menu-principal square no-margin'}>
                         <Container>
                             <Menu.Item header>
                                 <Link to={`${process.env.PUBLIC_URL}/`}>eCommerce</Link>

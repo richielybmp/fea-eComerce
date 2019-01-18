@@ -40,8 +40,11 @@
     z-index: 9997!important;
 }
 
-.ui.menu{
+.no-margin{
     margin: 0!important;
+}
+
+.square {
     border-radius: 0!important;
 }
 

@@ -1,107 +1,61 @@
 import React from 'react';
-import { Container, Button } from 'semantic-ui-react';
+import { Container, Button, Pagination, Grid } from 'semantic-ui-react';
 import ProdutoCard from '../produto/ProdutoCard';
 import DataSet from '../../mock/dataset';
 import { EcommerceContext } from '../../AppStore';
 
 import './categoriasContainer.sass';
 
-
-// const CategoriasContainer = ({ match }: any) => {
-//     const tag = match.params.tag;
-//     var produtos: Produto[] = [];
-//     var qtdItens = 3;
-
-//     const [a, setA] = useState(3);
-
-//     const carregarMaisProdutos = () => {
-//         qtdItens += 3;
-//         setA(qtdItens);
-//     }
-
-//     return (
-// <EcommerceContext.Consumer>
-//     {value => {
-//         produtos = DataSet.getProdutosByCategoria(value!.state.produtos, tag);
-//         return (
-//             <Container>
-//                 <div className="categorias-grid">
-//                     {
-//                         produtos.slice(0, a).map(produto => {
-//                             return (
-//                                 <ProdutoCard
-//                                     key={produto.id}
-//                                     {...produto}
-//                                 />
-//                             );
-//                         })
-//                     }
-//                 </div>
-//                 {qtdItens < produtos.length &&
-//                     <Button onClick={() => carregarMaisProdutos()}>Carregar +</Button>
-//                 }
-//             </Container>
-//         )
-//     }}
-// </EcommerceContext.Consumer>
-//     )
-// }
-
-// export default CategoriasContainer;
-
 import PropTypes from "prop-types";
-import { withRouter } from 'react-router';
 
 interface MyProps {
     match: any,
-    location: any,
-    history: any
+    location: any
 }
 
 interface CategoriasState {
-    qtdItens: number,
-    tag: string
+    tag: string,
+    activePage: number,
 }
 
 class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
-    };
-
     constructor(props: MyProps) {
         super(props);
 
-        const { match, history } = this.props;
+        const { match } = this.props;
 
         this.state = {
-            qtdItens: 3,
+            activePage: 1,
             tag: match.params.tag,
         };
     }
 
-    carregarMaisProdutos() {
-        this.setState({ qtdItens: this.state.qtdItens + 3 })
-    }
-
     componentDidUpdate(prevProps: any) {
         if (this.props.location !== prevProps.location) {
-            this.setState({ qtdItens: 3, tag: this.props.match.params.tag })
+            this.setState({ tag: this.props.match.params.tag, activePage: 1 })
         }
     }
+
+    handlePaginationChange = (e: React.SyntheticEvent, data: any) => this.setState({ activePage: data.activePage })
 
     render() {
         var produtos = [];
         return (
             <EcommerceContext.Consumer>
                 {value => {
-                    produtos = DataSet.getProdutosByCategoria(value!.state.produtos, this.state.tag);
+                    const produtos = DataSet.getProdutosByCategoria(value!.state.produtos, this.state.tag);
+                    const { activePage } = this.state;
+                    const itensPerPage = 9;
+                    const totalPages = Math.ceil(produtos.length / itensPerPage)
+
+                    const backward = activePage > 1 ? undefined : null
+                    const forward = activePage < totalPages ? undefined : null
                     return (
-                        <Container>
+                        <Container textAlign="center">
+
                             <div className="categorias-grid">
                                 {
-                                    produtos.slice(0, this.state.qtdItens).map(produto => {
+                                    produtos.slice((activePage - 1) * itensPerPage, itensPerPage * activePage).map(produto => {
                                         return (
                                             <ProdutoCard
                                                 key={produto.id}
@@ -111,8 +65,19 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
                                     })
                                 }
                             </div>
-                            {this.state.qtdItens < produtos.length &&
-                                <Button onClick={() => this.carregarMaisProdutos()}>Carregar +</Button>
+                            { totalPages > 1 ?
+                            <Pagination
+                                activePage={activePage}
+                                boundaryRange={1}
+                                onPageChange={this.handlePaginationChange}
+                                size='medium'
+                                siblingRange={1}
+                                totalPages={totalPages}
+                                firstItem={backward}
+                                lastItem={forward}
+                                prevItem={backward}
+                                nextItem={forward} />
+                                : <></>
                             }
                         </Container>
                     )
@@ -123,5 +88,4 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
     }
 }
 
-const ShowTheLocationWithRouter = withRouter(CategoriasContainer);
 export default CategoriasContainer;

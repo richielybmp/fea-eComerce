@@ -821,7 +821,7 @@ export default class DataSet {
                 `${process.env.PUBLIC_URL}/img/notebooks/dellgamming_5.jpg`,
                 `${process.env.PUBLIC_URL}/img/notebooks/dellgamming_6.jpg`,
             ],
-            preco: 4175.09,
+            preco: 3590.09,
             qtdEstoque: 5,
             categoria: "Notebooks",
             rating: 4,
@@ -941,7 +941,7 @@ export default class DataSet {
         {
             chave: 507,
             id: 507,
-            nome: "Notebook Positivo Motion Q232A Intel Atom Quad Core 2GB 32GB SSD Tela LCD 14",
+            nome: "Notebook Positivo Motion Intel Atom Quad Core 2GB 32GB SSD Tela LCD 14",
             descricao: "descricao do produto",
             imagem: [
                 `${process.env.PUBLIC_URL}/img/notebooks/motion.jpg`,
@@ -951,7 +951,7 @@ export default class DataSet {
                 `${process.env.PUBLIC_URL}/img/notebooks/motion_5.jpg`,
                 `${process.env.PUBLIC_URL}/img/notebooks/motion_6.jpg`,
             ],
-            preco: 2119.99,
+            preco: 1200.99,
             qtdEstoque: 5,
             categoria: "Notebooks",
             rating: 4,

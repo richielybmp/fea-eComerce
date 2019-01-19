@@ -1,6 +1,7 @@
 import React from 'react'
 import { Breadcrumb } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import DataSet from '../../mock/dataset';
 
 type Sessao = {
     categoria: string,
@@ -28,7 +29,7 @@ export default function BreadcrumbTrack(props: BreadCrumbsProps) {
 
             <Breadcrumb.Section
                 as={Link}
-                to={`${process.env.PUBLIC_URL}/categoria/${sessao.categoria.toLowerCase()}`}
+                to={`${process.env.PUBLIC_URL}/categoria/${DataSet.transformaString(sessao.categoria)}`}
             >{sessao.categoria}
             </Breadcrumb.Section>
 

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Message, Button, Icon, Segment, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { EcommerceContext } from '../../AppStore';
+import { ItemMenu } from '../../enum/ItemMenu';
 
 export default function CheckoutDoneContainer() {
+
+    const context = useContext(EcommerceContext);
+
     return (
         <div>
             <Message positive>
@@ -19,6 +24,7 @@ export default function CheckoutDoneContainer() {
             <Button
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/`}
+                onClick={() => context!.dispatch.clickMenuItem(ItemMenu.HOME)}
                 color="violet"
                 basic>
                 Continuar comprando

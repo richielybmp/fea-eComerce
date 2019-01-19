@@ -11,52 +11,52 @@ const reducer = (state: EcommerceState, action: Action) => {
 
     switch (type) {
         case ActionType.ADD_TO_CART:
-            var produto = DataSet.getProdutoById(produtos, payload.id);
-            //console.log("Adicionando Produto no carrinho: ", produto);
-
-            if (produto) {
-                cart.addProduct(produto);
-                localStorage.setItem('cart', serialize(cart));
-                return { ...state, cart };
+            if (payload.id) {
+                var produto = DataSet.getProdutoById(produtos, payload.id);
+                //console.log("Adicionando Produto no carrinho: ", produto);
+                if (produto) {
+                    cart.addProduct(produto);
+                    localStorage.setItem('cart', serialize(cart));
+                    return { ...state, cart };
+                }
             }
-            else {
-                return state;
-            }
+            return state;
 
         case ActionType.UPDATE_CART:
-            var produto = DataSet.getProdutoById(produtos, payload.id);
-            //console.log("Removendo Produto do carrinho: ", produto);
+            if (payload.id) {
+                var produto = DataSet.getProdutoById(produtos, payload.id);
+                //console.log("Removendo Produto do carrinho: ", produto);
 
-            if (produto) {
-                cart.updateProduct(produto, -1);
-                localStorage.setItem('cart', serialize(cart));
-                return { ...state, cart };
+                if (produto) {
+                    cart.updateProduct(produto, -1);
+                    localStorage.setItem('cart', serialize(cart));
+                    return { ...state, cart };
+                }
             }
-            else {
-                return state;
-            }
+            return state;
         case ActionType.REMOVE_FROM_CART:
-            var produto = DataSet.getProdutoById(produtos, payload.id);
-            //console.log("Removendo Produto do carrinho: ", produto);
+            if (payload.id) {
+                var produto = DataSet.getProdutoById(produtos, payload.id);
+                //console.log("Removendo Produto do carrinho: ", produto);
 
-            if (produto) {
-                cart.removeProduct(produto);
-                localStorage.setItem('cart', serialize(cart));
-                return { ...state, cart };
+                if (produto) {
+                    cart.removeProduct(produto);
+                    localStorage.setItem('cart', serialize(cart));
+                    return { ...state, cart };
+                }
             }
-            else {
-                return state;
-            }
+            return state;
         case ActionType.SET_ON_DETAIL:
-            var produto = DataSet.getProdutoById(produtos, payload.id);
-            //console.log("definindo detalhe: ", produto);
+            if (payload.id) {
+                var produto = DataSet.getProdutoById(produtos, payload.id);
+                //console.log("definindo detalhe: ", produto);
 
-            if (produto) {
-                return { ...state, produtoEmDetalhe: produto };
+                if (produto) {
+                    return { ...state, produtoEmDetalhe: produto };
+                }
             }
-            else {
-                return state;
-            }
+            return state;
+
 
         case ActionType.EMPTY_CART:
             cart.emptyCart();
@@ -77,6 +77,8 @@ const reducer = (state: EcommerceState, action: Action) => {
             localStorage.setItem('cart', serialize(cart));
             return { ...state, cart, produtos };
 
+        case ActionType.SET_ITEM_MENU:
+            return { ...state, menuSelecionado: payload.item }
         default:
             return state;
     }

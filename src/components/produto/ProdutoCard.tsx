@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card, Image, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Produto } from '../../model/Produto';
+import { ItemMenu } from '../../enum/ItemMenu';
+import { EcommerceContext } from '../../AppStore';
 
 import "./produto.sass";
 
 
-const ProdutoCard = ({ id, nome, imagem, preco, ehMaisPedido, qtdEstoque }: Produto) => {
+const ProdutoCard = ({ id, nome, imagem, preco, ehMaisPedido, qtdEstoque, categoria }: Produto) => {
+
+    const context = useContext(EcommerceContext);
+
     return (
         <>
             <Card
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/produto/${id}`}
+                onClick={() => context!.dispatch.clickMenuItem(categoria as ItemMenu)}
                 className="prod"
             >
                 {ehMaisPedido &&

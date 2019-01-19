@@ -10,7 +10,7 @@ interface MenuCategoriasProps {
 
 const MenuCategorias = (props: MenuCategoriasProps) => {
     return (
-        <Menu className={'bg-menu-categorias large-menu'} inverted>
+        <Menu className={'bg-menu-categorias large-menu square no-margin'} inverted>
             <Container className={'menu-categorias'}>
 
                 <div className={'btn-menu-mobile'}>

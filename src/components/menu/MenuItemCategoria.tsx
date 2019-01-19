@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { ItemMenu } from '../../enum/ItemMenu';
+import { EcommerceContext } from '../../AppStore';
 
 interface MenuItemCategoriaProps {
     mostrarModal: () => void
@@ -9,11 +10,7 @@ interface MenuItemCategoriaProps {
 
 const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
 
-    const [activeItem, setActiveItem] = useState(ItemMenu.HOME);
-
-    const handleItemClick = (name: ItemMenu) => {
-        setActiveItem(name);
-    };
+    const context = useContext(EcommerceContext);
 
     return (
         <>
@@ -23,50 +20,50 @@ const MenuItemCategoria = (props: MenuItemCategoriaProps) => {
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/`}
-                active={activeItem === ItemMenu.HOME}
-                onClick={e => handleItemClick(ItemMenu.HOME)}>{ItemMenu.HOME}
+                active={context!.state.menuSelecionado === ItemMenu.HOME}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.HOME)}>{ItemMenu.HOME}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/livros`}
-                active={activeItem === ItemMenu.LIVROS}
-                onClick={e => handleItemClick(ItemMenu.LIVROS)}>{ItemMenu.LIVROS}
+                active={context!.state.menuSelecionado === ItemMenu.LIVROS}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.LIVROS)}>{ItemMenu.LIVROS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/notebooks`}
-                active={activeItem === ItemMenu.NOTEBOOKS}
-                onClick={e => handleItemClick(ItemMenu.NOTEBOOKS)}>{ItemMenu.NOTEBOOKS}
+                active={context!.state.menuSelecionado === ItemMenu.NOTEBOOKS}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.NOTEBOOKS)}>{ItemMenu.NOTEBOOKS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/smartphones`}
-                active={activeItem === ItemMenu.SMARTPHONES}
-                onClick={e => handleItemClick(ItemMenu.SMARTPHONES)}>{ItemMenu.SMARTPHONES}
+                active={context!.state.menuSelecionado === ItemMenu.SMARTPHONES}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.SMARTPHONES)}>{ItemMenu.SMARTPHONES}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/perifericos`}
-                active={activeItem === ItemMenu.PERIFERICOS}
-                onClick={e => handleItemClick(ItemMenu.PERIFERICOS)}>{ItemMenu.PERIFERICOS}
+                active={context!.state.menuSelecionado === ItemMenu.PERIFERICOS}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.PERIFERICOS)}>{ItemMenu.PERIFERICOS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/impressoras`}
-                active={activeItem === ItemMenu.IMPRESSORAS}
-                onClick={e => handleItemClick(ItemMenu.IMPRESSORAS)}>{ItemMenu.IMPRESSORAS}
+                active={context!.state.menuSelecionado === ItemMenu.IMPRESSORAS}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.IMPRESSORAS)}>{ItemMenu.IMPRESSORAS}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/placas-de-video`}
-                active={activeItem === ItemMenu.PLACASDEVIDEO}
-                onClick={e => handleItemClick(ItemMenu.PLACASDEVIDEO)}>{ItemMenu.PLACASDEVIDEO}
+                active={context!.state.menuSelecionado === ItemMenu.PLACASDEVIDEO}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.PLACASDEVIDEO)}>{ItemMenu.PLACASDEVIDEO}
             </Menu.Item>
             <Menu.Item
                 as={Link}
                 to={`${process.env.PUBLIC_URL}/categoria/jogos`}
-                active={activeItem === ItemMenu.JOGOS}
-                onClick={e => handleItemClick(ItemMenu.JOGOS)}>{ItemMenu.JOGOS}
+                active={context!.state.menuSelecionado === ItemMenu.JOGOS}
+                onClick={e => context!.dispatch.clickMenuItem(ItemMenu.JOGOS)}>{ItemMenu.JOGOS}
             </Menu.Item>
         </>
     )

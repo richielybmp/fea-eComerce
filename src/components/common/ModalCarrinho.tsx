@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Button, Container, Header, Item, Image } from "semantic-ui-react";
 import { Cart } from '../../model/Cart';
-import { EcommerceContext } from '../../AppStore';
+import { EcommerceContext, Dispatch } from '../../AppStore';
 
 interface ModalCarrinhoProps {
     clickIconCar: () => void;
@@ -46,10 +46,10 @@ const ModalContent = (props: ModalCarrinhoProps, carrinho: Cart) => {
                             Total (valor sem frete): <span className='bold'>R$ {carrinho.totalPreco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                         </Item>
                         <div className='modal-carrinho-footer'>
-                            <Link to={`${process.env.PUBLIC_URL}/carrinho`} onClick={props.clickIconCar}>
+                            <Link to={`${process.env.PUBLIC_URL}/carrinho`} onClick={() => props.clickIconCar()}>
                                 Abrir carrinho
                             </Link>
-                            <Link to={`${process.env.PUBLIC_URL}`} onClick={props.clickIconCar}>
+                            <Link to={`${process.env.PUBLIC_URL}`} onClick={() => props.clickIconCar()}>
                                 <Button as={Link} to={`${process.env.PUBLIC_URL}/checkout`} color='green'>Fechar Pedido</Button>
                             </Link>
                         </div>

@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { Grid, Button, Table, ButtonGroup, Icon, Item, Rating, Segment, Header } from 'semantic-ui-react';
 import Currency from 'react-currency-formatter';
 import { Link } from 'react-router-dom';
-import { EcommerceType, EcommerceContext } from '../../AppStore';
+import { EcommerceType, EcommerceContext, Dispatch } from '../../AppStore';
+import { ItemMenu } from '../../enum/ItemMenu';
 
 const GrupoBotoes = () => {
     return (
@@ -42,7 +43,11 @@ const Carrinho = () => {
                             <Table.Row key={index}>
                                 <Table.Cell>
                                     <Item.Group>
-                                        <Item as={Link} to={`${process.env.PUBLIC_URL}/produto/${grupo.produto.id}`}>
+                                        <Item
+                                            as={Link}
+                                            to={`${process.env.PUBLIC_URL}/produto/${grupo.produto.id}`}
+                                            onClick={() => context!.dispatch.clickMenuItem(grupo.produto.categoria as ItemMenu)}
+                                        >
                                             <Item.Image size='tiny' src={grupo.produto.imagem[0]} />
                                             <Item.Content>
                                                 <Item.Header>{grupo.produto.nome}</Item.Header>

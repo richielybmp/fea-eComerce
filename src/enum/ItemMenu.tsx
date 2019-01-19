@@ -7,4 +7,6 @@ export enum ItemMenu {
     PLACASDEVIDEO = 'Placas de Vídeo',
     JOGOS = 'Jogos',
     NOTEBOOKS = 'Notebooks',
+    CART = "Cart",
+    UNDEFINED = "UNDEFINED",
 }

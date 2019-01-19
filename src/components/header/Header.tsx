@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Menu, Icon, Label, Popup, Container } from 'semantic-ui-react';
+import React, { useState, useContext } from 'react';
+import { Menu, Icon, Label, Popup, Container, Button } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import SearchCategorias from '../common/SearchCategorias';
 import ModalCarrinho from '../common/ModalCarrinho';
 import './header.sass';
 import MenuCategorias from '../menu/MenuCategorias';
-import { EcommerceContext } from '../../AppStore';
+import { EcommerceContext, EcommerceType, EcommerceState, Dispatch } from '../../AppStore';
+import { ItemMenu } from '../../enum/ItemMenu';
 
 export interface HeaderProps {
     showSidebar: () => void
@@ -14,24 +15,27 @@ export interface HeaderProps {
 const Header = (props: HeaderProps) => {
     const [showItensCar, setShowItensCar] = useState(false);
 
+    const context = useContext(EcommerceContext);
+
     const onClickItemCar = () => {
         setShowItensCar(!showItensCar);
+        context!.dispatch.clickMenuItem(ItemMenu.CART);
     };
 
     return (
         <EcommerceContext.Consumer>
             {value => value && (
                 <nav className={'menu-horizontal'}>
-                    <Menu inverted size={'massive'} className={'menu-principal'}>
+                    <Menu inverted size={'massive'} className={'menu-principal square no-margin'}>
                         <Container>
                             <Menu.Item header>
-                                <Link to={`${process.env.PUBLIC_URL}/`}>eCommerce</Link>
+                                <Link to={`${process.env.PUBLIC_URL}/`} onClick={() => context!.dispatch.clickMenuItem(ItemMenu.HOME)}>eCommerce</Link>
                             </Menu.Item>
                             <Menu.Menu position="right">
                                 <Menu.Item className='search-header'>
                                     <SearchCategorias />
                                 </Menu.Item>
-                                <Menu.Item name="carrinho">
+                                <Menu.Item active={value!.state.menuSelecionado === ItemMenu.CART} name="carrinho">
                                     <Popup trigger={
                                         <Icon.Group onClick={onClickItemCar} className='content-icon-cart'>
                                             <Icon className="cart" name='cart' fitted >
@@ -46,7 +50,7 @@ const Header = (props: HeaderProps) => {
                                         className='popup-car'
                                         position='bottom right'
                                     >
-                                        <ModalCarrinho clickIconCar={onClickItemCar} stateModalCar={showItensCar}/>
+                                        <ModalCarrinho clickIconCar={onClickItemCar} stateModalCar={showItensCar} />
                                     </Popup>
                                 </Menu.Item>
                             </Menu.Menu>

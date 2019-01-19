@@ -5,6 +5,7 @@ import { deserialize } from "class-transformer";
 import { ActionType } from "./enum/ActionType";
 import { Produto } from "./model/Produto";
 import DataSet from "./mock/dataset";
+import { ItemMenu } from "./enum/ItemMenu";
 
 export interface EcommerceType {
     state: EcommerceState
@@ -19,12 +20,14 @@ export interface Dispatch {
     removeFromCart(id: number): void;
     addToCart(id: number): void;
     updateCart(id: number): void;
+    clickMenuItem(value: ItemMenu): void;
 }
 
 export interface EcommerceState {
     cart: Cart
     produtos: Produto[]
     maisPedidos: Map<number, number>
+    menuSelecionado: ItemMenu
 };
 
 const loadCart = (): Cart => {
@@ -43,17 +46,19 @@ const loadCart = (): Cart => {
 class AppStore extends React.Component<{}, EcommerceState> {
 
     dispatch: Dispatch = {
-        removeFromCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.REMOVE_FROM_CART, payload: { id: id } })) },
-        addToCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.ADD_TO_CART, payload: { id: id } })) },
-        updateCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.UPDATE_CART, payload: { id: id } })) },
-        finish: () => { this.setState(state => reducer(state, { type: ActionType.FINISH, payload: { id: 0 } })) },
-        emptyCart: () => { this.setState(state => reducer(state, { type: ActionType.EMPTY_CART, payload: { id: 0 } })) }
+        removeFromCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.REMOVE_FROM_CART, payload: { id: id, item: ItemMenu.UNDEFINED } })) },
+        addToCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.ADD_TO_CART, payload: { id: id, item: ItemMenu.UNDEFINED } })) },
+        updateCart: (id: number) => { this.setState(state => reducer(state, { type: ActionType.UPDATE_CART, payload: { id: id, item: ItemMenu.UNDEFINED } })) },
+        finish: () => { this.setState(state => reducer(state, { type: ActionType.FINISH, payload: { id: 0, item: ItemMenu.UNDEFINED } })) },
+        emptyCart: () => { this.setState(state => reducer(state, { type: ActionType.EMPTY_CART, payload: { id: 0, item: ItemMenu.UNDEFINED } })) },
+        clickMenuItem: (item: ItemMenu) => { this.setState(state => reducer(state, { type: ActionType.SET_ITEM_MENU, payload: { id: 0, item: item } })) }
     }
 
     state: EcommerceState = {
         cart: loadCart(),
         produtos: DataSet.getIDataSet(),
         maisPedidos: new Map<number, number>(),
+        menuSelecionado: ItemMenu.HOME,
     }
 
     render() {

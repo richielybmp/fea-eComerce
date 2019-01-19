@@ -16,7 +16,7 @@ export default class DataSet {
     }
 
     static getProdutosByCategoria(dataItens: Produto[], categoria: string) {
-        return dataItens.filter(p => this.transformaString(p.categoria) === categoria.toLowerCase());
+        return dataItens.filter(p => this.transformaString(p.categoria) === this.transformaString(categoria));
     }
 
     static getProdutoById(dataItens: Produto[], id: number) {

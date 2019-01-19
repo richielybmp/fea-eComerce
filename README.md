@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
     $ git clone https://github.com/richielybmp/fea-eCommerce.git
     $ cd fea-eCommerce
+    
+## Live demo
+
+You can see the live demo here: [eCommerce](https://richielybmp.github.io/fea-eCommerce/)
 
 ## Fetch dependencies
     

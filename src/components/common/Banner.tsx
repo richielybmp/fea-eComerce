@@ -20,18 +20,16 @@ const Banner = () => {
                         <img src={`${process.env.PUBLIC_URL}/img/smartphones-banner.jpg`} />
                     </div>
                 </Link>
-                <div>
-                    <img src={`${process.env.PUBLIC_URL}/img/placeholder.jpg`} />
-                </div>
-                <div>
-                    <img src={`${process.env.PUBLIC_URL}/img/placeholder.jpg`} />
-                </div>
-                <div>
-                    <img src={`${process.env.PUBLIC_URL}/img/placeholder.jpg`} />
-                </div>
-                <div>
-                    <img src={`${process.env.PUBLIC_URL}/img/placeholder.jpg`} />
-                </div>
+                <Link to={`${process.env.PUBLIC_URL}/categoria/jogos`} >
+                    <div>
+                        <img src={`${process.env.PUBLIC_URL}/img/jogos-banner.jpg`} />
+                    </div>
+                </Link>
+                <Link to={`${process.env.PUBLIC_URL}/categoria/livros`} >
+                    <div>
+                        <img src={`${process.env.PUBLIC_URL}/img/livros-banner.jpg`} />
+                    </div>
+                </Link>
             </Slider>
         </div>
     );

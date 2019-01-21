@@ -28,6 +28,8 @@ You can see the live demo here: [eCommerce](https://richielybmp.github.io/fea-eC
 
 ### JavaScript
 - [React](http://facebook.github.io/react) and [Semantic UI](https://react.semantic-ui.com) is used for UI.
+    - [Hooks](https://reactjs.org/docs/hooks-intro.html);
+    - Dispatch actions and control app state with [Reducer](https://redux.js.org/basics/reducers);
     - Router management with [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start);
     - Slider and banners with [react-slick](https://react-slick.neostack.com);
     - Currency formater with [react-currency-formatter](https://www.npmjs.com/package/react-currency-formatter);

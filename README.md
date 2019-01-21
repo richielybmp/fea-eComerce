@@ -1,3 +1,7 @@
+Final project from 'Advanced Front-end Development' subject of 'Web and Mobile Development Specialization - Full stack' - UFG.
+
+Initial project proposal is [here](https://github.com/danfma/pos-ufg-2018/wiki/Trabalho-final).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Clone project

@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/fea-eCommerce/static/js/runtime~main.89c43417.js"
   },
   {
-    "revision": "82a34dbe1cf728477540",
-    "url": "/fea-eCommerce/static/js/main.82a34dbe.chunk.js"
+    "revision": "51ddee06e7bf67f4e869",
+    "url": "/fea-eCommerce/static/js/main.51ddee06.chunk.js"
   },
   {
     "revision": "32c0ca2427697032da3e",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/fea-eCommerce/static/js/10.7449313e.chunk.js"
   },
   {
-    "revision": "82a34dbe1cf728477540",
-    "url": "/fea-eCommerce/static/css/main.91185790.chunk.css"
+    "revision": "51ddee06e7bf67f4e869",
+    "url": "/fea-eCommerce/static/css/main.3a00f1a6.chunk.css"
   },
   {
     "revision": "153310b592d4b5c76f9e",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/fea-eCommerce/static/css/10.5cabc952.chunk.css"
   },
   {
-    "revision": "7b16820079b7b5344330a9ea6247014c",
+    "revision": "052eb08ac1746d5337606571afd1afda",
     "url": "/fea-eCommerce/index.html"
   }
 ];

@@ -122,11 +122,6 @@
         display: flex!important;
     }
 
-    .dev-team>.item {
-        margin-right: 20px!important;
-        width: 100px!important;
-    }
-
     .search-header{
         display: none!important;
     }

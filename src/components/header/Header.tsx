@@ -29,7 +29,7 @@ const Header = (props: HeaderProps) => {
                     <Menu inverted size={'massive'} className={'menu-principal square no-margin'}>
                         <Container>
                             <Menu.Item header>
-                                <Link to={`${process.env.PUBLIC_URL}/`} onClick={() => context!.dispatch.clickMenuItem(ItemMenu.HOME)}>eCommerce</Link>
+                                <Link to={`${process.env.PUBLIC_URL}/`} onClick={() => context!.dispatch.clickMenuItem(ItemMenu.HOME)}>Ching-Ling</Link>
                             </Menu.Item>
                             <Menu.Menu position="right">
                                 <Menu.Item className='search-header'>

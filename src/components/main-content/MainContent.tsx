@@ -9,6 +9,8 @@ const CheckoutDoneContainer = lazy(() => import("../container/CheckoutDoneContai
 const ProdutoDetalhes = lazy(() => import("../produto/ProdutoDetalhes"));
 const NotFound = lazy(() => import("../notFound/NotFound"));
 import Footer from "../footer/Footer";
+import FloatButton from "../floatButton/FloatButton";
+import './mainContent.scss'
 
 interface SidebarPusherProps {
     dimmedSidebar: boolean
@@ -16,8 +18,8 @@ interface SidebarPusherProps {
 
 const MainContent = (props: SidebarPusherProps) => {
     return (
-        <Sidebar.Pusher dimmed={props.dimmedSidebar}>
-            <Container>
+        <Sidebar.Pusher dimmed={props.dimmedSidebar} className={'main-content'}>
+            <Container className={''}>
                 <main className={'container-main pusher'}>
                     <Suspense fallback={
                         <Dimmer active inverted>
@@ -33,6 +35,7 @@ const MainContent = (props: SidebarPusherProps) => {
                             <Route path={`${process.env.PUBLIC_URL}/categoria/:tag`} component={CategoriasContainer} />
                             <Route path='*' component={NotFound} />
                         </Switch>
+                        <FloatButton/>
                     </Suspense>
                 </main>
             </Container>

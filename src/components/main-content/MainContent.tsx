@@ -1,4 +1,4 @@
-import React, {Suspense, lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 import { Container, Sidebar, Loader, Dimmer } from "semantic-ui-react";
 const MainContainer = lazy(() => import("../container/MainContainer"));
@@ -9,7 +9,6 @@ const CheckoutDoneContainer = lazy(() => import("../container/CheckoutDoneContai
 const ProdutoDetalhes = lazy(() => import("../produto/ProdutoDetalhes"));
 const NotFound = lazy(() => import("../notFound/NotFound"));
 import Footer from "../footer/Footer";
-import FloatButton from "../floatButton/FloatButton";
 import './mainContent.scss'
 
 interface SidebarPusherProps {
@@ -35,7 +34,6 @@ const MainContent = (props: SidebarPusherProps) => {
                             <Route path={`${process.env.PUBLIC_URL}/categoria/:tag`} component={CategoriasContainer} />
                             <Route path='*' component={NotFound} />
                         </Switch>
-                        <FloatButton/>
                     </Suspense>
                 </main>
             </Container>

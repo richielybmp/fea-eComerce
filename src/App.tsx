@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import MainContent from './components/main-content/MainContent';
 
 import './App.css';
+import FloatButton from './components/floatButton/FloatButton';
 
 const App = () => {
     const [isHamburgerVisible, setVisibility] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
                 <MenuSidebarCategorias showSidebar={() => mostraModal()} visibleSidebar={isHamburgerVisible} />
                 <MainContent dimmedSidebar={isHamburgerVisible} />
             </Sidebar.Pushable>
+            <FloatButton />
         </>
     );
 }

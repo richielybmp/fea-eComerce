@@ -36,6 +36,7 @@ footer {
 .redes-sociais-container{
     display: flex;
     margin: auto auto;
+    width: 100px;
 }
 
 .redes-sociais{
@@ -56,6 +57,7 @@ footer {
         }
     }
 }
+
 @media only screen and (max-width: 767px){
     .ui.items:not(.unstackable)>.item>.image, .ui.items:not(.unstackable)>.item>.image>img {
          max-width: 100%!important;

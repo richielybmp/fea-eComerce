@@ -9,7 +9,7 @@ const Footer = () => {
                 <Container className={'footer-content'}>
                     <Grid divided inverted stackable>
                         <Grid.Row verticalAlign={'middle'} centered >
-                            <Grid.Column width={6} textAlign={'center'} verticalAlign={'middle'}  computer={6} mobile={12} tablet={12}>
+                            <Grid.Column width={6} textAlign={'center'} verticalAlign={'middle'}  computer={6} mobile={12} tablet={6}>
                                 <Header inverted as='h4' content='Dev Team' textAlign={'center'}></Header>
                                 <div className={'dev-team'}>
                                     <Item>
@@ -26,16 +26,21 @@ const Footer = () => {
                                     </Item>
                                 </div>
                             </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row columns={1}>
-                            <Grid.Column className={'redes-sociais-container'} textAlign={'center'}>
+
+                            <Grid.Column className={'redes-sociais-container'} textAlign={'center'} computer={6} mobile={12} tablet={6}>
                                 <Item.Group relaxed className={''}>
                                     <div className={'redes-sociais'}>
-                                        <Icon name={'facebook f'} size={'large'}/>
-                                        <Icon name={'twitter'} size={'large'}/>
-                                        <Icon name={'github'} size={'large'}/>
+                                        <a href="https://twitter.com/">
+                                            <Icon name={'facebook f'} size={'large'}/>
+                                        </a>
+                                        <a href="https://www.facebook.com/">
+                                            <Icon name={'twitter'} size={'large'}/>
+                                        </a>
+                                        <a href="https://github.com/richielybmp/fea-eCommerce">
+                                            <Icon name={'github'} size={'large'}/>
+                                        </a>
                                     </div>
-                                    <div>
+                                    <div >
                                         <p>© 2019 Ching-Ling - All Rights Reserved</p>
                                     </div>
                                 </Item.Group>

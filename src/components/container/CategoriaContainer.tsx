@@ -36,7 +36,14 @@ class CategoriasContainer extends React.Component<MyProps, CategoriasState> {
         }
     }
 
-    handlePaginationChange = (e: React.SyntheticEvent, data: any) => this.setState({ activePage: data.activePage })
+    handlePaginationChange = (e: React.SyntheticEvent, data: any) => {
+        window.scrollTo({
+            'behavior': 'smooth',
+            'left': 0,
+            'top': 0
+        });
+        this.setState({ activePage: data.activePage })
+    }
 
     render() {
         var produtos = [];

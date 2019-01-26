@@ -23,12 +23,6 @@ export default function FloatButton() {
             >
                 <Icon name='arrow up' />
             </Action>
-            <Action
-                text="Help"
-                onClick={() => console.log("clickado")}
-            >
-                <i className="fa fa-help" />
-            </Action>
         </Fab>
     )
 }

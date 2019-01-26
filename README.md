@@ -57,6 +57,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+When buy is finished, we will display the list of the top selling products on a new carroussel bellow the banner.
+
 ## What's next
 - Improve lazy load;
 - Fetch an API to mannage requests;
